@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="-study -java," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -90,17 +90,12 @@
 
 
 
-<meta name="description" content="以下是一个jdbc连接数据库的例子 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071//STEP 1. Import required packagesimport java.sql">
-<meta name="keywords" content="-study -java">
-<meta property="og:type" content="article">
-<meta property="og:title" content="jdbcDriver">
-<meta property="og:url" content="http://wong-way.github.com/2017/05/05/jdbcDriver/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HuangWay&#39;s Way">
+<meta property="og:url" content="http://wong-way.github.com/page/2/index.html">
 <meta property="og:site_name" content="HuangWay&#39;s Way">
-<meta property="og:description" content="以下是一个jdbc连接数据库的例子 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071//STEP 1. Import required packagesimport java.sql">
-<meta property="og:updated_time" content="2017-05-05T09:15:20.727Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jdbcDriver">
-<meta name="twitter:description" content="以下是一个jdbc连接数据库的例子 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071//STEP 1. Import required packagesimport java.sql">
+<meta name="twitter:title" content="HuangWay&#39;s Way">
 
 
 
@@ -128,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://wong-way.github.com/2017/05/05/jdbcDriver/"/>
+  <link rel="canonical" href="http://wong-way.github.com/page/2/"/>
 
 
 
 
 
-  <title>jdbcDriver | HuangWay's Way</title>
+  <title>HuangWay's Way</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -159,7 +154,9 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,9 +239,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -270,7 +267,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">jdbcDriver</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/05/jdbcDriver/" itemprop="url">jdbcDriver</a></h1>
         
 
         <div class="post-meta">
@@ -317,75 +316,51 @@
       
 
       
-        <p>以下是一个jdbc连接数据库的例子</p>
+        
+          
+            <p>以下是一个jdbc连接数据库的例子</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//STEP 1. Import required packages</span></div><div class="line"><span class="keyword">import</span> java.sql.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FirstExample</span> </span>&#123;</div><div class="line">   <span class="comment">// JDBC driver name and database URL</span></div><div class="line">   <span class="keyword">static</span> <span class="keyword">final</span> String JDBC_DRIVER = <span class="string">"com.mysql.jdbc.Driver"</span>;  </div><div class="line">   <span class="keyword">static</span> <span class="keyword">final</span> String DB_URL = <span class="string">"jdbc:mysql://localhost/EMP"</span>;</div><div class="line"></div><div class="line">   <span class="comment">//  Database credentials</span></div><div class="line">   <span class="keyword">static</span> <span class="keyword">final</span> String USER = <span class="string">"username"</span>;</div><div class="line">   <span class="keyword">static</span> <span class="keyword">final</span> String PASS = <span class="string">"password"</span>;</div><div class="line">   </div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">   Connection conn = <span class="keyword">null</span>;</div><div class="line">   Statement stmt = <span class="keyword">null</span>;</div><div class="line">   <span class="keyword">try</span>&#123;</div><div class="line">      <span class="comment">//STEP 2: Register JDBC driver</span></div><div class="line">      Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</div><div class="line"></div><div class="line">      <span class="comment">//STEP 3: Open a connection</span></div><div class="line">      System.out.println(<span class="string">"Connecting to database..."</span>);</div><div class="line">      conn = DriverManager.getConnection(DB_URL,USER,PASS);</div><div class="line"></div><div class="line">      <span class="comment">//STEP 4: Execute a query</span></div><div class="line">      System.out.println(<span class="string">"Creating statement..."</span>);</div><div class="line">      stmt = conn.createStatement();</div><div class="line">      String sql;</div><div class="line">      sql = <span class="string">"SELECT id, first, last, age FROM Employees"</span>;</div><div class="line">      ResultSet rs = stmt.executeQuery(sql);</div><div class="line"></div><div class="line">      <span class="comment">//STEP 5: Extract data from result set</span></div><div class="line">      <span class="keyword">while</span>(rs.next())&#123;</div><div class="line">         <span class="comment">//Retrieve by column name</span></div><div class="line">         <span class="keyword">int</span> id  = rs.getInt(<span class="string">"id"</span>);</div><div class="line">         <span class="keyword">int</span> age = rs.getInt(<span class="string">"age"</span>);</div><div class="line">         String first = rs.getString(<span class="string">"first"</span>);</div><div class="line">         String last = rs.getString(<span class="string">"last"</span>);</div><div class="line"></div><div class="line">         <span class="comment">//Display values</span></div><div class="line">         System.out.print(<span class="string">"ID: "</span> + id);</div><div class="line">         System.out.print(<span class="string">", Age: "</span> + age);</div><div class="line">         System.out.print(<span class="string">", First: "</span> + first);</div><div class="line">         System.out.println(<span class="string">", Last: "</span> + last);</div><div class="line">      &#125;</div><div class="line">      <span class="comment">//STEP 6: Clean-up environment</span></div><div class="line">      rs.close();</div><div class="line">      stmt.close();</div><div class="line">      conn.close();</div><div class="line">   &#125;<span class="keyword">catch</span>(SQLException se)&#123;</div><div class="line">      <span class="comment">//Handle errors for JDBC</span></div><div class="line">      se.printStackTrace();</div><div class="line">   &#125;<span class="keyword">catch</span>(Exception e)&#123;</div><div class="line">      <span class="comment">//Handle errors for Class.forName</span></div><div class="line">      e.printStackTrace();</div><div class="line">   &#125;<span class="keyword">finally</span>&#123;</div><div class="line">      <span class="comment">//finally block used to close resources</span></div><div class="line">      <span class="keyword">try</span>&#123;</div><div class="line">         <span class="keyword">if</span>(stmt!=<span class="keyword">null</span>)</div><div class="line">            stmt.close();</div><div class="line">      &#125;<span class="keyword">catch</span>(SQLException se2)&#123;</div><div class="line">      &#125;<span class="comment">// nothing we can do</span></div><div class="line">      <span class="keyword">try</span>&#123;</div><div class="line">         <span class="keyword">if</span>(conn!=<span class="keyword">null</span>)</div><div class="line">            conn.close();</div><div class="line">      &#125;<span class="keyword">catch</span>(SQLException se)&#123;</div><div class="line">         se.printStackTrace();</div><div class="line">      &#125;<span class="comment">//end finally try</span></div><div class="line">   &#125;<span class="comment">//end try</span></div><div class="line">   System.out.println(<span class="string">"Goodbye!"</span>);</div><div class="line">&#125;<span class="comment">//end main</span></div><div class="line">&#125;<span class="comment">//end FirstExample</span></div></pre></td></tr></table></figure>
 
+          
+        
       
     </div>
 
     <div>
       
-        
-
-      
     </div>
 
     <div>
       
-        
-
-      
     </div>
 
     <div>
-      
-        
-
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/study-java/" rel="tag"># -study -java</a>
-          
-        </div>
+
       
 
       
-        
-      
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/07/table-demo/" rel="prev" title="table demo">
-                table demo <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -393,10 +368,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -583,10 +554,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-
 
   
 
