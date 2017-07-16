@@ -250,6 +250,131 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/16/leetcode-118-119/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangWay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangWay's Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/16/leetcode-118-119/" itemprop="url">leetcode_118_119</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T22:56:50+08:00">
+                2017-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="leetcode-118-Pascal’s-Triangle"><a href="#leetcode-118-Pascal’s-Triangle" class="headerlink" title="leetcode_118_Pascal’s Triangle"></a>leetcode_118_Pascal’s Triangle</h3><blockquote>
+<p>Given <em>numRows</em>, generate the first <em>numRows</em> of Pascal’s triangle.</p>
+<p>For example, given <em>numRows</em> = 5,<br>Return</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; [</div><div class="line">&gt;      [1],</div><div class="line">&gt;     [1,1],</div><div class="line">&gt;    [1,2,1],</div><div class="line">&gt;   [1,3,3,1],</div><div class="line">&gt;  [1,4,6,4,1]</div><div class="line">&gt; ]</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>输出杨辉三角，只要知道杨辉三角是怎么构建就能够很容易的把它实现.直接贴代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; generate(<span class="keyword">int</span> numRows) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; mList = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; numRows;i++)&#123;</div><div class="line">        	List&lt;Integer&gt; intList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(j == <span class="number">0</span>|| j==i)</div><div class="line">					intList.add(<span class="number">1</span>);</div><div class="line">				<span class="keyword">else</span>&#123;</div><div class="line">					intList.add(mList.get(i-<span class="number">1</span>).get(j)+mList.get(i-<span class="number">1</span>).get(j-<span class="number">1</span>));</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">        	mList.add(intList);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> mList;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="leetcode-119-Pascal’s-Triangle-II"><a href="#leetcode-119-Pascal’s-Triangle-II" class="headerlink" title="leetcode_119_Pascal’s Triangle II"></a>leetcode_119_Pascal’s Triangle II</h3><blockquote>
+<p>Given an index <em>k</em>, return the <em>k</em>th row of the Pascal’s triangle.</p>
+<p>For example, given <em>k</em> = 3,</p>
+<p>Return <code>[1,3,3,1]</code>.</p>
+</blockquote>
+<p>给出<code>rowIndex</code>，输出杨辉三角对应的一层，直接在上一题的基础上返回<code>mList.get(rowIndex)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">getRow</span><span class="params">(<span class="keyword">int</span> rowIndex)</span> </span>&#123;</div><div class="line">       List&lt;List&lt;Integer&gt;&gt; mList = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;=rowIndex;i++)&#123;</div><div class="line">            List&lt;Integer&gt; intList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i;j++)&#123;</div><div class="line">                <span class="keyword">if</span>(j == <span class="number">0</span>|| j==i)</div><div class="line">                    intList.add(<span class="number">1</span>);</div><div class="line">                <span class="keyword">else</span>&#123;</div><div class="line">                    intList.add(mList.get(i-<span class="number">1</span>).get(j)+mList.get(i-<span class="number">1</span>).get(j-<span class="number">1</span>));</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            mList.add(intList);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> mList.get(rowIndex);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/14/leetcode-112/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1406,156 +1531,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/09/leetcode-58/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuangWay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuangWay's Way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/09/leetcode-58/" itemprop="url">leetcode_58</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-09T22:22:07+08:00">
-                2017-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="leetcode-58-Length-of-Last-Word"><a href="#leetcode-58-Length-of-Last-Word" class="headerlink" title="leetcode_58_Length of Last Word"></a>leetcode_58_Length of Last Word</h3><blockquote>
-<p>Given a string <em>s</em> consists of upper/lower-case alphabets and empty space characters <code>&#39; &#39;</code>, return the length of last word in the string.</p>
-<p>If the last word does not exist, return 0.</p>
-<p><strong>Note:</strong> A word is defined as a character sequence consists of non-space characters only.</p>
-<p>For example, </p>
-<p>Given <em>s</em> = <code>&quot;Hello World&quot;</code>,</p>
-<p>return <code>5</code>.</p>
-</blockquote>
-<p><strong>题意分析</strong>：</p>
-<p>这道题要求我们找到一个英文句子中，最后一个单词的长度。</p>
-<p><strong>解题思路</strong></p>
-<p>我的方法是通过找到最后一个空格所在位置，然后直接用下标进行运算，方法比较简单。</p>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution58</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lengthOfLastWord</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(s.replaceAll(<span class="string">" "</span>,<span class="string">""</span>).isEmpty())</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        s= s.trim();</div><div class="line">        <span class="keyword">int</span> index =<span class="number">0</span>;</div><div class="line">            index = s.lastIndexOf(<span class="string">' '</span>);</div><div class="line">        <span class="keyword">return</span> s.length()-<span class="number">1</span>-index;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String test = <span class="string">"a"</span>;</div><div class="line">        <span class="keyword">int</span> result = lengthOfLastWord(test);</div><div class="line">        System.out.println(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这道题其实用java来解决提供了<code>string.trim()</code>方法可以去除首尾的空格，同时可以运用<code>string.lastIndexOf(char)</code>方法可以直接周到最后一个空格的位置，代码比较简单，但是对于c或者c++来说则没有那么容易，下面是不用这些方法的解决方式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lengthOfLastWort1</span><span class="params">(String s)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(s.length()==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> end = s.length();</div><div class="line">        <span class="keyword">int</span> begin = -<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = s.length()-<span class="number">1</span>; i&gt;= <span class="number">0</span> ;i--)&#123;</div><div class="line">            <span class="keyword">if</span>(s.charAt(i)==<span class="string">' '</span>&amp;&amp;end-i-<span class="number">1</span>&lt;<span class="number">1</span>)<span class="comment">//判断是不是末尾的空格</span></div><div class="line">                end = i;</div><div class="line">            <span class="keyword">if</span> (s.charAt(i)==<span class="string">' '</span>&amp;&amp;end -i&gt;<span class="number">1</span>)&#123;<span class="comment">//不是末尾的空格，则赋给begin</span></div><div class="line">                begin = i;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        System.out.println(end-begin-<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> end-begin-<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这种方法就是通过一个一个搜索，找出最后一个单词的起始位置,确定end指针和begin指针的位置。</p>
-<table>
-<thead>
-<tr>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>begin</td>
-<td>b</td>
-<td>a</td>
-<td>b</td>
-<td>y</td>
-<td>end</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1605,7 +1580,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
