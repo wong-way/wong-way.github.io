@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="leetcode_35_Search Insert Position Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order. You may as">
+<meta name="description" content="Related to question Excel Sheet Column Title Given a column title as appear in an Excel sheet, return its corresponding column number. For example: 12345678&amp;gt;     A -&amp;gt; 1&amp;gt;     B -&amp;gt; 2&amp;gt;">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode_35">
-<meta property="og:url" content="http://wong-way.github.com/2017/07/07/leetcode-35/index.html">
+<meta property="og:title" content="leetcode_171">
+<meta property="og:url" content="http://wong-way.github.com/2017/07/16/leetcode-171/index.html">
 <meta property="og:site_name" content="HuangWay&#39;s Way">
-<meta property="og:description" content="leetcode_35_Search Insert Position Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order. You may as">
-<meta property="og:updated_time" content="2017-07-07T15:25:22.388Z">
+<meta property="og:description" content="Related to question Excel Sheet Column Title Given a column title as appear in an Excel sheet, return its corresponding column number. For example: 12345678&amp;gt;     A -&amp;gt; 1&amp;gt;     B -&amp;gt; 2&amp;gt;">
+<meta property="og:updated_time" content="2017-07-16T15:36:01.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode_35">
-<meta name="twitter:description" content="leetcode_35_Search Insert Position Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order. You may as">
+<meta name="twitter:title" content="leetcode_171">
+<meta name="twitter:description" content="Related to question Excel Sheet Column Title Given a column title as appear in an Excel sheet, return its corresponding column number. For example: 12345678&amp;gt;     A -&amp;gt; 1&amp;gt;     B -&amp;gt; 2&amp;gt;">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://wong-way.github.com/2017/07/07/leetcode-35/"/>
+  <link rel="canonical" href="http://wong-way.github.com/2017/07/16/leetcode-171/"/>
 
 
 
 
 
-  <title>leetcode_35 | HuangWay's Way</title>
+  <title>leetcode_171 | HuangWay's Way</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/07/leetcode-35/">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/16/leetcode-171/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HuangWay">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode_35</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode_171</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-07T23:17:12+08:00">
-                2017-07-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T23:34:01+08:00">
+                2017-07-16
               </time>
             
 
@@ -317,13 +317,14 @@
       
 
       
-        <h3 id="leetcode-35-Search-Insert-Position"><a href="#leetcode-35-Search-Insert-Position" class="headerlink" title="leetcode_35_Search Insert Position"></a>leetcode_35_Search Insert Position</h3><blockquote>
-<p>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>
-<p>You may assume no duplicates in the array.</p>
-<p>Here are few examples.<br>[1,3,5,6], 5 → 2<br>[1,3,5,6], 2 → 1<br>[1,3,5,6], 7 → 4<br>[1,3,5,6], 0 → 0</p>
+        <blockquote>
+<p>Related to question <a href="https://leetcode.com/problems/excel-sheet-column-title/" target="_blank" rel="external">Excel Sheet Column Title</a></p>
+<p>Given a column title as appear in an Excel sheet, return its corresponding column number.</p>
+<p>For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;     A -&gt; 1</div><div class="line">&gt;     B -&gt; 2</div><div class="line">&gt;     C -&gt; 3</div><div class="line">&gt;     ...</div><div class="line">&gt;     Z -&gt; 26</div><div class="line">&gt;     AA -&gt; 27</div><div class="line">&gt;     AB -&gt; 28 </div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </blockquote>
-<p>这道题比较简单，直接遍历数组，找到满足<code>nums[i]&gt;=target</code>条件的数，直接返回就好，下面是代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> i;</div><div class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;nums.length; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[i] &gt;= target)</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> i;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>这道题就是一个26进制转10进制，只要遍历字符串进行操作就好了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">titleToNumber</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span> ;i&lt; s.length();i++)&#123;</div><div class="line">            result += (s.charAt(i) - <span class="string">'A'</span>+<span class="number">1</span>) * Math.pow(<span class="number">26</span>, s.length() - <span class="number">1</span> - i);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -366,8 +367,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/07/leectcode-28/" rel="next" title="leectcode_28">
-                <i class="fa fa-chevron-left"></i> leectcode_28
+              <a href="/2017/07/16/leetcode-118-119/" rel="next" title="leetcode_118_119">
+                <i class="fa fa-chevron-left"></i> leetcode_118_119
               </a>
             
           </div>
@@ -376,8 +377,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/08/leetcode-38/" rel="prev" title="leetcode_38">
-                leetcode_38 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/17/leetcode-121/" rel="prev" title="leetcode_121">
+                leetcode_121 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -425,17 +426,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658"
@@ -488,22 +480,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#leetcode-35-Search-Insert-Position"><span class="nav-number">1.</span> <span class="nav-text">leetcode_35_Search Insert Position</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
