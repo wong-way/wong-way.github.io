@@ -250,6 +250,651 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/16/leetcode-171/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangWay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangWay's Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/16/leetcode-171/" itemprop="url">leetcode_171</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T23:34:01+08:00">
+                2017-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>Related to question <a href="https://leetcode.com/problems/excel-sheet-column-title/" target="_blank" rel="external">Excel Sheet Column Title</a></p>
+<p>Given a column title as appear in an Excel sheet, return its corresponding column number.</p>
+<p>For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;     A -&gt; 1</div><div class="line">&gt;     B -&gt; 2</div><div class="line">&gt;     C -&gt; 3</div><div class="line">&gt;     ...</div><div class="line">&gt;     Z -&gt; 26</div><div class="line">&gt;     AA -&gt; 27</div><div class="line">&gt;     AB -&gt; 28 </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>这道题就是一个26进制转10进制，只要遍历字符串进行操作就好了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">titleToNumber</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span> ;i&lt; s.length();i++)&#123;</div><div class="line">            result += (s.charAt(i) - <span class="string">'A'</span>+<span class="number">1</span>) * Math.pow(<span class="number">26</span>, s.length() - <span class="number">1</span> - i);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/16/leetcode-118-119/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangWay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangWay's Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/16/leetcode-118-119/" itemprop="url">leetcode_118_119</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T22:56:50+08:00">
+                2017-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="leetcode-118-Pascal’s-Triangle"><a href="#leetcode-118-Pascal’s-Triangle" class="headerlink" title="leetcode_118_Pascal’s Triangle"></a>leetcode_118_Pascal’s Triangle</h3><blockquote>
+<p>Given <em>numRows</em>, generate the first <em>numRows</em> of Pascal’s triangle.</p>
+<p>For example, given <em>numRows</em> = 5,<br>Return</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; [</div><div class="line">&gt;      [1],</div><div class="line">&gt;     [1,1],</div><div class="line">&gt;    [1,2,1],</div><div class="line">&gt;   [1,3,3,1],</div><div class="line">&gt;  [1,4,6,4,1]</div><div class="line">&gt; ]</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>输出杨辉三角，只要知道杨辉三角是怎么构建就能够很容易的把它实现.直接贴代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; generate(<span class="keyword">int</span> numRows) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; mList = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; numRows;i++)&#123;</div><div class="line">        	List&lt;Integer&gt; intList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(j == <span class="number">0</span>|| j==i)</div><div class="line">					intList.add(<span class="number">1</span>);</div><div class="line">				<span class="keyword">else</span>&#123;</div><div class="line">					intList.add(mList.get(i-<span class="number">1</span>).get(j)+mList.get(i-<span class="number">1</span>).get(j-<span class="number">1</span>));</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">        	mList.add(intList);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> mList;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="leetcode-119-Pascal’s-Triangle-II"><a href="#leetcode-119-Pascal’s-Triangle-II" class="headerlink" title="leetcode_119_Pascal’s Triangle II"></a>leetcode_119_Pascal’s Triangle II</h3><blockquote>
+<p>Given an index <em>k</em>, return the <em>k</em>th row of the Pascal’s triangle.</p>
+<p>For example, given <em>k</em> = 3,</p>
+<p>Return <code>[1,3,3,1]</code>.</p>
+</blockquote>
+<p>给出<code>rowIndex</code>，输出杨辉三角对应的一层，直接在上一题的基础上返回<code>mList.get(rowIndex)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">getRow</span><span class="params">(<span class="keyword">int</span> rowIndex)</span> </span>&#123;</div><div class="line">       List&lt;List&lt;Integer&gt;&gt; mList = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;=rowIndex;i++)&#123;</div><div class="line">            List&lt;Integer&gt; intList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i;j++)&#123;</div><div class="line">                <span class="keyword">if</span>(j == <span class="number">0</span>|| j==i)</div><div class="line">                    intList.add(<span class="number">1</span>);</div><div class="line">                <span class="keyword">else</span>&#123;</div><div class="line">                    intList.add(mList.get(i-<span class="number">1</span>).get(j)+mList.get(i-<span class="number">1</span>).get(j-<span class="number">1</span>));</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            mList.add(intList);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> mList.get(rowIndex);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/14/leetcode-112/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangWay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangWay's Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/14/leetcode-112/" itemprop="url">leetcode_112</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T15:48:49+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</p>
+<p>For example:</p>
+<p>Given the below binary tree and </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sum = 22</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">      5</div><div class="line">     / \</div><div class="line">    4   8</div><div class="line">   /   / \</div><div class="line">  11  13  4</div><div class="line"> /  \      \</div><div class="line">7    2      1</div></pre></td></tr></table></figure>
+<blockquote>
+<p>return true, as there exist a root-to-leaf path <code>5-&gt;4-&gt;11-&gt;2</code> which sum is 22.</p>
+</blockquote>
+<p>这道题要求我们求出是不是存在一条路径，满足从根节点到叶节点所有的值加起来。这个问题也是可以用递归来解决的。</p>
+<p><strong>解题思路</strong></p>
+<ul>
+<li>首先检查<code>root == null</code>的情况，返回<code>false</code></li>
+<li>判断终止递归的条件，即在叶节点时<code>if(num == root.val)</code>。</li>
+<li>递归，传入的参数为<code>num - root.val</code>，判断左子树或者右子树是否满足。</li>
+</ul>
+<p><strong>解题代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</div><div class="line">        	<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">if</span>(root.val == sum &amp;&amp;root.left==<span class="keyword">null</span>&amp;&amp;root.right== <span class="keyword">null</span>)</div><div class="line">        	<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">if</span>((hasPathSum(root.left,sum-root.val))||(hasPathSum(root.right,sum-root.val)))</div><div class="line">        	<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/14/leetcode-104-111/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangWay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangWay's Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/14/leetcode-104-111/" itemprop="url">leetcode_104-111</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T15:26:23+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="leetcode-104-Maximum-Depth-of-Binary-Tree"><a href="#leetcode-104-Maximum-Depth-of-Binary-Tree" class="headerlink" title="leetcode_104_Maximum Depth of Binary Tree"></a>leetcode_104_Maximum Depth of Binary Tree</h3><blockquote>
+<p>Given a binary tree, find its maximum depth.</p>
+<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+</blockquote>
+<p>这道题让我们求二叉树的最大高度，采用递归的方式皆可以很轻松的解决这道题。</p>
+<p><strong>解题思路</strong></p>
+<ul>
+<li>判断递归终止条件<code>root == null</code>，则<code>return 0</code>；</li>
+<li>进行递归。返回左右子树的最大层数加一，<code>return 1+max(leftHeight,rightHeight)</code>。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">      <span class="keyword">if</span>(root == <span class="keyword">null</span>)</div><div class="line">           <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">       <span class="keyword">else</span>&#123;</div><div class="line">           <span class="keyword">int</span> left = maxDepth(root.left);</div><div class="line">           <span class="keyword">int</span> right = maxDepth(root.right);            </div><div class="line">           <span class="keyword">return</span> <span class="number">1</span>+(left&gt;right?left:right);</div><div class="line">       &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="leetcode-111-Minimum-Depth-of-Binary-Tree"><a href="#leetcode-111-Minimum-Depth-of-Binary-Tree" class="headerlink" title="leetcode_111_Minimum Depth of Binary Tree"></a>leetcode_111_Minimum Depth of Binary Tree</h3><blockquote>
+<p>Given a binary tree, find its minimum depth.</p>
+<p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p>
+</blockquote>
+<p>这道题让我们求出二叉树的最小的深度，如果我们按照上一道题的思路来做，结果是正确的吗？</p>
+<p>答案是否定。</p>
+<p>主要的问题是出现在这里<code>return 1+(left&lt;right?left:right);</code>，返回左右子树中高度较小的。</p>
+<p>如果出现一个内部节点只有左子树或者右子树的时候，那么左右子树中高度较小的肯定是0。这样就不能保证是从根节点到叶节点的最小高度。因此我们在返回的时候需要对这种情况进行检查。</p>
+<p><strong>解题思路</strong></p>
+<ul>
+<li><p>判断递归终止条件<code>root == null</code>，则<code>return 0</code></p>
+</li>
+<li><p>如果左右子树都存在的情况下，返回左右子树中较小的高度</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (leftDepth &gt; <span class="number">0</span> &amp;&amp; rightDepth &gt; <span class="number">0</span>)</div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> <span class="number">1</span> + (leftDepth &gt; rightDepth ? rightDepth : leftDepth);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果不满足上诉条件，则证明只存在左子树或者右子树，因此就要返回左子树或者右子树相应的高度。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="number">1</span> + (leftDepth &lt; rightDepth ? rightDepth : leftDepth);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>解题代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> leftDepth = minDepth(root.left);</div><div class="line">            <span class="keyword">int</span> rightDepth = minDepth(root.right);</div><div class="line">            <span class="keyword">if</span> (leftDepth &gt; <span class="number">0</span> &amp;&amp; rightDepth &gt; <span class="number">0</span>)</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span> + (leftDepth &gt; rightDepth ? rightDepth : leftDepth);</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span> + (leftDepth &lt; rightDepth ? rightDepth : leftDepth);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/12/leetcode-88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangWay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangWay's Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/12/leetcode-88/" itemprop="url">leetcode_88</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-12T22:48:16+08:00">
+                2017-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="leetcode-88-Merge-Sorted-Array"><a href="#leetcode-88-Merge-Sorted-Array" class="headerlink" title="leetcode_88_Merge Sorted Array"></a>leetcode_88_Merge Sorted Array</h3><blockquote>
+<p>Given two sorted integer arrays <em>nums1</em> and <em>nums2</em>, merge <em>nums2</em> into <em>nums1</em> as one sorted array.</p>
+<p><strong>Note:</strong></p>
+<p>You may assume that <em>nums1</em> has enough space (size that is greater or equal to <em>m</em> + <em>n</em>) to hold additional elements from <em>nums2</em>. The number of elements initialized in <em>nums1</em> and <em>nums2</em> are <em>m</em> and <em>n</em> respectively.</p>
+</blockquote>
+<p><strong>问题简析</strong></p>
+<p>其实个人感觉这道题和排序算法比较像，只要把两个已经排序的数组合并成一个排好序的数组就可以了。</p>
+<p><strong>解题思路</strong></p>
+<ul>
+<li>方法一，将两个数组连接起来，然后再排序，而且JAVA排序还很方便，调用<code>Arrays.sort</code>即可。</li>
+<li>方法二，一边连接一边排序。整体思想和选择排序相似，将每一个数字放在它应该在的位置，最大的放在最后一个，最小的放在最前面。</li>
+</ul>
+<p><strong>解题代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span> m, <span class="keyword">int</span>[] nums2, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">       m = m - <span class="number">1</span>;</div><div class="line">       n = n - <span class="number">1</span>;</div><div class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=m+n+<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line">           <span class="keyword">if</span>(m&lt;<span class="number">0</span>)</div><div class="line">               nums1[i]=nums2[n--];</div><div class="line">           <span class="keyword">else</span> <span class="keyword">if</span>(n&lt;<span class="number">0</span>)</div><div class="line">               nums1[i]=nums1[m--];</div><div class="line">           <span class="keyword">else</span> &#123;</div><div class="line">               nums1[i] = nums2[n] &gt; nums1[m] ? nums2[n--] : nums1[m--];</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> m, <span class="keyword">int</span> B[], <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> i=m-<span class="number">1</span>, j=n-<span class="number">1</span>, k=m+n-<span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (i&gt;-<span class="number">1</span> &amp;&amp; j&gt;-<span class="number">1</span>) A[k--]= (A[i]&gt;B[j]) ? A[i--] : B[j--];</div><div class="line">    <span class="keyword">while</span> (j&gt;-<span class="number">1</span>)         A[k--]=B[j--];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这三行代码真的很精髓，我一开始看的时候，觉得最后只对B数组剩下的元素进行处理，但是A数组剩下的却没有进行相应的处理，我觉得这里可能会出现问题。但是我后来反应过来，A数组如果出现剩下的元素，那么它本身所在的位置就是它最终应该出现的位置！！不得不佩服写出这个算法的人，很厉害。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/12/leetcode-100/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -874,667 +1519,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/09/leetcode-53/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuangWay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuangWay's Way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/09/leetcode-53/" itemprop="url">leetcode_53</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-09T23:14:10+08:00">
-                2017-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="leetcode-53-Maximum-Subarray"><a href="#leetcode-53-Maximum-Subarray" class="headerlink" title="leetcode_53_Maximum Subarray"></a>leetcode_53_Maximum Subarray</h3><blockquote>
-<p>Find the contiguous subarray within an array (containing at least one number) which has the largest sum.</p>
-<p>For example, given the array <code>[-2,1,-3,4,-1,2,1,-5,4]</code>,</p>
-<p>the contiguous subarray <code>[4,-1,2,1]</code> has the largest sum = <code>6</code>.</p>
-<p>If you have figured out the O(<em>n</em>) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
-</blockquote>
-<p><strong>题目分析</strong></p>
-<p>这道题要求我们找出一个数组中的最大子数组的和，一开始我看到这道题目，我记得以前我是看到过这道题的，当时我是用了三个循环把它跑出来，具体是怎么我已经不记得了。但是我也不是当年那个青涩的我了，我现在看着它我就想用一个循环把它弄出来，时间复杂度达到O(n)。</p>
-<p><strong>解题思路</strong></p>
-<ul>
-<li>申明两个变量<code>max</code>和<code>temp</code>，</li>
-<li>循环，使<code>temp</code>每次都加上数组的值<ul>
-<li>如果，运算后<code>temp&gt;max</code>，那么更新<code>max</code></li>
-<li>如果，运算后<code>temp&lt;0</code>，则令<code>temp=0</code>。因为在此之前的一串数字已经不具有价值。为什么说他不具有价值，这是因为前面的结果的和已经是个负数，那么我再把它与后面的数字相加的时候，他只会造成负增长，所以我们令<code>temp = 0</code>重新开始，寻找下一个潜在的最大值。</li>
-</ul>
-</li>
-</ul>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution53</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> max = nums[<span class="number">0</span>];</div><div class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">0</span> ; i&lt; nums.length ; i++)&#123;</div><div class="line">            temp += nums[i];</div><div class="line">            <span class="keyword">if</span>(temp&gt;max)</div><div class="line">            &#123;</div><div class="line">                max = temp;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(temp&lt;<span class="number">0</span>)&#123;</div><div class="line">                temp = <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> max;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] test = &#123;-<span class="number">2</span>,<span class="number">1</span>,-<span class="number">3</span>,<span class="number">4</span>,-<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,-<span class="number">5</span>,<span class="number">4</span>&#125;;</div><div class="line">        <span class="keyword">int</span> result = maxSubArray(test);</div><div class="line">        System.out.println(result);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>一开始我是没什么思路的，因为我一边看直播，一边想这个问题。最后想着想着就去看直播去了，做什么题哦。然后LPL打赢了，夺冠了。我再回来解决它。总之今天的任务完成了！</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/09/leetcode-58/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuangWay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuangWay's Way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/09/leetcode-58/" itemprop="url">leetcode_58</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-09T22:22:07+08:00">
-                2017-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="leetcode-58-Length-of-Last-Word"><a href="#leetcode-58-Length-of-Last-Word" class="headerlink" title="leetcode_58_Length of Last Word"></a>leetcode_58_Length of Last Word</h3><blockquote>
-<p>Given a string <em>s</em> consists of upper/lower-case alphabets and empty space characters <code>&#39; &#39;</code>, return the length of last word in the string.</p>
-<p>If the last word does not exist, return 0.</p>
-<p><strong>Note:</strong> A word is defined as a character sequence consists of non-space characters only.</p>
-<p>For example, </p>
-<p>Given <em>s</em> = <code>&quot;Hello World&quot;</code>,</p>
-<p>return <code>5</code>.</p>
-</blockquote>
-<p><strong>题意分析</strong>：</p>
-<p>这道题要求我们找到一个英文句子中，最后一个单词的长度。</p>
-<p><strong>解题思路</strong></p>
-<p>我的方法是通过找到最后一个空格所在位置，然后直接用下标进行运算，方法比较简单。</p>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution58</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lengthOfLastWord</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(s.replaceAll(<span class="string">" "</span>,<span class="string">""</span>).isEmpty())</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        s= s.trim();</div><div class="line">        <span class="keyword">int</span> index =<span class="number">0</span>;</div><div class="line">            index = s.lastIndexOf(<span class="string">' '</span>);</div><div class="line">        <span class="keyword">return</span> s.length()-<span class="number">1</span>-index;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String test = <span class="string">"a"</span>;</div><div class="line">        <span class="keyword">int</span> result = lengthOfLastWord(test);</div><div class="line">        System.out.println(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这道题其实用java来解决提供了<code>string.trim()</code>方法可以去除首尾的空格，同时可以运用<code>string.lastIndexOf(char)</code>方法可以直接周到最后一个空格的位置，代码比较简单，但是对于c或者c++来说则没有那么容易，下面是不用这些方法的解决方式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lengthOfLastWort1</span><span class="params">(String s)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(s.length()==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> end = s.length();</div><div class="line">        <span class="keyword">int</span> begin = -<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = s.length()-<span class="number">1</span>; i&gt;= <span class="number">0</span> ;i--)&#123;</div><div class="line">            <span class="keyword">if</span>(s.charAt(i)==<span class="string">' '</span>&amp;&amp;end-i-<span class="number">1</span>&lt;<span class="number">1</span>)<span class="comment">//判断是不是末尾的空格</span></div><div class="line">                end = i;</div><div class="line">            <span class="keyword">if</span> (s.charAt(i)==<span class="string">' '</span>&amp;&amp;end -i&gt;<span class="number">1</span>)&#123;<span class="comment">//不是末尾的空格，则赋给begin</span></div><div class="line">                begin = i;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        System.out.println(end-begin-<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> end-begin-<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这种方法就是通过一个一个搜索，找出最后一个单词的起始位置,确定end指针和begin指针的位置。</p>
-<table>
-<thead>
-<tr>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>begin</td>
-<td>b</td>
-<td>a</td>
-<td>b</td>
-<td>y</td>
-<td>end</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/08/leetcode-38/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuangWay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuangWay's Way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/08/leetcode-38/" itemprop="url">leetcode_38</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T00:16:53+08:00">
-                2017-07-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="leetcode-38-Count-and-Say"><a href="#leetcode-38-Count-and-Say" class="headerlink" title="leetcode_38_Count and Say"></a>leetcode_38_Count and Say</h3><blockquote>
-<p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
-<p><code>1</code> is read off as <code>&quot;one 1&quot;</code> or <code>11</code>.</p>
-<p><code>11</code> is read off as <code>&quot;two 1s&quot;</code> or <code>21</code>.</p>
-<p><code>21</code> is read off as <code>&quot;one 2</code>, then <code>one 1&quot;</code> or <code>1211</code>.</p>
-<p>Given an integer <em>n</em>, generate the <em>n</em>th term of the count-and-say sequence.</p>
-<p>Note: Each term of the sequence of integers will be represented as a string.</p>
-</blockquote>
-<p>这道题是facebook的面试题，题意比较难理解。题意大概是说给一个数字n，求出数列第n个字符串应该是什么。而第n个字符串是将第n-1个字符串读一遍，例如，第三个字符串则是将第二个字符串给读一遍，读作：“一个2，一个1”，用字符串表示出来则是“1211”。</p>
-<p>由于这道题，第n项总是与第n-1项有关，于是我采取<strong>递归</strong>的方式解决这个问题，我的解题思路如下：</p>
-<ul>
-<li>如果n=1，则直接返回<code>&quot;1&quot;</code></li>
-<li>如果n&gt;=2，则采取递归调用的方式，调用本身</li>
-<li>对每一个已经初始化的字符串进行遍历，从<code>i=1</code>开始，如果它与前一位相同，则将计数器加一，如果不相同，则将<code>count</code>与<code>initString</code>加到<code>resultString</code></li>
-<li>注意，由于每次相加都是对前一位进行操作，因此不管字符串最后一位与之前的位是否相同，都没有进行相应的操作，因此在循环结束之后，再对字符串最后一位进行操作。</li>
-</ul>
-<p>下面是我的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">countAndSay</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>)</div><div class="line">            <span class="keyword">return</span> <span class="string">"1"</span>;</div><div class="line">        String initString = countAndSay(n-<span class="number">1</span>);</div><div class="line">        String resultString = <span class="string">""</span>;</div><div class="line">        <span class="keyword">int</span> count=<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i&lt; initString.length();i++)&#123;</div><div class="line">            <span class="keyword">if</span>(initString.charAt(i)==initString.charAt(i-<span class="number">1</span>))&#123;</div><div class="line">                count++;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                resultString= resultString+count+initString.charAt(i-<span class="number">1</span>);</div><div class="line">                count=<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//System.out.println("n :"+n+"count :"+count);</span></div><div class="line">        resultString = resultString+count+initString.charAt(initString.length()-<span class="number">1</span>);</div><div class="line">       <span class="comment">//System.out.println("result :"+resultString);</span></div><div class="line">        <span class="keyword">return</span> resultString;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/07/leetcode-35/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuangWay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuangWay's Way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/07/leetcode-35/" itemprop="url">leetcode_35</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-07T23:17:12+08:00">
-                2017-07-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="leetcode-35-Search-Insert-Position"><a href="#leetcode-35-Search-Insert-Position" class="headerlink" title="leetcode_35_Search Insert Position"></a>leetcode_35_Search Insert Position</h3><blockquote>
-<p>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>
-<p>You may assume no duplicates in the array.</p>
-<p>Here are few examples.<br>[1,3,5,6], 5 → 2<br>[1,3,5,6], 2 → 1<br>[1,3,5,6], 7 → 4<br>[1,3,5,6], 0 → 0</p>
-</blockquote>
-<p>这道题比较简单，直接遍历数组，找到满足<code>nums[i]&gt;=target</code>条件的数，直接返回就好，下面是代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> i;</div><div class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;nums.length; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[i] &gt;= target)</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> i;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/07/leectcode-28/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuangWay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuangWay's Way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/07/leectcode-28/" itemprop="url">leectcode_28</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-07T22:08:31+08:00">
-                2017-07-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="leetcode-21-implement-strStr"><a href="#leetcode-21-implement-strStr" class="headerlink" title="leetcode_21_implement strStr()"></a>leetcode_21_implement strStr()</h3><blockquote>
-<p>Implement strStr().</p>
-<p>Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.</p>
-</blockquote>
-<p>这道题要求我们寻找一个字符串<code>substr</code>是否在另一个字符串<code>str</code>中，如果找到则返回在<code>str</code>中的下标位置，如果没有找到则返回-1。</p>
-<p>我的解决思路如下：</p>
-<ul>
-<li>首先，如果<code>substr</code>为空，则直接返回0；</li>
-<li>如果，<code>str</code>为空，则直接返回-1；</li>
-<li>排除以上两种情况，就直接进行循环，一个个搜索子串</li>
-</ul>
-<p>下面是我的算法代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (needle.length() == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span> (haystack.length() == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; haystack.length() + <span class="number">1</span>; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; needle.length() + <span class="number">1</span>; j++) &#123;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (j == needle.length())</div><div class="line">                    <span class="keyword">return</span> i;</div><div class="line">                <span class="keyword">if</span> (i + j == haystack.length())</div><div class="line">                    <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">                <span class="keyword">if</span> (haystack.charAt(i + j) != needle.charAt(j))</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对于上面代码，可能有人会觉得奇怪，为什么循环终止条件是<code>haystack.length()+1</code>,这里解释一下，因为我的<code>break</code>的判断条件是放在后面，因此在进行<code>if(j == needle.length())</code>时，<code>j</code> 已经自加了。因此当<code>needle</code>是<code>haystack</code>的子串的时候，终止条件是<code>j= needle.length()</code></p>
-<p>网站上公认比较好的解题代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (j == needle.length())</div><div class="line">                <span class="keyword">return</span> i;</div><div class="line">            <span class="keyword">if</span> (i + j == haystack.length())</div><div class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">            <span class="keyword">if</span> (needle.charAt(j) != haystack.charAt(i + j))</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这段代码更加直接，不指定循环终止条件，避免对边界值的检验，，同时采用<code>if</code>语句，进行控制。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1579,7 +1568,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

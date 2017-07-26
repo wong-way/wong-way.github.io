@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="leetcode_67_Add Binary Given two binary strings, return their sum (also a binary string). For example, a = &amp;quot;11&amp;quot; b = &amp;quot;1&amp;quot; Return &amp;quot;100&amp;quot;.  问题分析 将两个二进制字符串相加 解题思路 从字符串的低位到高位，每一">
+<meta name="description" content="leetcode_172_Factorial Trailing Zeroes Given an integer n, return the number of trailing zeroes in n!. Note: Your solution should be in logarithmic time complexity.   问题分析  这道题要求我们在O(log)内完成，计算出阶乘末尾有多">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode_67">
-<meta property="og:url" content="http://wong-way.github.com/2017/07/10/leetcode-67/index.html">
+<meta property="og:title" content="leetcode_172">
+<meta property="og:url" content="http://wong-way.github.com/2017/07/26/leetcode-172/index.html">
 <meta property="og:site_name" content="HuangWay&#39;s Way">
-<meta property="og:description" content="leetcode_67_Add Binary Given two binary strings, return their sum (also a binary string). For example, a = &amp;quot;11&amp;quot; b = &amp;quot;1&amp;quot; Return &amp;quot;100&amp;quot;.  问题分析 将两个二进制字符串相加 解题思路 从字符串的低位到高位，每一">
-<meta property="og:updated_time" content="2017-07-10T03:34:24.885Z">
+<meta property="og:description" content="leetcode_172_Factorial Trailing Zeroes Given an integer n, return the number of trailing zeroes in n!. Note: Your solution should be in logarithmic time complexity.   问题分析  这道题要求我们在O(log)内完成，计算出阶乘末尾有多">
+<meta property="og:updated_time" content="2017-07-26T02:33:27.255Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode_67">
-<meta name="twitter:description" content="leetcode_67_Add Binary Given two binary strings, return their sum (also a binary string). For example, a = &amp;quot;11&amp;quot; b = &amp;quot;1&amp;quot; Return &amp;quot;100&amp;quot;.  问题分析 将两个二进制字符串相加 解题思路 从字符串的低位到高位，每一">
+<meta name="twitter:title" content="leetcode_172">
+<meta name="twitter:description" content="leetcode_172_Factorial Trailing Zeroes Given an integer n, return the number of trailing zeroes in n!. Note: Your solution should be in logarithmic time complexity.   问题分析  这道题要求我们在O(log)内完成，计算出阶乘末尾有多">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://wong-way.github.com/2017/07/10/leetcode-67/"/>
+  <link rel="canonical" href="http://wong-way.github.com/2017/07/26/leetcode-172/"/>
 
 
 
 
 
-  <title>leetcode_67 | HuangWay's Way</title>
+  <title>leetcode_172 | HuangWay's Way</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/10/leetcode-67/">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/26/leetcode-172/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HuangWay">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode_67</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode_172</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T10:44:51+08:00">
-                2017-07-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T10:23:51+08:00">
+                2017-07-26
               </time>
             
 
@@ -317,19 +317,18 @@
       
 
       
-        <h3 id="leetcode-67-Add-Binary"><a href="#leetcode-67-Add-Binary" class="headerlink" title="leetcode_67_Add Binary"></a>leetcode_67_Add Binary</h3><blockquote>
-<p>Given two binary strings, return their sum (also a binary string).</p>
-<p>For example,</p>
-<p>a = <code>&quot;11&quot;</code></p>
-<p>b = <code>&quot;1&quot;</code></p>
-<p>Return <code>&quot;100&quot;</code>.</p>
+        <h2 id="leetcode-172-Factorial-Trailing-Zeroes"><a href="#leetcode-172-Factorial-Trailing-Zeroes" class="headerlink" title="leetcode_172_Factorial Trailing Zeroes"></a>leetcode_172_Factorial Trailing Zeroes</h2><blockquote>
+<p>Given an integer <em>n</em>, return the number of trailing zeroes in <em>n</em>!.</p>
+<p><strong>Note: </strong>Your solution should be in logarithmic time complexity.</p>
 </blockquote>
-<p><strong>问题分析</strong></p>
-<p>将两个二进制字符串相加</p>
-<p><strong>解题思路</strong></p>
-<p>从字符串的低位到高位，每一位相加，然后再取余，并且注意计算进位<code>carry</code>。</p>
-<p><strong>实验代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution67</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</div><div class="line">        String shorterStr,longerStr;</div><div class="line">        shorterStr = a.length()&lt;b.length()?a:b;</div><div class="line">        longerStr = a.length()&gt;b.length()?a:b;</div><div class="line">        String str = <span class="string">""</span> ;</div><div class="line">        <span class="keyword">int</span> carry =<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ;i&lt;shorterStr.length();i++)&#123;</div><div class="line">            <span class="keyword">int</span> bit = ((a.charAt(a.length()-<span class="number">1</span>-i)-<span class="string">'0'</span>) + (b.charAt(b.length()-<span class="number">1</span>-i)-<span class="string">'0'</span>)+carry)%<span class="number">2</span>;</div><div class="line">            carry=((a.charAt(a.length()-<span class="number">1</span>-i)-<span class="string">'0'</span>) + (b.charAt(b.length()-<span class="number">1</span>-i)-<span class="string">'0'</span>)+carry)/<span class="number">2</span>;</div><div class="line">            str = bit+str;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = shorterStr.length();j&lt;longerStr.length();j++)&#123;</div><div class="line">            <span class="keyword">int</span> bit =((longerStr.charAt(longerStr.length()-<span class="number">1</span>-j)-<span class="string">'0'</span>)+carry)%<span class="number">2</span>;</div><div class="line">            carry =((longerStr.charAt(longerStr.length()-<span class="number">1</span>-j)-<span class="string">'0'</span>)+carry)/<span class="number">2</span>;</div><div class="line">            str = bit +str;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(carry == <span class="number">1</span>)</div><div class="line">            str= <span class="string">"1"</span>+str;</div><div class="line">        <span class="keyword">return</span>  str;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String one =<span class="string">"11"</span>;</div><div class="line">        String two = <span class="string">"1"</span>;</div><div class="line">        String result = addBinary(one,two);</div><div class="line">        System.out.println(result);</div><div class="line">    &#125;</div><div class="line">&#125;<span class="number">1</span></div></pre></td></tr></table></figure>
+<ol>
+<li><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a><strong>问题分析</strong></h2></li>
+</ol>
+<p>这道题要求我们在O(log)内完成，计算出阶乘末尾有多少个0，注意阶乘结果有0，是由2*5得到的。由于每次隔五个数才会出现5的倍数，而数字2则是隔两个数就会出现一次。所以2的个数比5的个数多，因此我们只需要计算在数字n之前，有多少个数字是5的倍数，即可求出有多少个0。</p>
+<ol>
+<li><h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a><strong>解题代码</strong></h2></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">trailingZeroes</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">      <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">      <span class="keyword">while</span>(n&gt;<span class="number">0</span>)&#123;</div><div class="line">        count+= n/<span class="number">5</span>;</div><div class="line">        n/=<span class="number">5</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> count;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -372,8 +371,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/10/leetcode-66/" rel="next" title="leetcode_66">
-                <i class="fa fa-chevron-left"></i> leetcode_66
+              <a href="/2017/07/26/leetcode-176/" rel="next" title="leetcode_176">
+                <i class="fa fa-chevron-left"></i> leetcode_176
               </a>
             
           </div>
@@ -382,8 +381,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/11/leetcode-70/" rel="prev" title="leetcode_70">
-                leetcode_70 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/26/leetcode-189/" rel="prev" title="leetcode_189">
+                leetcode_189 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -504,7 +503,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#leetcode-67-Add-Binary"><span class="nav-number">1.</span> <span class="nav-text">leetcode_67_Add Binary</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-172-Factorial-Trailing-Zeroes"><span class="nav-number">1.</span> <span class="nav-text">leetcode_172_Factorial Trailing Zeroes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题代码"><span class="nav-number">3.</span> <span class="nav-text">解题代码</span></a></li></ol></div>
             
 
           </div>
