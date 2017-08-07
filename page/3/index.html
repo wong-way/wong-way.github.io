@@ -250,6 +250,259 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/10/leetcode-67/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangWay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangWay's Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/10/leetcode-67/" itemprop="url">leetcode_67</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T10:44:51+08:00">
+                2017-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="leetcode-67-Add-Binary"><a href="#leetcode-67-Add-Binary" class="headerlink" title="leetcode_67_Add Binary"></a>leetcode_67_Add Binary</h3><blockquote>
+<p>Given two binary strings, return their sum (also a binary string).</p>
+<p>For example,</p>
+<p>a = <code>&quot;11&quot;</code></p>
+<p>b = <code>&quot;1&quot;</code></p>
+<p>Return <code>&quot;100&quot;</code>.</p>
+</blockquote>
+<p><strong>问题分析</strong></p>
+<p>将两个二进制字符串相加</p>
+<p><strong>解题思路</strong></p>
+<p>从字符串的低位到高位，每一位相加，然后再取余，并且注意计算进位<code>carry</code>。</p>
+<p><strong>实验代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution67</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</div><div class="line">        String shorterStr,longerStr;</div><div class="line">        shorterStr = a.length()&lt;b.length()?a:b;</div><div class="line">        longerStr = a.length()&gt;b.length()?a:b;</div><div class="line">        String str = <span class="string">""</span> ;</div><div class="line">        <span class="keyword">int</span> carry =<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ;i&lt;shorterStr.length();i++)&#123;</div><div class="line">            <span class="keyword">int</span> bit = ((a.charAt(a.length()-<span class="number">1</span>-i)-<span class="string">'0'</span>) + (b.charAt(b.length()-<span class="number">1</span>-i)-<span class="string">'0'</span>)+carry)%<span class="number">2</span>;</div><div class="line">            carry=((a.charAt(a.length()-<span class="number">1</span>-i)-<span class="string">'0'</span>) + (b.charAt(b.length()-<span class="number">1</span>-i)-<span class="string">'0'</span>)+carry)/<span class="number">2</span>;</div><div class="line">            str = bit+str;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = shorterStr.length();j&lt;longerStr.length();j++)&#123;</div><div class="line">            <span class="keyword">int</span> bit =((longerStr.charAt(longerStr.length()-<span class="number">1</span>-j)-<span class="string">'0'</span>)+carry)%<span class="number">2</span>;</div><div class="line">            carry =((longerStr.charAt(longerStr.length()-<span class="number">1</span>-j)-<span class="string">'0'</span>)+carry)/<span class="number">2</span>;</div><div class="line">            str = bit +str;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(carry == <span class="number">1</span>)</div><div class="line">            str= <span class="string">"1"</span>+str;</div><div class="line">        <span class="keyword">return</span>  str;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String one =<span class="string">"11"</span>;</div><div class="line">        String two = <span class="string">"1"</span>;</div><div class="line">        String result = addBinary(one,two);</div><div class="line">        System.out.println(result);</div><div class="line">    &#125;</div><div class="line">&#125;<span class="number">1</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/10/leetcode-66/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangWay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangWay's Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/10/leetcode-66/" itemprop="url">leetcode_66</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T09:10:08+08:00">
+                2017-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="leetcode-66-Plus-One"><a href="#leetcode-66-Plus-One" class="headerlink" title="leetcode_66_Plus One"></a>leetcode_66_Plus One</h3><blockquote>
+<p>Given a non-negative integer represented as a <strong>non-empty</strong> array of digits, plus one to the integer.</p>
+<p>You may assume the integer do not contain any leading zero, except the number 0 itself.</p>
+<p>The digits are stored such that the most significant digit is at the head of the list.</p>
+</blockquote>
+<p><strong>题目分析</strong></p>
+<p>这道题最重要的就是考虑进位，以及在申明数组的时候，数组大小的确定。</p>
+<p><strong>解题思路</strong></p>
+<ul>
+<li>申明一个同<code>nums[]</code>同样大小的数组,命名为<code>result[]</code>。申明一个整型变量，命名为<code>carry</code>。</li>
+<li>从数字的最低位开始运算，最低位加一。<code>result[i] = (nums[i]+carry)%10</code>，`carry = (nums[i]+carry)/10;</li>
+<li>注意，如果循环结束之后，<code>carry = 1</code>，则说明，最后需要进位。那么则需要重新申明一个数组，大小为<code>nums.length+1</code>。首位置为1</li>
+</ul>
+<p>实验代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] plusOne1(<span class="keyword">int</span>[] digits) &#123;</div><div class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[digits.length];</div><div class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">        result[digits.length-<span class="number">1</span>]=(digits[digits.length-<span class="number">1</span>]+<span class="number">1</span>)%<span class="number">10</span>;</div><div class="line">        carry=(digits[digits.length-<span class="number">1</span>]+<span class="number">1</span>)/<span class="number">10</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i= digits.length-<span class="number">2</span>; i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line"></div><div class="line">            result[i]+=(digits[i])%<span class="number">10</span>+carry;</div><div class="line">            carry=(digits[i])/<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(carry == <span class="number">1</span>)&#123;</div><div class="line">        	<span class="keyword">int</span>[] result1 = <span class="keyword">new</span> <span class="keyword">int</span>[digits.length+<span class="number">1</span>];</div><div class="line">        	result1[<span class="number">0</span>]=<span class="number">1</span>;</div><div class="line">        	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;digits.length;i++)&#123;</div><div class="line">        		result1[i+<span class="number">1</span>]=result[i];</div><div class="line">        	&#125;</div><div class="line">        	<span class="keyword">return</span> result1;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p><strong>一开始的错误代码</strong></p>
+<p>一开始我直接申明一个大小为<code>nums.length+1</code>的数组。然后首位置为0，在需要的时候在进行置位。但提交的时候并不能通过。但是也可以作为一种解决思路，有可能对其他问题有所启示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] plusOne(<span class="keyword">int</span>[] digits) &#123;</div><div class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[digits.length+<span class="number">1</span>];</div><div class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">        result[digits.length]=(digits[digits.length-<span class="number">1</span>]+<span class="number">1</span>)%<span class="number">10</span>;</div><div class="line">        carry=(digits[digits.length-<span class="number">1</span>]+<span class="number">1</span>)/<span class="number">10</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i= digits.length-<span class="number">2</span>; i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line"></div><div class="line">            result[i+<span class="number">1</span>]+=(digits[i])%<span class="number">10</span>+carry;</div><div class="line">            carry=(digits[i])/<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/09/leetcode-53/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1296,239 +1549,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/04/leetcode-14/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuangWay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuangWay's Way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/04/leetcode-14/" itemprop="url">leetcode_14</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-04T20:06:53+08:00">
-                2017-07-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="leetcode-14"><a href="#leetcode-14" class="headerlink" title="leetcode_14"></a>leetcode_14</h3><blockquote>
-<p>description:Write a function to find the longest common prefix string amongst an array of strings.</p>
-</blockquote>
-<p>这个题目要求我们找出一个字符串数组的最大公共前缀，我先把最短字符串的长度计算出来，采用每个位进行比较的方法，如果满足条件就记录下标，如果不满足就直接跳出循环，减少比较和循环次数</p>
-<p>代买如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</div><div class="line">       String result=<span class="string">""</span>;</div><div class="line">       <span class="keyword">if</span>(strs.length == <span class="number">0</span>)</div><div class="line">           <span class="keyword">return</span> result;</div><div class="line">       <span class="keyword">int</span> index =-<span class="number">1</span>;</div><div class="line">       <span class="keyword">int</span> count = Integer.MAX_VALUE;</div><div class="line">       <span class="keyword">for</span> (String str:strs) &#123;</div><div class="line">           <span class="keyword">if</span>(str.length()&lt;count)</div><div class="line">               count=str.length();</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;count ; i++ )&#123;</div><div class="line">       	<span class="keyword">char</span> ch= strs[<span class="number">0</span>].charAt(i);</div><div class="line">       	<span class="keyword">boolean</span> isEqual=<span class="keyword">true</span>;</div><div class="line">       	<span class="keyword">for</span> (String str :strs) &#123;</div><div class="line">       		<span class="keyword">if</span>(str.charAt(i) != ch)</div><div class="line">               &#123;</div><div class="line">                   isEqual=<span class="keyword">false</span>;</div><div class="line">               &#125;</div><div class="line">       	&#125;</div><div class="line">       	<span class="keyword">if</span>(isEqual)</div><div class="line">           &#123;</div><div class="line">               index = i;</div><div class="line">           &#125;</div><div class="line">           <span class="keyword">else</span></div><div class="line">               <span class="keyword">break</span>;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">if</span>(index != -<span class="number">1</span>)</div><div class="line">           result = strs[<span class="number">0</span>].substring(<span class="number">0</span>,index+<span class="number">1</span>);</div><div class="line">       <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>后来使用<code>Arrays.sort()</code>,进行排序，找出最短字符串</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestCommonPrefix1</span><span class="params">(String[] strs)</span> </span>&#123;</div><div class="line">        String result = <span class="string">""</span>;</div><div class="line">        <span class="keyword">if</span> (strs.length == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> result;</div><div class="line">        <span class="keyword">int</span> index = -<span class="number">1</span>;</div><div class="line"></div><div class="line">        Arrays.sort(strs);</div><div class="line">        <span class="keyword">int</span> count = strs[<span class="number">0</span>].length();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</div><div class="line">            <span class="keyword">char</span> ch = strs[<span class="number">0</span>].charAt(i);</div><div class="line">            <span class="keyword">boolean</span> isEqual = <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">for</span> (String str : strs) &#123;</div><div class="line">                <span class="keyword">if</span> (str.charAt(i) != ch) &#123;</div><div class="line">                    isEqual = <span class="keyword">false</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (isEqual) &#123;</div><div class="line">                index = i;</div><div class="line">            &#125; <span class="keyword">else</span></div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (index != -<span class="number">1</span>)</div><div class="line">            result = strs[<span class="number">0</span>].substring(<span class="number">0</span>, index + <span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>最后考虑到<code>Array.sort()</code>之后的字符串是已经排序过后的，最大前缀一定在最长字符串和最短字符串之中，于是我们可以将第一个字符串和最后一个字符串拿来作比较，减少循环的次数。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestCommonPrefix2</span><span class="params">(String[] strs)</span> </span>&#123;</div><div class="line">        String result = <span class="string">""</span>;</div><div class="line">        <span class="keyword">int</span> index = -<span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (strs != <span class="keyword">null</span> &amp;&amp; strs.length &gt; <span class="number">0</span>) &#123;</div><div class="line"></div><div class="line">            Arrays.sort(strs);</div><div class="line"></div><div class="line">            String firstStr = strs[<span class="number">0</span>];</div><div class="line">            String lastStr = strs[strs.length - <span class="number">1</span>];</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; firstStr.length(); i++) &#123;</div><div class="line">                <span class="keyword">if</span> (firstStr.charAt(i) == lastStr.charAt(i)) &#123;</div><div class="line">                    index = i;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">return</span> result;</div><div class="line">                &#125;</div><div class="line">                result = firstStr.substring(<span class="number">0</span>, index + <span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/05/07/table-demo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuangWay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuangWay's Way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/07/table-demo/" itemprop="url">table demo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-07T11:29:57+08:00">
-                2017-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-bordered table-striped"</span> <span class="attr">id</span>=<span class="string">"msg"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">thead</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>#<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>title<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>create day<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>categories<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>comment number<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>operation<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>database concept<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>2017-05-06<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>Comp.Sci.<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>132<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void( alert('编辑'))"</span></span></div><div class="line">           <span class="attr">class</span>=<span class="string">"btn btn-primary btn-sm waves-effect waves-light m-b-5"</span>&gt;<span class="tag">&lt;<span class="name">i</span></span></div><div class="line">                                                                            <span class="attr">class</span>=<span class="string">"fa fa-edit"</span>&gt;<span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>编辑<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void( alert('删除'))"</span></span></div><div class="line">           <span class="attr">class</span>=<span class="string">"btn btn-danger btn-sm waves-effect waves-light m-b-5"</span>&gt;<span class="tag">&lt;<span class="name">i</span></span></div><div class="line">                                                                           <span class="attr">class</span>=<span class="string">"fa fa-trash-o"</span>&gt;<span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void( alert('预览'))"</span></span></div><div class="line">           <span class="attr">class</span>=<span class="string">"btn btn-warning btn-sm waves-effect waves-light m-b-5"</span> </div><div class="line">           <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;<span class="tag">&lt;<span class="name">i</span></span></div><div class="line">                              <span class="attr">class</span>=<span class="string">"fa fa-rocket"</span>&gt;<span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>预览<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>software<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>2015-02-06<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>Comp.Sci.<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>432<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void( alert('编辑'))"</span></span></div><div class="line">           <span class="attr">class</span>=<span class="string">"btn btn-primary btn-sm waves-effect waves-light m-b-5"</span>&gt;<span class="tag">&lt;<span class="name">i</span></span></div><div class="line">                                                                            <span class="attr">class</span>=<span class="string">"fa fa-edit"</span>&gt;<span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>编辑<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void( alert('删除'))"</span></span></div><div class="line">           <span class="attr">class</span>=<span class="string">"btn btn-danger btn-sm waves-effect waves-light m-b-5"</span>&gt;<span class="tag">&lt;<span class="name">i</span></span></div><div class="line">                                                                           <span class="attr">class</span>=<span class="string">"fa fa-trash-o"</span>&gt;<span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void( alert('预览'))"</span></span></div><div class="line">           <span class="attr">class</span>=<span class="string">"btn btn-warning btn-sm waves-effect waves-light m-b-5"</span> </div><div class="line">           <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;<span class="tag">&lt;<span class="name">i</span></span></div><div class="line">                              <span class="attr">class</span>=<span class="string">"fa fa-rocket"</span>&gt;<span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>预览<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1578,7 +1598,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
