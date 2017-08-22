@@ -250,6 +250,391 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/08/22/leetcode226/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangWay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangWay's Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/22/leetcode226/" itemprop="url">leetcode226</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-22T19:35:18+08:00">
+                2017-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="leetcode-top100-226"><a href="#leetcode-top100-226" class="headerlink" title="leetcode_top100_226"></a>leetcode_top100_226</h2><ul>
+<li><p>问题描述</p>
+<blockquote>
+<p>Invert a binary tree.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;     4</div><div class="line">&gt;   /   \</div><div class="line">&gt;  2     7</div><div class="line">&gt; / \   / \</div><div class="line">&gt;1   3 6   9</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>to</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;     4</div><div class="line">&gt;   /   \</div><div class="line">&gt;  7     2</div><div class="line">&gt; / \   / \</div><div class="line">&gt;9   6 3   1</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>问题分析</p>
+<p>反转二叉树，没什么好讲的。按照前序遍历的方式，先对根节点进行反转，然后递归，对左右子树进行反转即可。</p>
+</li>
+<li><p>解题代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">invertTree</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        TreeNode node = root.left;</div><div class="line">        root.left = root.right;</div><div class="line">        root.right = node;</div><div class="line">        invertTree(root.left);</div><div class="line">        invertTree(root.right);</div><div class="line">        <span class="keyword">return</span> root;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/08/22/leetcode141/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangWay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangWay's Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/22/leetcode141/" itemprop="url">leetcode141</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-22T16:59:00+08:00">
+                2017-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="leetcode-top100-141"><a href="#leetcode-top100-141" class="headerlink" title="leetcode_top100_141"></a>leetcode_top100_141</h2><ul>
+<li>问题描述</li>
+</ul>
+<blockquote>
+<p>Given a linked list, determine if it has a cycle in it.</p>
+<p>Follow up:<br>Can you solve it without using extra space?</p>
+</blockquote>
+<ul>
+<li><p>问题分析</p>
+<p>之前遇到过一道类似的题目，是让我们判断两个链表是不是有相同的部分。当时的做法是对两个链表进行两次遍历。在第一次遍历结束之后，让<code>a.next =b ,b.next= a</code>。这道题我们可以采取相同思路来解决这个问题，利用两个节点<code>walker</code>和<code>runner</code>，我们让<code>walker</code>每次走一步然后让<code>runner</code>每次走两步，如果存在环，那么就一定会存在<code>walker=runner</code>的情况</p>
+</li>
+<li><p>解题代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123;</div><div class="line"> *         val = x;</div><div class="line"> *         next = null;</div><div class="line"> *     &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        ListNode walker = head;</div><div class="line">        ListNode runner = head;</div><div class="line">        <span class="keyword">while</span>(runner.next!=<span class="keyword">null</span> &amp;&amp; runner.next.next!=<span class="keyword">null</span>) &#123;</div><div class="line">            walker = walker.next;</div><div class="line">            runner = runner.next.next;</div><div class="line">            <span class="keyword">if</span>(walker==runner) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/08/22/leetcode2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangWay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangWay's Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/22/leetcode2/" itemprop="url">leetcode2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-22T16:48:13+08:00">
+                2017-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="leetcode-top100-2"><a href="#leetcode-top100-2" class="headerlink" title="leetcode_top100_2"></a>leetcode_top100_2</h2><ul>
+<li>问题描述</li>
+</ul>
+<blockquote>
+<p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p><strong>Input:</strong> (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br><strong>Output:</strong> 7 -&gt; 0 -&gt; 8</p>
+</blockquote>
+<ul>
+<li>问题分析</li>
+</ul>
+<p>给定两个链表，将链表相加，其中链表的高位是存到链表的后面的。只需要遍历两个链表，将每一个的节点的值相加就行了。注意考虑进位的情况。</p>
+<ul>
+<li>解题代码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</div><div class="line"> 	ListNode newHead = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</div><div class="line">    ListNode p = l1, q = l2, curr = newHead;</div><div class="line">    <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (p != <span class="keyword">null</span> || q != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">int</span> x = (p != <span class="keyword">null</span>) ? p.val : <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> y = (q != <span class="keyword">null</span>) ? q.val : <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> sum = carry + x + y;</div><div class="line">        carry = sum / <span class="number">10</span>;</div><div class="line">        curr.next = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</div><div class="line">        curr = curr.next;</div><div class="line">        <span class="keyword">if</span> (p != <span class="keyword">null</span>) p = p.next;</div><div class="line">        <span class="keyword">if</span> (q != <span class="keyword">null</span>) q = q.next;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (carry &gt; <span class="number">0</span>) &#123;</div><div class="line">        curr.next = <span class="keyword">new</span> ListNode(carry);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> newHead.next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/08/07/leetcode-198/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1108,382 +1493,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/25/leetcode-160/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuangWay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuangWay's Way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/25/leetcode-160/" itemprop="url">leetcode_160</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T16:18:44+08:00">
-                2017-07-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="leetcode-160-Intersection-of-Two-Linked-Lists"><a href="#leetcode-160-Intersection-of-Two-Linked-Lists" class="headerlink" title="leetcode_160_Intersection of Two Linked Lists"></a>leetcode_160_Intersection of Two Linked Lists</h2><blockquote>
-<p>Write a program to find the node at which the intersection of two singly linked lists begins.</p>
-<p>For example, the following two linked lists:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;A:          a1 → a2</div><div class="line">&gt;                   ↘</div><div class="line">&gt;                     c1 → c2 → c3</div><div class="line">&gt;                   ↗            </div><div class="line">&gt;B:     b1 → b2 → b3</div><div class="line">&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<p>begin to intersect at node c1.</p>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>If the two linked lists have no intersection at all, return <code>null</code>.</li>
-<li>The linked lists must retain their original structure after the function returns.</li>
-<li>You may assume there are no cycles anywhere in the entire linked structure.</li>
-<li>Your code should preferably run in O(n) time and use only O(1) memory.</li>
-</ul>
-</blockquote>
-<ol>
-<li><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a><strong>问题分析</strong></h2></li>
-</ol>
-<p>这道题我觉得是我做了几十道题之后我觉得最巧妙的一道题，算法贼恐怖。</p>
-<p>​    一开始，很自然想到遍历两个链表，但是这种方式的时间复杂的事O(mn)，看了评论区的答案之后，恍然大悟。太厉害了吧。这个方法将两个链表分别遍历两次，先将<code>a =headA</code>,<code>b= headB</code>，遍历完一遍之后令<code>a = headB</code>，<code>b = headA</code>。因为，两个链表的交集部分长度是一样的，这样可以保证我们在比对时，交集部分是同步的，即是对齐的。</p>
-<p>​    在上面的例子中，遍历一遍之后<code>a = b1</code> , <code>b= c3</code>，再经过一次循环，<code>a =b2</code> ,<code>b=a1</code>。这样到后面就可以找到交集的部分。</p>
-<ol>
-<li><h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a><strong>解题代码</strong></h2></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">getIntersectionNode</span><span class="params">(ListNode headA, ListNode headB)</span> </span>&#123;</div><div class="line">       <span class="comment">//boundary check</span></div><div class="line">       <span class="keyword">if</span>(headA == <span class="keyword">null</span> || headB == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">       ListNode a = headA;</div><div class="line">       ListNode b = headB;</div><div class="line">       <span class="comment">//if a &amp; b have different len, then we will stop the loop after second iteration</span></div><div class="line">       <span class="keyword">while</span>( a != b)&#123;</div><div class="line">           <span class="comment">//for the end of first iteration, we just reset the pointer to the head of another linkedlist</span></div><div class="line">           a = a == <span class="keyword">null</span>? headB : a.next;</div><div class="line">           b = b == <span class="keyword">null</span>? headA : b.next;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">return</span> a;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/23/leetcode-136/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuangWay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuangWay's Way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/23/leetcode-136/" itemprop="url">leetcode_136</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T14:33:23+08:00">
-                2017-07-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="leetcode-136-single-number"><a href="#leetcode-136-single-number" class="headerlink" title="leetcode_136_single number"></a>leetcode_136_single number</h2><blockquote>
-<p>Given an array of integers, every element appears <em>twice</em> except for one. Find that single one.</p>
-<p><strong>Note:</strong><br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-</blockquote>
-<p>这道题看起来很容易是不是，就只是遍历整个数组记录他们每个数字出现的次数。但是在提示中说到，时间复杂度要求是O(n)，同时不能使用额外的内存空间。</p>
-<p>看到这道题我想了很久，根本没有什么好的思路，后来在讨论区看到提示才恍然大悟。 异或！</p>
-<p>在一堆数字中，<code>a^b^c^d^c^b^a</code>由于异或的可交换性，可变成<code>a^a^b^b^c^c^d</code>。由于异或的特点，一个数与它本身异或则得到0,0和一个数字异或得到这个数字。那么<code>a^a^b^b^c^c^d= d</code>，即只存在一次的数字</p>
-<p>代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;nums.length; i++)&#123;</div><div class="line">            result ^=nums[i];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/21/leetcode-125/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuangWay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuangWay's Way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/21/leetcode-125/" itemprop="url">leetcode_125</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-21T23:03:04+08:00">
-                2017-07-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="leetcode-125-Valid-Palindrome"><a href="#leetcode-125-Valid-Palindrome" class="headerlink" title="leetcode_125_Valid Palindrome"></a>leetcode_125_Valid Palindrome</h3><blockquote>
-<p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>
-<p>For example,<br><code>&quot;A man, a plan, a canal: Panama&quot;</code> is a palindrome.<br><code>&quot;race a car&quot;</code> is <em>not</em> a palindrome.</p>
-<p><strong>Note:</strong><br>Have you consider that the string might be empty? This is a good question to ask during an interview.</p>
-<p>For the purpose of this problem, we define empty string as valid palindrome.</p>
-</blockquote>
-<p>这道题我觉得其实并没有什么意思，所做的工作主要是对字符的检查，算法上并不是很难，在讨论区有人利用java的函数库，三行代码就可以解决。下面简单贴出我的代码。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1533,7 +1542,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

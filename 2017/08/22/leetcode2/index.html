@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="leetcode_8_Remove Duplicates from Sorted List Given a sorted linked list, delete all duplicates such that each element appear only once. For example, Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2. Given 1-&amp;gt;1">
+<meta name="description" content="leetcode_top100_2 问题描述   You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode_83">
-<meta property="og:url" content="http://wong-way.github.com/2017/07/12/leetcode-83/index.html">
+<meta property="og:title" content="leetcode2">
+<meta property="og:url" content="http://wong-way.github.com/2017/08/22/leetcode2/index.html">
 <meta property="og:site_name" content="HuangWay&#39;s Way">
-<meta property="og:description" content="leetcode_8_Remove Duplicates from Sorted List Given a sorted linked list, delete all duplicates such that each element appear only once. For example, Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2. Given 1-&amp;gt;1">
-<meta property="og:updated_time" content="2017-07-12T07:48:55.998Z">
+<meta property="og:description" content="leetcode_top100_2 问题描述   You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the">
+<meta property="og:updated_time" content="2017-08-22T08:59:20.673Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode_83">
-<meta name="twitter:description" content="leetcode_8_Remove Duplicates from Sorted List Given a sorted linked list, delete all duplicates such that each element appear only once. For example, Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2. Given 1-&amp;gt;1">
+<meta name="twitter:title" content="leetcode2">
+<meta name="twitter:description" content="leetcode_top100_2 问题描述   You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://wong-way.github.com/2017/07/12/leetcode-83/"/>
+  <link rel="canonical" href="http://wong-way.github.com/2017/08/22/leetcode2/"/>
 
 
 
 
 
-  <title>leetcode_83 | HuangWay's Way</title>
+  <title>leetcode2 | HuangWay's Way</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/12/leetcode-83/">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/08/22/leetcode2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HuangWay">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode_83</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode2</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-12T15:37:27+08:00">
-                2017-07-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-22T16:48:13+08:00">
+                2017-08-22
               </time>
             
 
@@ -317,24 +317,22 @@
       
 
       
-        <h3 id="leetcode-8-Remove-Duplicates-from-Sorted-List"><a href="#leetcode-8-Remove-Duplicates-from-Sorted-List" class="headerlink" title="leetcode_8_Remove Duplicates from Sorted List"></a>leetcode_8_Remove Duplicates from Sorted List</h3><blockquote>
-<p>Given a sorted linked list, delete all duplicates such that each element appear only <em>once</em>.</p>
-<p>For example,</p>
-<p>Given <code>1-&gt;1-&gt;2</code>, return <code>1-&gt;2</code>.</p>
-<p>Given <code>1-&gt;1-&gt;2-&gt;3-&gt;3</code>, return <code>1-&gt;2-&gt;3</code>.</p>
-</blockquote>
-<p><strong>问题分析</strong></p>
-<p>这个题目和之前那个在数组中，去除重复的元素相似，只要每次找到下一个不同元素，然后指到下一个就行了</p>
-<p><strong>解题思路</strong></p>
-<ul>
-<li>循环，遍历整个链表。</li>
-<li>找到下一个<code>value</code>不同的值。</li>
-<li>连接到<code>newHead</code>后面</li>
+        <h2 id="leetcode-top100-2"><a href="#leetcode-top100-2" class="headerlink" title="leetcode_top100_2"></a>leetcode_top100_2</h2><ul>
+<li>问题描述</li>
 </ul>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(head == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        ListNode newHead =<span class="keyword">new</span> ListNode(head.val);</div><div class="line">        ListNode temp=newHead;</div><div class="line">        <span class="keyword">while</span>(head!=<span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">if</span>(head.val != temp.val)&#123;</div><div class="line">                temp.next = <span class="keyword">new</span> ListNode(head.val);</div><div class="line">                temp=temp.next;</div><div class="line">            &#125;</div><div class="line">            head=head.next;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> newHead;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>示例代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">deleteDuplicates1</span><span class="params">(ListNode head)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> head;</div><div class="line">        head.next = deleteDuplicates(head.next);</div><div class="line">        <span class="keyword">return</span> head.val == head.next.val ? head.next : head;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p><strong>Input:</strong> (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br><strong>Output:</strong> 7 -&gt; 0 -&gt; 8</p>
+</blockquote>
+<ul>
+<li>问题分析</li>
+</ul>
+<p>给定两个链表，将链表相加，其中链表的高位是存到链表的后面的。只需要遍历两个链表，将每一个的节点的值相加就行了。注意考虑进位的情况。</p>
+<ul>
+<li>解题代码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</div><div class="line"> 	ListNode newHead = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</div><div class="line">    ListNode p = l1, q = l2, curr = newHead;</div><div class="line">    <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (p != <span class="keyword">null</span> || q != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">int</span> x = (p != <span class="keyword">null</span>) ? p.val : <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> y = (q != <span class="keyword">null</span>) ? q.val : <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> sum = carry + x + y;</div><div class="line">        carry = sum / <span class="number">10</span>;</div><div class="line">        curr.next = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</div><div class="line">        curr = curr.next;</div><div class="line">        <span class="keyword">if</span> (p != <span class="keyword">null</span>) p = p.next;</div><div class="line">        <span class="keyword">if</span> (q != <span class="keyword">null</span>) q = q.next;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (carry &gt; <span class="number">0</span>) &#123;</div><div class="line">        curr.next = <span class="keyword">new</span> ListNode(carry);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> newHead.next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -377,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/11/leetcode-70/" rel="next" title="leetcode_70">
-                <i class="fa fa-chevron-left"></i> leetcode_70
+              <a href="/2017/08/07/leetcode-198/" rel="next" title="leetcode_198">
+                <i class="fa fa-chevron-left"></i> leetcode_198
               </a>
             
           </div>
@@ -387,8 +385,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/12/leetcode-100/" rel="prev" title="leetcode_100">
-                leetcode_100 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/22/leetcode141/" rel="prev" title="leetcode141">
+                leetcode141 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -509,7 +507,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#leetcode-8-Remove-Duplicates-from-Sorted-List"><span class="nav-number">1.</span> <span class="nav-text">leetcode_8_Remove Duplicates from Sorted List</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-top100-2"><span class="nav-number">1.</span> <span class="nav-text">leetcode_top100_2</span></a></li></ol></div>
             
 
           </div>
