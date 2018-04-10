@@ -250,6 +250,149 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/14/leetcode-104-111/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangWay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangWay's Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/14/leetcode-104-111/" itemprop="url">leetcode_104-111</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T15:26:23+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="leetcode-104-Maximum-Depth-of-Binary-Tree"><a href="#leetcode-104-Maximum-Depth-of-Binary-Tree" class="headerlink" title="leetcode_104_Maximum Depth of Binary Tree"></a>leetcode_104_Maximum Depth of Binary Tree</h3><blockquote>
+<p>Given a binary tree, find its maximum depth.</p>
+<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+</blockquote>
+<p>这道题让我们求二叉树的最大高度，采用递归的方式皆可以很轻松的解决这道题。</p>
+<p><strong>解题思路</strong></p>
+<ul>
+<li>判断递归终止条件<code>root == null</code>，则<code>return 0</code>；</li>
+<li>进行递归。返回左右子树的最大层数加一，<code>return 1+max(leftHeight,rightHeight)</code>。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">      <span class="keyword">if</span>(root == <span class="keyword">null</span>)</div><div class="line">           <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">       <span class="keyword">else</span>&#123;</div><div class="line">           <span class="keyword">int</span> left = maxDepth(root.left);</div><div class="line">           <span class="keyword">int</span> right = maxDepth(root.right);            </div><div class="line">           <span class="keyword">return</span> <span class="number">1</span>+(left&gt;right?left:right);</div><div class="line">       &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="leetcode-111-Minimum-Depth-of-Binary-Tree"><a href="#leetcode-111-Minimum-Depth-of-Binary-Tree" class="headerlink" title="leetcode_111_Minimum Depth of Binary Tree"></a>leetcode_111_Minimum Depth of Binary Tree</h3><blockquote>
+<p>Given a binary tree, find its minimum depth.</p>
+<p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p>
+</blockquote>
+<p>这道题让我们求出二叉树的最小的深度，如果我们按照上一道题的思路来做，结果是正确的吗？</p>
+<p>答案是否定。</p>
+<p>主要的问题是出现在这里<code>return 1+(left&lt;right?left:right);</code>，返回左右子树中高度较小的。</p>
+<p>如果出现一个内部节点只有左子树或者右子树的时候，那么左右子树中高度较小的肯定是0。这样就不能保证是从根节点到叶节点的最小高度。因此我们在返回的时候需要对这种情况进行检查。</p>
+<p><strong>解题思路</strong></p>
+<ul>
+<li><p>判断递归终止条件<code>root == null</code>，则<code>return 0</code></p>
+</li>
+<li><p>如果左右子树都存在的情况下，返回左右子树中较小的高度</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (leftDepth &gt; <span class="number">0</span> &amp;&amp; rightDepth &gt; <span class="number">0</span>)</div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> <span class="number">1</span> + (leftDepth &gt; rightDepth ? rightDepth : leftDepth);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果不满足上诉条件，则证明只存在左子树或者右子树，因此就要返回左子树或者右子树相应的高度。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="number">1</span> + (leftDepth &lt; rightDepth ? rightDepth : leftDepth);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>解题代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> leftDepth = minDepth(root.left);</div><div class="line">            <span class="keyword">int</span> rightDepth = minDepth(root.right);</div><div class="line">            <span class="keyword">if</span> (leftDepth &gt; <span class="number">0</span> &amp;&amp; rightDepth &gt; <span class="number">0</span>)</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span> + (leftDepth &gt; rightDepth ? rightDepth : leftDepth);</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span> + (leftDepth &lt; rightDepth ? rightDepth : leftDepth);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/12/leetcode-88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1412,124 +1555,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/07/leetcode-35/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuangWay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuangWay's Way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/07/leetcode-35/" itemprop="url">leetcode_35</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-07T23:17:12+08:00">
-                2017-07-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="leetcode-35-Search-Insert-Position"><a href="#leetcode-35-Search-Insert-Position" class="headerlink" title="leetcode_35_Search Insert Position"></a>leetcode_35_Search Insert Position</h3><blockquote>
-<p>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>
-<p>You may assume no duplicates in the array.</p>
-<p>Here are few examples.<br>[1,3,5,6], 5 → 2<br>[1,3,5,6], 2 → 1<br>[1,3,5,6], 7 → 4<br>[1,3,5,6], 0 → 0</p>
-</blockquote>
-<p>这道题比较简单，直接遍历数组，找到满足<code>nums[i]&gt;=target</code>条件的数，直接返回就好，下面是代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> i;</div><div class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;nums.length; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[i] &gt;= target)</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> i;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1579,7 +1604,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
