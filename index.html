@@ -250,6 +250,126 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2018/04/11/leetcode-197/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangWay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangWay's Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/11/leetcode-197/" itemprop="url">leetcode-197</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T19:13:53+08:00">
+                2018-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="leetcode-196"><a href="#leetcode-196" class="headerlink" title="leetcode-196"></a>leetcode-196</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><blockquote>
+<p>Write a SQL query to delete all duplicate email entries in a table named Person, keeping only unique emails based on its smallest Id.<br>+—-+——————+<br>| Id | Email            |<br>+—-+——————+<br>| 1  | john@example.com |<br>| 2  | bob@example.com  |<br>| 3  | john@example.com |<br>+—-+——————+<br>Id is the primary key column for this table.<br>For example, after running your query, the above Person table should have the following rows:<br>+—-+——————+<br>| Id | Email            |<br>+—-+——————+<br>| 1  | john@example.com |<br>| 2  | bob@example.com  |<br>+—-+——————+</p>
+</blockquote>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这道题，让我们删除重复的邮箱，我们只需要将<code>person</code>表进行自连接，然后设置筛选条件就可以了</p>
+<h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span> p1</div><div class="line"><span class="keyword">FROM</span> Person p1, Person p2</div><div class="line"><span class="keyword">WHERE</span> p1.Email = p2.Email <span class="keyword">AND</span> p1.Id &gt; p2.Id</div></pre></td></tr></table></figure>
+<h1 id="leetcode-197"><a href="#leetcode-197" class="headerlink" title="leetcode-197"></a>leetcode-197</h1><h2 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h2><blockquote>
+<p>Given a Weather table, write a SQL query to find all dates’ Ids with higher temperature compared to its previous (yesterday’s) dates.<br>+———+————+——————+<br>| Id(INT) | Date(DATE) | Temperature(INT) |<br>+———+————+——————+<br>|       1 | 2015-01-01 |               10 |<br>|       2 | 2015-01-02 |               25 |<br>|       3 | 2015-01-03 |               20 |<br>|       4 | 2015-01-04 |               30 |<br>+———+————+——————+<br>For example, return the following Ids for the above Weather table:<br>+—-+<br>| Id |<br>+—-+<br>|  2 |<br>|  4 |<br>+—-+</p>
+</blockquote>
+<h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><p>这道题让我们选出比前一天温度高的id，先做一个表的自连接，然后在where子句中增减限制条件，w1.Temperature &gt; w2.Temperature 以及 DATEDIFF(w1.date, w2.date) = 1</p>
+<h2 id="解题代码-1"><a href="#解题代码-1" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> w1.Id</div><div class="line"><span class="keyword">FROM</span> Weather w1, Weather w2</div><div class="line"><span class="keyword">WHERE</span> w1.Temperature &gt; w2.Temperature <span class="keyword">AND</span> <span class="keyword">DATEDIFF</span>(w1.date, w2.date) = <span class="number">1</span></div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2018/04/11/leetcode-203/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1400,130 +1520,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2017/07/26/leetcode-168/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuangWay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://img.hb.aicdn.com/a87c089ccd397cd0b167316f1a543a08cd008e532dff3-pAR0g4_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuangWay's Way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/26/leetcode-168/" itemprop="url">leetcode_168</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T11:56:26+08:00">
-                2017-07-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="leetcode-Excel-Sheet-Column-Title"><a href="#leetcode-Excel-Sheet-Column-Title" class="headerlink" title="leetcode_Excel Sheet Column Title"></a>leetcode_Excel Sheet Column Title</h2><blockquote>
-<p>Given a positive integer, return its corresponding column title as appear in an Excel sheet.</p>
-<p>For example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;    1 -&gt; A</div><div class="line">&gt;    2 -&gt; B</div><div class="line">&gt;    3 -&gt; C</div><div class="line">&gt;    ...</div><div class="line">&gt;    26 -&gt; Z</div><div class="line">&gt;    27 -&gt; AA</div><div class="line">&gt;    28 -&gt; AB </div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<ol>
-<li><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析**"></a>问题分析**</h2></li>
-</ol>
-<p>这道题和之前Excel表格转数字那道题很相似，那是26进制转成10进制，这里是10进制转26进制。思路都是比较相同的。这里采用辗转相除法求出对应的26进制，再用字母表示。</p>
-<ol>
-<li><h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a><strong>解题代码</strong></h2></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">convertToTitle</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">       String res = <span class="string">""</span>;</div><div class="line">        <span class="keyword">while</span>(n != <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">char</span> ch = (<span class="keyword">char</span>)((n - <span class="number">1</span>) % <span class="number">26</span> + <span class="number">65</span>);    </div><div class="line">            n = (n - <span class="number">1</span>) / <span class="number">26</span>;</div><div class="line">            res = ch + res;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1573,7 +1569,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
