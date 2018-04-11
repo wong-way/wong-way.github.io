@@ -57,11 +57,17 @@
   
 
   
+    
+      
+    
+
+    
+  
 
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -328,17 +334,16 @@
       
         
           
-            <h1 id="leetcode-196"><a href="#leetcode-196" class="headerlink" title="leetcode-196"></a>leetcode-196</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><blockquote>
-<p>Write a SQL query to delete all duplicate email entries in a table named Person, keeping only unique emails based on its smallest Id.<br>+—-+——————+<br>| Id | Email            |<br>+—-+——————+<br>| 1  | john@example.com |<br>| 2  | bob@example.com  |<br>| 3  | john@example.com |<br>+—-+——————+<br>Id is the primary key column for this table.<br>For example, after running your query, the above Person table should have the following rows:<br>+—-+——————+<br>| Id | Email            |<br>+—-+——————+<br>| 1  | john@example.com |<br>| 2  | bob@example.com  |<br>+—-+——————+</p>
-</blockquote>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这道题，让我们删除重复的邮箱，我们只需要将<code>person</code>表进行自连接，然后设置筛选条件就可以了</p>
-<h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span> p1</div><div class="line"><span class="keyword">FROM</span> Person p1, Person p2</div><div class="line"><span class="keyword">WHERE</span> p1.Email = p2.Email <span class="keyword">AND</span> p1.Id &gt; p2.Id</div></pre></td></tr></table></figure>
-<h1 id="leetcode-197"><a href="#leetcode-197" class="headerlink" title="leetcode-197"></a>leetcode-197</h1><h2 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h2><blockquote>
-<p>Given a Weather table, write a SQL query to find all dates’ Ids with higher temperature compared to its previous (yesterday’s) dates.<br>+———+————+——————+<br>| Id(INT) | Date(DATE) | Temperature(INT) |<br>+———+————+——————+<br>|       1 | 2015-01-01 |               10 |<br>|       2 | 2015-01-02 |               25 |<br>|       3 | 2015-01-03 |               20 |<br>|       4 | 2015-01-04 |               30 |<br>+———+————+——————+<br>For example, return the following Ids for the above Weather table:<br>+—-+<br>| Id |<br>+—-+<br>|  2 |<br>|  4 |<br>+—-+</p>
-</blockquote>
-<h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><p>这道题让我们选出比前一天温度高的id，先做一个表的自连接，然后在where子句中增减限制条件，w1.Temperature &gt; w2.Temperature 以及 DATEDIFF(w1.date, w2.date) = 1</p>
-<h2 id="解题代码-1"><a href="#解题代码-1" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> w1.Id</div><div class="line"><span class="keyword">FROM</span> Weather w1, Weather w2</div><div class="line"><span class="keyword">WHERE</span> w1.Temperature &gt; w2.Temperature <span class="keyword">AND</span> <span class="keyword">DATEDIFF</span>(w1.date, w2.date) = <span class="number">1</span></div></pre></td></tr></table></figure>
-          
+          leetcode-196问题
+Write a SQL query to delete all duplicate email entries in a table named Person, keeping only unique emails based on its smallest Id.+—
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/11/leetcode-197/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -448,30 +453,16 @@
       
         
           
-            <h1 id="Leetcode-203"><a href="#Leetcode-203" class="headerlink" title="Leetcode 203"></a>Leetcode 203</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><blockquote>
-<p>Remove all elements from a linked list of integers that have value val.<br>Example<br>Given: 1 –&gt; 2 –&gt; 6 –&gt; 3 –&gt; 4 –&gt; 5 –&gt; 6, val = 6<br>Return: 1 –&gt; 2 –&gt; 3 –&gt; 4 –&gt; 5</p>
-</blockquote>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>去除链表中值为val的节点，同时保证其他节点的顺序保持原样。</p>
-<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><p>采用两个指针，一个为pre一个为next,每次判断next指向的节点的值是否与val相等，如果相等next指针后移一位，同时改变pre的下一个节点为next指向的当前节点。</p>
-<h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">removeElements</span><span class="params">(ListNode head, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">    ListNode newHead =<span class="keyword">new</span> ListNode(<span class="number">0</span>);</div><div class="line">    ListNode temp = <span class="keyword">new</span> ListNode(<span class="number">0</span>) ;</div><div class="line">    newHead.next = temp;</div><div class="line">    ListNode next = head;</div><div class="line">    <span class="keyword">while</span>(next!=<span class="keyword">null</span>)&#123;</div><div class="line">        <span class="keyword">if</span>(next.val!=val)&#123;</div><div class="line">            temp.next =<span class="keyword">new</span> ListNode(next.val);</div><div class="line">            temp = temp.next;</div><div class="line">        &#125;</div><div class="line">        next=next.next;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> newHead.next.next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li><p>一开始我是直接想用两个指针来进行操作，但是发现最后游标会跟着移动，无法直接返回头部，于是在前面加了两个没用的节点，这样有额外的空间开销，但是可以记录头部指针的位置</p>
-</li>
-<li><p>由于在解答过程中，采用了一个额外的链表，而不是在原来的链表上进行操作，空间开销大</p>
-</li>
-<li><p>没有考虑到使用递归来处理，思维方式有问题</p>
-</li>
-</ul>
-<h2 id="优质解答"><a href="#优质解答" class="headerlink" title="优质解答"></a>优质解答</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><ul>
-<li><p>这个方式相当于我的改进版，在原链表的基础之上改next指针，节约空间开销。</p>
-</li>
-<li><p>也像我一样采用一个<code>fakerHead</code>来记录头部位置，这也是我考虑比较好的地方。</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">removeElements</span><span class="params">(ListNode head, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">    ListNode fakeHead = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);</div><div class="line">    fakeHead.next = head;</div><div class="line">    ListNode cur = fakeHead;</div><div class="line"></div><div class="line">    <span class="keyword">while</span>(cur.next!=<span class="keyword">null</span>)&#123;</div><div class="line">        <span class="keyword">if</span>(cur.next.val==val)&#123;</div><div class="line">            cur.next = cur.next.next;</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            cur = cur.next;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> fakeHead.next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>递归程序，简洁明了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">removeElements</span><span class="params">(ListNode head, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    head.next = removeElements(head.next, val);</div><div class="line">    <span class="keyword">return</span> head.val == val ? head.next : head;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
+          Leetcode 203问题
+Remove all elements from a linked list of integers that have value val.ExampleGiven: 1 –&gt; 2 –&gt; 6 –&gt; 3 –&gt; 4 –&gt; 5 –&gt; 6,
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/11/leetcode-203/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -581,23 +572,16 @@
       
         
           
-            <h1 id="获取所有员工当前的manager"><a href="#获取所有员工当前的manager" class="headerlink" title="获取所有员工当前的manager"></a>获取所有员工当前的manager</h1><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote>
-<p>获取所有员工当前的manager，如果当前的manager是自己的话结果不显示，当前表示to_date=’9999-01-01’。<br>结果第一列给出当前员工的emp_no,第二列给出其manager对应的manager_no。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`dept_emp`</span> (</div><div class="line"><span class="string">`emp_no`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`dept_no`</span> <span class="built_in">char</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`from_date`</span> <span class="built_in">date</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`to_date`</span> <span class="built_in">date</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">PRIMARY <span class="keyword">KEY</span> (<span class="string">`emp_no`</span>,<span class="string">`dept_no`</span>));</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`dept_manager`</span> (</div><div class="line"><span class="string">`dept_no`</span> <span class="built_in">char</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`emp_no`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`from_date`</span> <span class="built_in">date</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`to_date`</span> <span class="built_in">date</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">PRIMARY <span class="keyword">KEY</span> (<span class="string">`emp_no`</span>,<span class="string">`dept_no`</span>));</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><ol>
-<li>再用WHERE限制当前员工与当前经理的条件，即 m.to_date 等于 ‘9999-01-01’ 、e.to_date 等于 ‘9999-01-01’ 、 e.emp_no 不等于m.emp_no、e.dept_no = m.dept_no</li>
-<li>为了增强代码可读性，将dept_emp用别名e代替，dept_manager用m代替，最后根据题意将e.emp_no用别名manager_no代替后输出</li>
-</ol>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> e.emp_no, m.emp_no <span class="keyword">as</span> manager_no</div><div class="line"><span class="keyword">FROM</span> dept_emp e, dept_manager m</div><div class="line"><span class="keyword">WHERE</span> e.dept_no = m.dept_no</div><div class="line">    <span class="keyword">AND</span> e.emp_no!=m.emp_no</div><div class="line">    <span class="keyword">AND</span> e.to_date =<span class="string">'9999-01-01'</span></div><div class="line">    <span class="keyword">AND</span> m.to_date=<span class="string">'9999-01-01'</span>;</div></pre></td></tr></table></figure>
-<h1 id="获取所有非manager的员工emp-no"><a href="#获取所有非manager的员工emp-no" class="headerlink" title="获取所有非manager的员工emp_no"></a>获取所有非manager的员工emp_no</h1><h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><blockquote>
-<p>获取所有非manager的员工emp_no<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`dept_manager`</span> (</div><div class="line"><span class="string">`dept_no`</span> <span class="built_in">char</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`emp_no`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`from_date`</span> <span class="built_in">date</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`to_date`</span> <span class="built_in">date</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">PRIMARY <span class="keyword">KEY</span> (<span class="string">`emp_no`</span>,<span class="string">`dept_no`</span>));</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`employees`</span> (</div><div class="line"><span class="string">`emp_no`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`birth_date`</span> <span class="built_in">date</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`first_name`</span> <span class="built_in">varchar</span>(<span class="number">14</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`last_name`</span> <span class="built_in">varchar</span>(<span class="number">16</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`gender`</span> <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="string">`hire_date`</span> <span class="built_in">date</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">PRIMARY <span class="keyword">KEY</span> (<span class="string">`emp_no`</span>));</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><ul>
-<li>使用NOT IN选出在employees但不在dept_manager中的emp_no记录</li>
-<li>先使用LEFT JOIN连接两张表，再从此表中选出dept_no值为NULL对应的emp_no记录<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> emp_no</div><div class="line"><span class="keyword">FROM</span> employees <span class="keyword">as</span> e</div><div class="line"><span class="keyword">WHERE</span> e.emp_no <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> emp_no</div><div class="line"><span class="keyword">FROM</span> dept_manager)</div><div class="line"></div><div class="line"><span class="keyword">SELECT</span> employees.emp_no</div><div class="line"><span class="keyword">FROM</span> employees <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> dept_manager</div><div class="line">    <span class="keyword">ON</span> employees.emp_no = dept_manager.emp_no</div><div class="line"><span class="keyword">WHERE</span> dept_no <span class="keyword">IS</span> <span class="literal">NULL</span></div></pre></td></tr></table></figure></li>
-</ul>
-
-          
+          获取所有员工当前的manager问题
+获取所有员工当前的manager，如果当前的manager是自己的话结果不显示，当前表示to_date=’9999-01-01’。结果第一列给出当前员工的emp_no,第二列给出其manager对应的manager_no。123456789101112CREAT
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/10/SQL-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -707,29 +691,18 @@
       
         
           
-            <h1 id="快乐数"><a href="#快乐数" class="headerlink" title="快乐数"></a>快乐数</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><blockquote>
-<p>写一个算法来判断一个数是不是“快乐数”。</p>
-<p>一个数是不是快乐是这么定义的：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，或是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。</p>
-<p><strong>案例: </strong>19 是一个快乐数。<br>$$<br>1^2+9^2 =82<br>$$</p>
-<p>$$<br>2^2+8^2=68<br>$$</p>
-<p>$$<br>6^2+8^2=100<br>$$</p>
-<p>$$<br>1^2+0^2+0^2=1<br>$$</p>
-</blockquote>
-<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><ul>
-<li>首先，如果一个数是10的倍数，则一定是快乐数，同时1一定也是快乐数</li>
-<li>如果不是快乐数，那么是需要无限循环都不等于1。<ul>
-<li>对于无限循环来说无法量化，则在计算过程中验证这个数字是否在之前计算过程中出现过，如果出现过则会陷入循环，则一定不是快乐数。 </li>
-<li>否则，继续进行循环</li>
-</ul>
-</li>
-<li>如果不是循环数，则在此过程中出现的数字一定会呈现一种<strong>环状结构</strong></li>
-</ul>
-<h3 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">    <span class="keyword">while</span> (n != <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">int</span> temp = n;</div><div class="line">        <span class="keyword">int</span> next = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (temp != <span class="number">0</span>) &#123;</div><div class="line">            next += Math.pow(temp % <span class="number">10</span>, <span class="number">2</span>);</div><div class="line">            temp /= <span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (list.contains(next)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            n = next;</div><div class="line">            list.add(next);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="分析总结"><a href="#分析总结" class="headerlink" title="分析总结"></a>分析总结</h3><p>使用我的方法运行leetcode的测试用例，运行速度比72%的提交记录快，但是仔细一想，这种方式的空间开销比较大，如果循环次数过多，那么list占用的空间则会增大。</p>
-<h3 id="社区代码"><a href="#社区代码" class="headerlink" title="社区代码"></a>社区代码</h3><p>不言而喻，相当简洁直观</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (n &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">int</span> remainder = n % <span class="number">10</span>;</div><div class="line">        result += remainder * remainder;</div><div class="line">        n /= <span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> slow = n;</div><div class="line">    <span class="keyword">int</span> fast = n;</div><div class="line">    <span class="keyword">do</span> &#123;</div><div class="line">        slow = next(slow);</div><div class="line">        fast = next(next(fast));</div><div class="line">        <span class="keyword">if</span> (slow == <span class="number">1</span> || fast == <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">while</span> (slow != fast);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          快乐数问题描述
+写一个算法来判断一个数是不是“快乐数”。
+一个数是不是快乐是这么定义的：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，或是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。
+案例: 19 是一个快乐数。$$1^2+9
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/10/leetcode-202/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -839,28 +812,24 @@
       
         
           
-            <h2 id="leetcode-top100-226"><a href="#leetcode-top100-226" class="headerlink" title="leetcode_top100_226"></a>leetcode_top100_226</h2><ul>
-<li><p>问题描述</p>
-<blockquote>
-<p>Invert a binary tree.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;     4</div><div class="line">&gt;   /   \</div><div class="line">&gt;  2     7</div><div class="line">&gt; / \   / \</div><div class="line">&gt;1   3 6   9</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<p>to</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;     4</div><div class="line">&gt;   /   \</div><div class="line">&gt;  7     2</div><div class="line">&gt; / \   / \</div><div class="line">&gt;9   6 3   1</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>问题分析</p>
-<p>反转二叉树，没什么好讲的。按照前序遍历的方式，先对根节点进行反转，然后递归，对左右子树进行反转即可。</p>
-</li>
-<li><p>解题代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">invertTree</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        TreeNode node = root.left;</div><div class="line">        root.left = root.right;</div><div class="line">        root.right = node;</div><div class="line">        invertTree(root.left);</div><div class="line">        invertTree(root.right);</div><div class="line">        <span class="keyword">return</span> root;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ul>
+          leetcode_top100_226
+问题描述
 
-          
+Invert a binary tree.
+123456&gt;     4&gt;   /   \&gt;  2     7&gt; / \   / \&gt;1   3 6   9&gt;
+
+&gt;
+
+to
+123456&gt;     4&
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/22/leetcode226/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -970,24 +939,24 @@
       
         
           
-            <h2 id="leetcode-top100-141"><a href="#leetcode-top100-141" class="headerlink" title="leetcode_top100_141"></a>leetcode_top100_141</h2><ul>
-<li>问题描述</li>
-</ul>
-<blockquote>
-<p>Given a linked list, determine if it has a cycle in it.</p>
-<p>Follow up:<br>Can you solve it without using extra space?</p>
-</blockquote>
-<ul>
-<li><p>问题分析</p>
-<p>之前遇到过一道类似的题目，是让我们判断两个链表是不是有相同的部分。当时的做法是对两个链表进行两次遍历。在第一次遍历结束之后，让<code>a.next =b ,b.next= a</code>。这道题我们可以采取相同思路来解决这个问题，利用两个节点<code>walker</code>和<code>runner</code>，我们让<code>walker</code>每次走一步然后让<code>runner</code>每次走两步，如果存在环，那么就一定会存在<code>walker=runner</code>的情况</p>
-</li>
-<li><p>解题代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123;</div><div class="line"> *         val = x;</div><div class="line"> *         next = null;</div><div class="line"> *     &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        ListNode walker = head;</div><div class="line">        ListNode runner = head;</div><div class="line">        <span class="keyword">while</span>(runner.next!=<span class="keyword">null</span> &amp;&amp; runner.next.next!=<span class="keyword">null</span>) &#123;</div><div class="line">            walker = walker.next;</div><div class="line">            runner = runner.next.next;</div><div class="line">            <span class="keyword">if</span>(walker==runner) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ul>
+          leetcode_top100_141
+问题描述
 
-          
+
+Given a linked list, determine if it has a cycle in it.
+Follow up:Can you solve it without using extra space?
+
+
+问题分析
+之前遇到过一
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/22/leetcode141/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1097,24 +1066,19 @@
       
         
           
-            <h2 id="leetcode-top100-2"><a href="#leetcode-top100-2" class="headerlink" title="leetcode_top100_2"></a>leetcode_top100_2</h2><ul>
-<li>问题描述</li>
-</ul>
-<blockquote>
-<p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
-<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
-<p><strong>Input:</strong> (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br><strong>Output:</strong> 7 -&gt; 0 -&gt; 8</p>
-</blockquote>
-<ul>
-<li>问题分析</li>
-</ul>
-<p>给定两个链表，将链表相加，其中链表的高位是存到链表的后面的。只需要遍历两个链表，将每一个的节点的值相加就行了。注意考虑进位的情况。</p>
-<ul>
-<li>解题代码</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</div><div class="line"> 	ListNode newHead = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</div><div class="line">    ListNode p = l1, q = l2, curr = newHead;</div><div class="line">    <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (p != <span class="keyword">null</span> || q != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">int</span> x = (p != <span class="keyword">null</span>) ? p.val : <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> y = (q != <span class="keyword">null</span>) ? q.val : <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> sum = carry + x + y;</div><div class="line">        carry = sum / <span class="number">10</span>;</div><div class="line">        curr.next = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</div><div class="line">        curr = curr.next;</div><div class="line">        <span class="keyword">if</span> (p != <span class="keyword">null</span>) p = p.next;</div><div class="line">        <span class="keyword">if</span> (q != <span class="keyword">null</span>) q = q.next;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (carry &gt; <span class="number">0</span>) &#123;</div><div class="line">        curr.next = <span class="keyword">new</span> ListNode(carry);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> newHead.next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          leetcode_top100_2
+问题描述
 
-          
+
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and e
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/22/leetcode2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1224,29 +1188,17 @@
       
         
           
-            <h2 id="House-Robber"><a href="#House-Robber" class="headerlink" title="House Robber"></a>House Robber</h2><p><strong>问题描述</strong></p>
-<blockquote>
-<p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and <strong>it will automatically contact the police if two adjacent houses were broken into on the same night</strong>.</p>
-<p>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight <strong>without alerting the police</strong>.</p>
-</blockquote>
-<p>这道题是动态规划的一个例题，主要思想就是采用动态规划的方法，对每个房子进行偷或不偷的判断，最后求出最大值。动态规划的重点是找出递推公式。</p>
-<blockquote>
-<p>递推公式</p>
-<p><code>money[i][0] = max(money[i - 1][0], money[i - 1][1])</code></p>
-<p>上述公式表示，不偷第 <code>i</code>家房子，当前最大收益就是前一家房子的最大收益，前一家房子可能被偷了，也可能没有被偷。 </p>
-<p><code>money[i][1] = money[i - 1][0] + nums[i]</code></p>
-<p>上述公式表示，要偷第<code>i</code> 家的房子，必须在不偷第<code>i-1</code> 家房子的前提下，才能加上偷第 i 家获得的收益。</p>
-</blockquote>
-<p>一般来说，给定一个规则，让我们求任意状态下的解，都是用动态规划。这里的规则是劫匪不能同时抢劫相邻的屋子，即我们在累加时，只有两种选择：</p>
-<ol>
-<li>如果选择不抢劫当前屋子，所以最大收益就是抢劫上一个屋子的收益或者不抢劫上一个屋子的收益，取他们最大值</li>
-<li>如果选择抢劫当前屋子，就不能抢劫上一个屋子，所以最大收益是到上一个屋子的上一个屋子为止的最大收益，加上当前屋子里有的钱</li>
-</ol>
-<p>所以，我们只要判断一下两个里面哪个大就行了，同时也是我们的递推式。另外我们可以做一点优化，本来我们是要用一个dp数组来保存之前的结果的。<strong>但是我们只需要记录是否抢劫当前屋子的收益最大值即可。</strong></p>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rob</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> rob = <span class="number">0</span>; <span class="comment">//max monney can get if rob current house</span></div><div class="line">        <span class="keyword">int</span> notrob = <span class="number">0</span>; <span class="comment">//max money can get if not rob current house</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++) &#123;</div><div class="line">            <span class="keyword">int</span> currob = notrob + nums[i]; <span class="comment">//if rob current value, previous house must not be robbed</span></div><div class="line">            notrob = Math.max(notrob, rob); <span class="comment">//if not rob ith house, take the max value of robbed (i-1)th house and not rob (i-1)th house</span></div><div class="line">            rob = currob;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> Math.max(rob, notrob);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          House Robber问题描述
 
-          
+You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only cons
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/07/leetcode-198/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1356,25 +1308,17 @@
       
         
           
-            <h2 id="Balanced-Binary-Tree"><a href="#Balanced-Binary-Tree" class="headerlink" title="Balanced Binary Tree"></a>Balanced Binary Tree</h2><blockquote>
-<p>Given a binary tree, determine if it is height-balanced.</p>
-<p>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of <em>every</em> node never differ by more than 1.</p>
-</blockquote>
-<p>给出一个二叉树的节点，验证它是不是平衡二叉树。</p>
-<p>平衡二叉树的定义：</p>
-<blockquote>
-<p>a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of <em>every</em> node never differ by more than 1</p>
-</blockquote>
-<p><strong>解决思路</strong></p>
-<p>我的想法是计算每个节点左右子树的高度，计算他们的高度差，看他们是否满足平衡二叉树的定义</p>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">int</span> left = depth(root.left);</div><div class="line">        <span class="keyword">int</span> right = depth(root.right);</div><div class="line">        <span class="keyword">return</span> (Math.abs(left-right)&lt;=<span class="number">1</span>)&amp;&amp;(isBalanced(root.left))&amp;&amp;(isBalanced(root.right));</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">depth</span><span class="params">(TreeNode root)</span></span>&#123;</div><div class="line">    	<span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    	<span class="keyword">return</span> Math.max(depth(root.left),depth(root.right))+<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个算法的存在一个问题，那就是对每个节点都要进行递归，这样递归的次数多时间开销就比较大。</p>
-<p><strong>最优解法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> helper(root) != -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">helper</span><span class="params">(TreeNode root)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> left = helper(root.left);</div><div class="line">        <span class="keyword">int</span> right = helper(root.right);</div><div class="line">        <span class="keyword">if</span> (left == -<span class="number">1</span> || right == -<span class="number">1</span> || Math.abs(left - right) &gt; <span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        <span class="keyword">return</span> Math.max(left, right) + <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == NULL) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    </div><div class="line">        <span class="keyword">int</span> leftHeight = dfsHeight (root -&gt; left);</div><div class="line">        <span class="keyword">if</span> (leftHeight == -<span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> rightHeight = dfsHeight (root -&gt; right);</div><div class="line">        <span class="keyword">if</span> (rightHeight == -<span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span> (abs(leftHeight - rightHeight) &gt; <span class="number">1</span>)  <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        <span class="keyword">return</span> max (leftHeight, rightHeight) + <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>helper</code>这个方法最终结果如果返回的是<code>-1</code>那就不是平衡树。采用深度优先的思想，如果一棵树不是平衡树，那么以他的父结点为根节点的二叉树一定也不是平衡树。这种方法时间复杂度为O(n)，显然更好。</p>
-
-          
+          Balanced Binary Tree
+Given a binary tree, determine if it is height-balanced.
+For this problem, a height-balanced binary tree is defined as a binary t
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/07/leetcode-110/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1484,20 +1428,16 @@
       
         
           
-            <h2 id="leetcode-169-Majority-Element"><a href="#leetcode-169-Majority-Element" class="headerlink" title="leetcode_169_Majority Element"></a>leetcode_169_Majority Element</h2><blockquote>
-<p>Given an array of size <em>n</em>, find the majority element. The majority element is the element that appears <strong>more than</strong> <code>⌊ n/2 ⌋</code> times.</p>
-<p>You may assume that the array is non-empty and the majority element always exist in the array.</p>
-</blockquote>
-<ol>
-<li><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a><strong>问题分析</strong></h2></li>
-</ol>
-<p>这个<code>majority</code>是指在数组中出现次数超过一半的数字，这意味着其他数字加起来的数量都没有它多，那么利用一个<code>count</code>来计数，如果和预设的<code>major</code>相同，则让<code>count</code>加一，如果不同则减一，当<code>count</code>降为0时，则说明次数被抵消掉，那么更新<code>major</code>，由于<code>major</code>次数是最多的，所以遍历结束之后，<code>major</code>中的值一定是所求数字。</p>
-<ol>
-<li><h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a><strong>解题代码</strong></h2></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> major = nums[<span class="number">0</span>];</div><div class="line">        <span class="keyword">int</span> count = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;nums.length ; i++)&#123;</div><div class="line">			<span class="keyword">if</span>(nums[i] == major)</div><div class="line">				count ++;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(count == <span class="number">0</span>)</div><div class="line">			&#123;</div><div class="line">				major = nums[i];</div><div class="line">				count ++;</div><div class="line">			&#125;<span class="keyword">else</span> count --;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_169_Majority Element
+Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/26/leetcode-169/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1591,10 +1531,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
@@ -1604,12 +1544,46 @@
 
         <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wong-way" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/5643449782/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
         </div>
 
         
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="jahojiang.github.io" title="Jaho" target="_blank">Jaho</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
         

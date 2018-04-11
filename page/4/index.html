@@ -57,11 +57,17 @@
   
 
   
+    
+      
+    
+
+    
+  
 
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -328,47 +334,16 @@
       
         
           
-            <h3 id="leetcode-58-Length-of-Last-Word"><a href="#leetcode-58-Length-of-Last-Word" class="headerlink" title="leetcode_58_Length of Last Word"></a>leetcode_58_Length of Last Word</h3><blockquote>
-<p>Given a string <em>s</em> consists of upper/lower-case alphabets and empty space characters <code>&#39; &#39;</code>, return the length of last word in the string.</p>
-<p>If the last word does not exist, return 0.</p>
-<p><strong>Note:</strong> A word is defined as a character sequence consists of non-space characters only.</p>
-<p>For example, </p>
-<p>Given <em>s</em> = <code>&quot;Hello World&quot;</code>,</p>
-<p>return <code>5</code>.</p>
-</blockquote>
-<p><strong>题意分析</strong>：</p>
-<p>这道题要求我们找到一个英文句子中，最后一个单词的长度。</p>
-<p><strong>解题思路</strong></p>
-<p>我的方法是通过找到最后一个空格所在位置，然后直接用下标进行运算，方法比较简单。</p>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution58</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lengthOfLastWord</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(s.replaceAll(<span class="string">" "</span>,<span class="string">""</span>).isEmpty())</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        s= s.trim();</div><div class="line">        <span class="keyword">int</span> index =<span class="number">0</span>;</div><div class="line">            index = s.lastIndexOf(<span class="string">' '</span>);</div><div class="line">        <span class="keyword">return</span> s.length()-<span class="number">1</span>-index;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String test = <span class="string">"a"</span>;</div><div class="line">        <span class="keyword">int</span> result = lengthOfLastWord(test);</div><div class="line">        System.out.println(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这道题其实用java来解决提供了<code>string.trim()</code>方法可以去除首尾的空格，同时可以运用<code>string.lastIndexOf(char)</code>方法可以直接周到最后一个空格的位置，代码比较简单，但是对于c或者c++来说则没有那么容易，下面是不用这些方法的解决方式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lengthOfLastWort1</span><span class="params">(String s)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(s.length()==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> end = s.length();</div><div class="line">        <span class="keyword">int</span> begin = -<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = s.length()-<span class="number">1</span>; i&gt;= <span class="number">0</span> ;i--)&#123;</div><div class="line">            <span class="keyword">if</span>(s.charAt(i)==<span class="string">' '</span>&amp;&amp;end-i-<span class="number">1</span>&lt;<span class="number">1</span>)<span class="comment">//判断是不是末尾的空格</span></div><div class="line">                end = i;</div><div class="line">            <span class="keyword">if</span> (s.charAt(i)==<span class="string">' '</span>&amp;&amp;end -i&gt;<span class="number">1</span>)&#123;<span class="comment">//不是末尾的空格，则赋给begin</span></div><div class="line">                begin = i;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        System.out.println(end-begin-<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> end-begin-<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这种方法就是通过一个一个搜索，找出最后一个单词的起始位置,确定end指针和begin指针的位置。</p>
-<table>
-<thead>
-<tr>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>begin</td>
-<td>b</td>
-<td>a</td>
-<td>b</td>
-<td>y</td>
-<td>end</td>
-</tr>
-</tbody>
-</table>
-
-          
+          leetcode_58_Length of Last Word
+Given a string s consists of upper/lower-case alphabets and empty space characters &#39; &#39;, return the length of l
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/09/leetcode-58/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -478,26 +453,17 @@
       
         
           
-            <h3 id="leetcode-38-Count-and-Say"><a href="#leetcode-38-Count-and-Say" class="headerlink" title="leetcode_38_Count and Say"></a>leetcode_38_Count and Say</h3><blockquote>
-<p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
-<p><code>1</code> is read off as <code>&quot;one 1&quot;</code> or <code>11</code>.</p>
-<p><code>11</code> is read off as <code>&quot;two 1s&quot;</code> or <code>21</code>.</p>
-<p><code>21</code> is read off as <code>&quot;one 2</code>, then <code>one 1&quot;</code> or <code>1211</code>.</p>
-<p>Given an integer <em>n</em>, generate the <em>n</em>th term of the count-and-say sequence.</p>
-<p>Note: Each term of the sequence of integers will be represented as a string.</p>
-</blockquote>
-<p>这道题是facebook的面试题，题意比较难理解。题意大概是说给一个数字n，求出数列第n个字符串应该是什么。而第n个字符串是将第n-1个字符串读一遍，例如，第三个字符串则是将第二个字符串给读一遍，读作：“一个2，一个1”，用字符串表示出来则是“1211”。</p>
-<p>由于这道题，第n项总是与第n-1项有关，于是我采取<strong>递归</strong>的方式解决这个问题，我的解题思路如下：</p>
-<ul>
-<li>如果n=1，则直接返回<code>&quot;1&quot;</code></li>
-<li>如果n&gt;=2，则采取递归调用的方式，调用本身</li>
-<li>对每一个已经初始化的字符串进行遍历，从<code>i=1</code>开始，如果它与前一位相同，则将计数器加一，如果不相同，则将<code>count</code>与<code>initString</code>加到<code>resultString</code></li>
-<li>注意，由于每次相加都是对前一位进行操作，因此不管字符串最后一位与之前的位是否相同，都没有进行相应的操作，因此在循环结束之后，再对字符串最后一位进行操作。</li>
-</ul>
-<p>下面是我的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">countAndSay</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>)</div><div class="line">            <span class="keyword">return</span> <span class="string">"1"</span>;</div><div class="line">        String initString = countAndSay(n-<span class="number">1</span>);</div><div class="line">        String resultString = <span class="string">""</span>;</div><div class="line">        <span class="keyword">int</span> count=<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i&lt; initString.length();i++)&#123;</div><div class="line">            <span class="keyword">if</span>(initString.charAt(i)==initString.charAt(i-<span class="number">1</span>))&#123;</div><div class="line">                count++;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                resultString= resultString+count+initString.charAt(i-<span class="number">1</span>);</div><div class="line">                count=<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//System.out.println("n :"+n+"count :"+count);</span></div><div class="line">        resultString = resultString+count+initString.charAt(initString.length()-<span class="number">1</span>);</div><div class="line">       <span class="comment">//System.out.println("result :"+resultString);</span></div><div class="line">        <span class="keyword">return</span> resultString;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_38_Count and Say
+The count-and-say sequence is the sequence of integers with the first five terms as following:
+1 is read off as &quot;one 1&
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/08/leetcode-38/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -607,15 +573,16 @@
       
         
           
-            <h3 id="leetcode-35-Search-Insert-Position"><a href="#leetcode-35-Search-Insert-Position" class="headerlink" title="leetcode_35_Search Insert Position"></a>leetcode_35_Search Insert Position</h3><blockquote>
-<p>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>
-<p>You may assume no duplicates in the array.</p>
-<p>Here are few examples.<br>[1,3,5,6], 5 → 2<br>[1,3,5,6], 2 → 1<br>[1,3,5,6], 7 → 4<br>[1,3,5,6], 0 → 0</p>
-</blockquote>
-<p>这道题比较简单，直接遍历数组，找到满足<code>nums[i]&gt;=target</code>条件的数，直接返回就好，下面是代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> i;</div><div class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;nums.length; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[i] &gt;= target)</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> i;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_35_Search Insert Position
+Given a sorted array and a target value, return the index if the target is found. If not, return the index where it
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/07/leetcode-35/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -725,25 +692,17 @@
       
         
           
-            <h3 id="leetcode-21-implement-strStr"><a href="#leetcode-21-implement-strStr" class="headerlink" title="leetcode_21_implement strStr()"></a>leetcode_21_implement strStr()</h3><blockquote>
-<p>Implement strStr().</p>
-<p>Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.</p>
-</blockquote>
-<p>这道题要求我们寻找一个字符串<code>substr</code>是否在另一个字符串<code>str</code>中，如果找到则返回在<code>str</code>中的下标位置，如果没有找到则返回-1。</p>
-<p>我的解决思路如下：</p>
-<ul>
-<li>首先，如果<code>substr</code>为空，则直接返回0；</li>
-<li>如果，<code>str</code>为空，则直接返回-1；</li>
-<li>排除以上两种情况，就直接进行循环，一个个搜索子串</li>
-</ul>
-<p>下面是我的算法代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (needle.length() == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span> (haystack.length() == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; haystack.length() + <span class="number">1</span>; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; needle.length() + <span class="number">1</span>; j++) &#123;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (j == needle.length())</div><div class="line">                    <span class="keyword">return</span> i;</div><div class="line">                <span class="keyword">if</span> (i + j == haystack.length())</div><div class="line">                    <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">                <span class="keyword">if</span> (haystack.charAt(i + j) != needle.charAt(j))</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对于上面代码，可能有人会觉得奇怪，为什么循环终止条件是<code>haystack.length()+1</code>,这里解释一下，因为我的<code>break</code>的判断条件是放在后面，因此在进行<code>if(j == needle.length())</code>时，<code>j</code> 已经自加了。因此当<code>needle</code>是<code>haystack</code>的子串的时候，终止条件是<code>j= needle.length()</code></p>
-<p>网站上公认比较好的解题代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (j == needle.length())</div><div class="line">                <span class="keyword">return</span> i;</div><div class="line">            <span class="keyword">if</span> (i + j == haystack.length())</div><div class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">            <span class="keyword">if</span> (needle.charAt(j) != haystack.charAt(i + j))</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这段代码更加直接，不指定循环终止条件，避免对边界值的检验，，同时采用<code>if</code>语句，进行控制。</p>
-
-          
+          leetcode_21_implement strStr()
+Implement strStr().
+Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of hay
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/07/leectcode-28/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -853,39 +812,17 @@
       
         
           
-            <h3 id="leetcode-26-removeDuplicates"><a href="#leetcode-26-removeDuplicates" class="headerlink" title="leetcode_26_removeDuplicates"></a>leetcode_26_removeDuplicates</h3><blockquote>
-<p>Given a sorted array, remove the duplicates in place such that each element appear only <em>once</em> and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this in place with constant memory.</p>
-<p>For example,<br>Given input array <em>nums</em> = <code>[1,1,2]</code>,</p>
-<p>Your function should return length = <code>2</code>, with the first two elements of <em>nums</em> being <code>1</code> and <code>2</code> respectively. It doesn’t matter what you leave beyond the new length.</p>
-</blockquote>
-<p>一开始，我看到函数的返回值的时候，我以为只是统计不重复元素的数量，同时题目要求我们不能使用额外的空间。我注意到该数组是已经排好序的数组，因此我采取以下方法</p>
-<ol>
-<li><strong>将计数器<code>count</code>初始化为1</strong></li>
-<li><strong>利用循环，判断<code>nums[i]</code>与<code>nums[i-1]</code>的值是否相同，如果相同，继续执行循环，如果不同，就将计数器加一</strong></li>
-</ol>
-<p>代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">  <span class="keyword">if</span>(nums.length==<span class="number">0</span>)</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">  <span class="keyword">int</span> count = <span class="number">1</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</div><div class="line">    <span class="keyword">if</span> (nums[i] == nums[i - <span class="number">1</span>])</div><div class="line">      <span class="keyword">continue</span>;</div><div class="line">    <span class="keyword">else</span>      </div><div class="line">      count++;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>但是放到leetcode上面去提交，发现我对题意的理解有问题，题目要求</p>
-<blockquote>
-<p>Your function should return length = <code>2</code>, with the first two elements of <em>nums</em> being <code>1</code> and <code>2</code> respectively</p>
-</blockquote>
-<p>不光是要返回个数n，同时要求前n个元素就是不重复的那些元素。</p>
-<p>因为在我的计数器count，不仅仅是非重复的元素个数，而且<code>满足count&lt;i</code>同时可以在下一次计数器更新的时候，用来指定下一个非重复元素应该放置的位置，即<code>num[count] =num[i]</code>，因此我做出以下改进：</p>
-<ol>
-<li><strong>将计数器<code>count</code>初始化为1</strong></li>
-<li><strong>利用循环，判断<code>nums[i]</code>与<code>nums[i-1]</code>的值是否相同，</strong><ul>
-<li><strong>如果相同，继续执行循环</strong>。</li>
-<li><strong>如果不同，就将计数器加一，同时更新num[count]</strong></li>
-</ul>
-</li>
-</ol>
-<p>代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(nums.length==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> count = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (nums[i] == nums[i - <span class="number">1</span>])</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            <span class="keyword">else</span>&#123;</div><div class="line">                nums[count]=nums[i];</div><div class="line">                count++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>最后再次做出一个小调整</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(nums.length==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> count = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (nums[i] != nums[i - <span class="number">1</span>])&#123;</div><div class="line">                nums[count++]=nums[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_26_removeDuplicates
+Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
+D
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/06/leetcode-26/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -995,23 +932,18 @@
       
         
           
-            <blockquote>
-<p>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p>
-</blockquote>
-<p>将两个已经排好序的列表合并成为一个有序的列表，我想到有两种方法：</p>
-<ul>
-<li>第一种是通过循环比较两个列表队首的元素，然后添加到新的队列里面</li>
-<li>第二种是采用递归的方法是，先把两个列表种最小的元素找出来，然后再用剩下来的队列进行递归调用</li>
-</ul>
-<p>下面展示第二种方法的代码：</p>
-<p>辅助用的节点类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span></span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> val;</div><div class="line">    <span class="keyword">public</span> ListNode next;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ListNode</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;val = x;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>合并列表</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution21</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</div><div class="line">        ListNode newHead;</div><div class="line">        <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> l2;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (l2 == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> l1;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (l1.val &gt; l2.val) &#123;</div><div class="line">            newHead = l2;</div><div class="line">            newHead.next = (mergeTwoLists(l1, l2.next));</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            newHead = l1;</div><div class="line">            newHead.next = (mergeTwoLists(l1.next, l2));</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> newHead;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>测试代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">  ListNode l1 = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</div><div class="line">  ListNode l2 = <span class="keyword">new</span> ListNode(<span class="number">4</span>);</div><div class="line">  ListNode l3 = <span class="keyword">new</span> ListNode(<span class="number">6</span>);</div><div class="line"></div><div class="line">  ListNode n1 = <span class="keyword">new</span> ListNode(<span class="number">2</span>);</div><div class="line">  ListNode n2 = <span class="keyword">new</span> ListNode(<span class="number">3</span>);</div><div class="line">  ListNode n3 = <span class="keyword">new</span> ListNode(<span class="number">4</span>);</div><div class="line">  ListNode n4 = <span class="keyword">new</span> ListNode(<span class="number">7</span>);</div><div class="line">  l1.next = l2;</div><div class="line">  l2.next = l3;</div><div class="line">  n1.next = n2;</div><div class="line">  n2.next = n3;</div><div class="line">  n3.next = n4;</div><div class="line">  ListNode result = mergeTwoLists(l1,n1);</div><div class="line">  <span class="keyword">while</span>(result!=<span class="keyword">null</span>)&#123;</div><div class="line">    System.out.println(result.val);</div><div class="line">    result = result.next;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
           
+Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+
+将两个已经排
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/06/leetcode-21/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1121,28 +1053,16 @@
       
         
           
-            <blockquote>
-<p>Given a string containing just the characters <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, <code>&#39;{&#39;</code>, <code>&#39;}&#39;</code>, <code>&#39;[&#39;</code> and <code>&#39;]&#39;</code>, determine if the input string is valid.</p>
-<p>The brackets must close in the correct order, <code>&quot;()&quot;</code> and <code>&quot;()[]{}&quot;</code> are all valid but <code>&quot;(]&quot;</code> and <code>&quot;([)]&quot;</code> are not.</p>
-</blockquote>
-<h3 id="leetcode-20-括号匹配"><a href="#leetcode-20-括号匹配" class="headerlink" title="leetcode_20_括号匹配"></a>leetcode_20_括号匹配</h3><p>括号匹配是用栈解决的一个经典问题，我对这个问题的理解如下</p>
-<p><strong>左右括号匹配，在数量上必须满足偶数，这是一个必要条件，而不是充分条件。</strong></p>
-<p>整体的解决思路如下：</p>
-<ol>
-<li><p>将不同的括号定义为不同的数字</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PARENTHESIS = <span class="number">1</span>;</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BEACKET = <span class="number">2</span> ;</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BRACE = <span class="number">3</span>;</div></pre></td></tr></table></figure>
-</li>
-<li><p>遇到左括号就把它放在栈中</p>
-</li>
-<li><p>遇到右括号就把栈顶元素取出，并判断是否匹配（注意栈为空情况的检查）</p>
-</li>
-<li><p>循环结束判断栈是否为空</p>
-</li>
-</ol>
-<p>完整代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Stack;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution20</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PARENTHESIS = <span class="number">1</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BEACKET = <span class="number">2</span> ;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BRACE = <span class="number">3</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        Stack&lt;Integer&gt; mStack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</div><div class="line">        <span class="keyword">boolean</span> isValid = <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</div><div class="line">            <span class="keyword">if</span> (s.charAt(i) == <span class="string">'('</span>) &#123;</div><div class="line">                mStack.push(PARENTHESIS);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i) == <span class="string">'['</span>) &#123;</div><div class="line">                mStack.push(BEACKET);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i) == <span class="string">'&#123;'</span>) &#123;</div><div class="line">                mStack.push(BRACE);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i) == <span class="string">')'</span>) &#123;</div><div class="line">                <span class="keyword">if</span>(mStack.isEmpty())</div><div class="line">                &#123;</div><div class="line">                    isValid = <span class="keyword">false</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (mStack.pop().equals(PARENTHESIS))</div><div class="line">                    <span class="keyword">continue</span>;</div><div class="line">                <span class="keyword">else</span> &#123;</div><div class="line">                    isValid = <span class="keyword">false</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i) == <span class="string">']'</span>) &#123;</div><div class="line">                <span class="keyword">if</span>(mStack.isEmpty())</div><div class="line">                &#123;</div><div class="line">                    isValid = <span class="keyword">false</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (mStack.pop().equals(BEACKET))</div><div class="line">                    <span class="keyword">continue</span>;</div><div class="line">                <span class="keyword">else</span> &#123;</div><div class="line">                    isValid = <span class="keyword">false</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i) == <span class="string">'&#125;'</span>) &#123;</div><div class="line">                <span class="keyword">if</span>(mStack.isEmpty())</div><div class="line">                &#123;</div><div class="line">                    isValid = <span class="keyword">false</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (mStack.pop().equals(BRACE))</div><div class="line">                    <span class="keyword">continue</span>;</div><div class="line">                <span class="keyword">else</span> &#123;</div><div class="line">                    isValid = <span class="keyword">false</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (!mStack.isEmpty())</div><div class="line">            isValid = <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">return</span> isValid;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String testStr = <span class="string">"()()&#123;[]()&#125;"</span>;</div><div class="line">        <span class="keyword">if</span> (isValid(testStr)) &#123;</div><div class="line">            System.out.println(<span class="string">"valid"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            System.out.println(<span class="string">"invalid"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
           
+Given a string containing just the characters &#39;(&#39;, &#39;)&#39;, &#39;{&#39;, &#39;}&#39;, &#39;[&#39; and &#39;]&#39;, determine if the input
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/04/leetcode-20/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1252,18 +1172,18 @@
       
         
           
-            <h3 id="leetcode-14"><a href="#leetcode-14" class="headerlink" title="leetcode_14"></a>leetcode_14</h3><blockquote>
-<p>description:Write a function to find the longest common prefix string amongst an array of strings.</p>
-</blockquote>
-<p>这个题目要求我们找出一个字符串数组的最大公共前缀，我先把最短字符串的长度计算出来，采用每个位进行比较的方法，如果满足条件就记录下标，如果不满足就直接跳出循环，减少比较和循环次数</p>
-<p>代买如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</div><div class="line">       String result=<span class="string">""</span>;</div><div class="line">       <span class="keyword">if</span>(strs.length == <span class="number">0</span>)</div><div class="line">           <span class="keyword">return</span> result;</div><div class="line">       <span class="keyword">int</span> index =-<span class="number">1</span>;</div><div class="line">       <span class="keyword">int</span> count = Integer.MAX_VALUE;</div><div class="line">       <span class="keyword">for</span> (String str:strs) &#123;</div><div class="line">           <span class="keyword">if</span>(str.length()&lt;count)</div><div class="line">               count=str.length();</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;count ; i++ )&#123;</div><div class="line">       	<span class="keyword">char</span> ch= strs[<span class="number">0</span>].charAt(i);</div><div class="line">       	<span class="keyword">boolean</span> isEqual=<span class="keyword">true</span>;</div><div class="line">       	<span class="keyword">for</span> (String str :strs) &#123;</div><div class="line">       		<span class="keyword">if</span>(str.charAt(i) != ch)</div><div class="line">               &#123;</div><div class="line">                   isEqual=<span class="keyword">false</span>;</div><div class="line">               &#125;</div><div class="line">       	&#125;</div><div class="line">       	<span class="keyword">if</span>(isEqual)</div><div class="line">           &#123;</div><div class="line">               index = i;</div><div class="line">           &#125;</div><div class="line">           <span class="keyword">else</span></div><div class="line">               <span class="keyword">break</span>;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">if</span>(index != -<span class="number">1</span>)</div><div class="line">           result = strs[<span class="number">0</span>].substring(<span class="number">0</span>,index+<span class="number">1</span>);</div><div class="line">       <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>后来使用<code>Arrays.sort()</code>,进行排序，找出最短字符串</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestCommonPrefix1</span><span class="params">(String[] strs)</span> </span>&#123;</div><div class="line">        String result = <span class="string">""</span>;</div><div class="line">        <span class="keyword">if</span> (strs.length == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> result;</div><div class="line">        <span class="keyword">int</span> index = -<span class="number">1</span>;</div><div class="line"></div><div class="line">        Arrays.sort(strs);</div><div class="line">        <span class="keyword">int</span> count = strs[<span class="number">0</span>].length();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</div><div class="line">            <span class="keyword">char</span> ch = strs[<span class="number">0</span>].charAt(i);</div><div class="line">            <span class="keyword">boolean</span> isEqual = <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">for</span> (String str : strs) &#123;</div><div class="line">                <span class="keyword">if</span> (str.charAt(i) != ch) &#123;</div><div class="line">                    isEqual = <span class="keyword">false</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (isEqual) &#123;</div><div class="line">                index = i;</div><div class="line">            &#125; <span class="keyword">else</span></div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (index != -<span class="number">1</span>)</div><div class="line">            result = strs[<span class="number">0</span>].substring(<span class="number">0</span>, index + <span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>最后考虑到<code>Array.sort()</code>之后的字符串是已经排序过后的，最大前缀一定在最长字符串和最短字符串之中，于是我们可以将第一个字符串和最后一个字符串拿来作比较，减少循环的次数。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestCommonPrefix2</span><span class="params">(String[] strs)</span> </span>&#123;</div><div class="line">        String result = <span class="string">""</span>;</div><div class="line">        <span class="keyword">int</span> index = -<span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (strs != <span class="keyword">null</span> &amp;&amp; strs.length &gt; <span class="number">0</span>) &#123;</div><div class="line"></div><div class="line">            Arrays.sort(strs);</div><div class="line"></div><div class="line">            String firstStr = strs[<span class="number">0</span>];</div><div class="line">            String lastStr = strs[strs.length - <span class="number">1</span>];</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; firstStr.length(); i++) &#123;</div><div class="line">                <span class="keyword">if</span> (firstStr.charAt(i) == lastStr.charAt(i)) &#123;</div><div class="line">                    index = i;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">return</span> result;</div><div class="line">                &#125;</div><div class="line">                result = firstStr.substring(<span class="number">0</span>, index + <span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+          leetcode_14
+description:Write a function to find the longest common prefix string amongst an array of strings.
 
-          
+这个题目要求我们找出一个字符串数组的最大公共前缀，我先把最短字符串的长度计算
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/04/leetcode-14/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1373,9 +1293,15 @@
       
         
           
-            <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-bordered table-striped"</span> <span class="attr">id</span>=<span class="string">"msg"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">thead</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>#<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>title<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>create day<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>categories<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>comment number<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>operation<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>database concept<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>2017-05-06<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>Comp.Sci.<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>132<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void( alert('编辑'))"</span></span></div><div class="line">           <span class="attr">class</span>=<span class="string">"btn btn-primary btn-sm waves-effect waves-light m-b-5"</span>&gt;<span class="tag">&lt;<span class="name">i</span></span></div><div class="line">                                                                            <span class="attr">class</span>=<span class="string">"fa fa-edit"</span>&gt;<span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>编辑<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void( alert('删除'))"</span></span></div><div class="line">           <span class="attr">class</span>=<span class="string">"btn btn-danger btn-sm waves-effect waves-light m-b-5"</span>&gt;<span class="tag">&lt;<span class="name">i</span></span></div><div class="line">                                                                           <span class="attr">class</span>=<span class="string">"fa fa-trash-o"</span>&gt;<span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void( alert('预览'))"</span></span></div><div class="line">           <span class="attr">class</span>=<span class="string">"btn btn-warning btn-sm waves-effect waves-light m-b-5"</span> </div><div class="line">           <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;<span class="tag">&lt;<span class="name">i</span></span></div><div class="line">                              <span class="attr">class</span>=<span class="string">"fa fa-rocket"</span>&gt;<span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>预览<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>software<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>2015-02-06<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>Comp.Sci.<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>432<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void( alert('编辑'))"</span></span></div><div class="line">           <span class="attr">class</span>=<span class="string">"btn btn-primary btn-sm waves-effect waves-light m-b-5"</span>&gt;<span class="tag">&lt;<span class="name">i</span></span></div><div class="line">                                                                            <span class="attr">class</span>=<span class="string">"fa fa-edit"</span>&gt;<span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>编辑<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void( alert('删除'))"</span></span></div><div class="line">           <span class="attr">class</span>=<span class="string">"btn btn-danger btn-sm waves-effect waves-light m-b-5"</span>&gt;<span class="tag">&lt;<span class="name">i</span></span></div><div class="line">                                                                           <span class="attr">class</span>=<span class="string">"fa fa-trash-o"</span>&gt;<span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void( alert('预览'))"</span></span></div><div class="line">           <span class="attr">class</span>=<span class="string">"btn btn-warning btn-sm waves-effect waves-light m-b-5"</span> </div><div class="line">           <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;<span class="tag">&lt;<span class="name">i</span></span></div><div class="line">                              <span class="attr">class</span>=<span class="string">"fa fa-rocket"</span>&gt;<span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>预览<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
-
-          
+          12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152&lt;table class="table table-bordered table-striped" id
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/07/table-demo/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1485,10 +1411,16 @@
       
         
           
-            <p>以下是一个jdbc连接数据库的例子</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//STEP 1. Import required packages</span></div><div class="line"><span class="keyword">import</span> java.sql.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FirstExample</span> </span>&#123;</div><div class="line">   <span class="comment">// JDBC driver name and database URL</span></div><div class="line">   <span class="keyword">static</span> <span class="keyword">final</span> String JDBC_DRIVER = <span class="string">"com.mysql.jdbc.Driver"</span>;  </div><div class="line">   <span class="keyword">static</span> <span class="keyword">final</span> String DB_URL = <span class="string">"jdbc:mysql://localhost/EMP"</span>;</div><div class="line"></div><div class="line">   <span class="comment">//  Database credentials</span></div><div class="line">   <span class="keyword">static</span> <span class="keyword">final</span> String USER = <span class="string">"username"</span>;</div><div class="line">   <span class="keyword">static</span> <span class="keyword">final</span> String PASS = <span class="string">"password"</span>;</div><div class="line">   </div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">   Connection conn = <span class="keyword">null</span>;</div><div class="line">   Statement stmt = <span class="keyword">null</span>;</div><div class="line">   <span class="keyword">try</span>&#123;</div><div class="line">      <span class="comment">//STEP 2: Register JDBC driver</span></div><div class="line">      Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</div><div class="line"></div><div class="line">      <span class="comment">//STEP 3: Open a connection</span></div><div class="line">      System.out.println(<span class="string">"Connecting to database..."</span>);</div><div class="line">      conn = DriverManager.getConnection(DB_URL,USER,PASS);</div><div class="line"></div><div class="line">      <span class="comment">//STEP 4: Execute a query</span></div><div class="line">      System.out.println(<span class="string">"Creating statement..."</span>);</div><div class="line">      stmt = conn.createStatement();</div><div class="line">      String sql;</div><div class="line">      sql = <span class="string">"SELECT id, first, last, age FROM Employees"</span>;</div><div class="line">      ResultSet rs = stmt.executeQuery(sql);</div><div class="line"></div><div class="line">      <span class="comment">//STEP 5: Extract data from result set</span></div><div class="line">      <span class="keyword">while</span>(rs.next())&#123;</div><div class="line">         <span class="comment">//Retrieve by column name</span></div><div class="line">         <span class="keyword">int</span> id  = rs.getInt(<span class="string">"id"</span>);</div><div class="line">         <span class="keyword">int</span> age = rs.getInt(<span class="string">"age"</span>);</div><div class="line">         String first = rs.getString(<span class="string">"first"</span>);</div><div class="line">         String last = rs.getString(<span class="string">"last"</span>);</div><div class="line"></div><div class="line">         <span class="comment">//Display values</span></div><div class="line">         System.out.print(<span class="string">"ID: "</span> + id);</div><div class="line">         System.out.print(<span class="string">", Age: "</span> + age);</div><div class="line">         System.out.print(<span class="string">", First: "</span> + first);</div><div class="line">         System.out.println(<span class="string">", Last: "</span> + last);</div><div class="line">      &#125;</div><div class="line">      <span class="comment">//STEP 6: Clean-up environment</span></div><div class="line">      rs.close();</div><div class="line">      stmt.close();</div><div class="line">      conn.close();</div><div class="line">   &#125;<span class="keyword">catch</span>(SQLException se)&#123;</div><div class="line">      <span class="comment">//Handle errors for JDBC</span></div><div class="line">      se.printStackTrace();</div><div class="line">   &#125;<span class="keyword">catch</span>(Exception e)&#123;</div><div class="line">      <span class="comment">//Handle errors for Class.forName</span></div><div class="line">      e.printStackTrace();</div><div class="line">   &#125;<span class="keyword">finally</span>&#123;</div><div class="line">      <span class="comment">//finally block used to close resources</span></div><div class="line">      <span class="keyword">try</span>&#123;</div><div class="line">         <span class="keyword">if</span>(stmt!=<span class="keyword">null</span>)</div><div class="line">            stmt.close();</div><div class="line">      &#125;<span class="keyword">catch</span>(SQLException se2)&#123;</div><div class="line">      &#125;<span class="comment">// nothing we can do</span></div><div class="line">      <span class="keyword">try</span>&#123;</div><div class="line">         <span class="keyword">if</span>(conn!=<span class="keyword">null</span>)</div><div class="line">            conn.close();</div><div class="line">      &#125;<span class="keyword">catch</span>(SQLException se)&#123;</div><div class="line">         se.printStackTrace();</div><div class="line">      &#125;<span class="comment">//end finally try</span></div><div class="line">   &#125;<span class="comment">//end try</span></div><div class="line">   System.out.println(<span class="string">"Goodbye!"</span>);</div><div class="line">&#125;<span class="comment">//end main</span></div><div class="line">&#125;<span class="comment">//end FirstExample</span></div></pre></td></tr></table></figure>
-
-          
+          以下是一个jdbc连接数据库的例子
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/05/jdbcDriver/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1582,10 +1514,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
@@ -1595,12 +1527,46 @@
 
         <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wong-way" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/5643449782/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
         </div>
 
         
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="jahojiang.github.io" title="Jaho" target="_blank">Jaho</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
         

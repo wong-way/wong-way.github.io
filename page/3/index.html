@@ -57,11 +57,17 @@
   
 
   
+    
+      
+    
+
+    
+  
 
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -328,22 +334,18 @@
       
         
           
-            <h3 id="leetcode-118-Pascal’s-Triangle"><a href="#leetcode-118-Pascal’s-Triangle" class="headerlink" title="leetcode_118_Pascal’s Triangle"></a>leetcode_118_Pascal’s Triangle</h3><blockquote>
-<p>Given <em>numRows</em>, generate the first <em>numRows</em> of Pascal’s triangle.</p>
-<p>For example, given <em>numRows</em> = 5,<br>Return</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; [</div><div class="line">&gt;      [1],</div><div class="line">&gt;     [1,1],</div><div class="line">&gt;    [1,2,1],</div><div class="line">&gt;   [1,3,3,1],</div><div class="line">&gt;  [1,4,6,4,1]</div><div class="line">&gt; ]</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>输出杨辉三角，只要知道杨辉三角是怎么构建就能够很容易的把它实现.直接贴代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; generate(<span class="keyword">int</span> numRows) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; mList = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; numRows;i++)&#123;</div><div class="line">        	List&lt;Integer&gt; intList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(j == <span class="number">0</span>|| j==i)</div><div class="line">					intList.add(<span class="number">1</span>);</div><div class="line">				<span class="keyword">else</span>&#123;</div><div class="line">					intList.add(mList.get(i-<span class="number">1</span>).get(j)+mList.get(i-<span class="number">1</span>).get(j-<span class="number">1</span>));</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">        	mList.add(intList);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> mList;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="leetcode-119-Pascal’s-Triangle-II"><a href="#leetcode-119-Pascal’s-Triangle-II" class="headerlink" title="leetcode_119_Pascal’s Triangle II"></a>leetcode_119_Pascal’s Triangle II</h3><blockquote>
-<p>Given an index <em>k</em>, return the <em>k</em>th row of the Pascal’s triangle.</p>
-<p>For example, given <em>k</em> = 3,</p>
-<p>Return <code>[1,3,3,1]</code>.</p>
-</blockquote>
-<p>给出<code>rowIndex</code>，输出杨辉三角对应的一层，直接在上一题的基础上返回<code>mList.get(rowIndex)</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">getRow</span><span class="params">(<span class="keyword">int</span> rowIndex)</span> </span>&#123;</div><div class="line">       List&lt;List&lt;Integer&gt;&gt; mList = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;=rowIndex;i++)&#123;</div><div class="line">            List&lt;Integer&gt; intList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i;j++)&#123;</div><div class="line">                <span class="keyword">if</span>(j == <span class="number">0</span>|| j==i)</div><div class="line">                    intList.add(<span class="number">1</span>);</div><div class="line">                <span class="keyword">else</span>&#123;</div><div class="line">                    intList.add(mList.get(i-<span class="number">1</span>).get(j)+mList.get(i-<span class="number">1</span>).get(j-<span class="number">1</span>));</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            mList.add(intList);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> mList.get(rowIndex);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_118_Pascal’s Triangle
+Given numRows, generate the first numRows of Pascal’s triangle.
+For example, given numRows = 5,Return
+12345678&gt; [&gt
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/16/leetcode-118-119/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -453,27 +455,17 @@
       
         
           
-            <blockquote>
-<p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</p>
-<p>For example:</p>
-<p>Given the below binary tree and </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sum = 22</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">      5</div><div class="line">     / \</div><div class="line">    4   8</div><div class="line">   /   / \</div><div class="line">  11  13  4</div><div class="line"> /  \      \</div><div class="line">7    2      1</div></pre></td></tr></table></figure>
-<blockquote>
-<p>return true, as there exist a root-to-leaf path <code>5-&gt;4-&gt;11-&gt;2</code> which sum is 22.</p>
-</blockquote>
-<p>这道题要求我们求出是不是存在一条路径，满足从根节点到叶节点所有的值加起来。这个问题也是可以用递归来解决的。</p>
-<p><strong>解题思路</strong></p>
-<ul>
-<li>首先检查<code>root == null</code>的情况，返回<code>false</code></li>
-<li>判断终止递归的条件，即在叶节点时<code>if(num == root.val)</code>。</li>
-<li>递归，传入的参数为<code>num - root.val</code>，判断左子树或者右子树是否满足。</li>
-</ul>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</div><div class="line">        	<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">if</span>(root.val == sum &amp;&amp;root.left==<span class="keyword">null</span>&amp;&amp;root.right== <span class="keyword">null</span>)</div><div class="line">        	<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">if</span>((hasPathSum(root.left,sum-root.val))||(hasPathSum(root.right,sum-root.val)))</div><div class="line">        	<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
           
+Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/14/leetcode-112/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -583,40 +575,17 @@
       
         
           
-            <h3 id="leetcode-104-Maximum-Depth-of-Binary-Tree"><a href="#leetcode-104-Maximum-Depth-of-Binary-Tree" class="headerlink" title="leetcode_104_Maximum Depth of Binary Tree"></a>leetcode_104_Maximum Depth of Binary Tree</h3><blockquote>
-<p>Given a binary tree, find its maximum depth.</p>
-<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
-</blockquote>
-<p>这道题让我们求二叉树的最大高度，采用递归的方式皆可以很轻松的解决这道题。</p>
-<p><strong>解题思路</strong></p>
-<ul>
-<li>判断递归终止条件<code>root == null</code>，则<code>return 0</code>；</li>
-<li>进行递归。返回左右子树的最大层数加一，<code>return 1+max(leftHeight,rightHeight)</code>。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">      <span class="keyword">if</span>(root == <span class="keyword">null</span>)</div><div class="line">           <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">       <span class="keyword">else</span>&#123;</div><div class="line">           <span class="keyword">int</span> left = maxDepth(root.left);</div><div class="line">           <span class="keyword">int</span> right = maxDepth(root.right);            </div><div class="line">           <span class="keyword">return</span> <span class="number">1</span>+(left&gt;right?left:right);</div><div class="line">       &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="leetcode-111-Minimum-Depth-of-Binary-Tree"><a href="#leetcode-111-Minimum-Depth-of-Binary-Tree" class="headerlink" title="leetcode_111_Minimum Depth of Binary Tree"></a>leetcode_111_Minimum Depth of Binary Tree</h3><blockquote>
-<p>Given a binary tree, find its minimum depth.</p>
-<p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p>
-</blockquote>
-<p>这道题让我们求出二叉树的最小的深度，如果我们按照上一道题的思路来做，结果是正确的吗？</p>
-<p>答案是否定。</p>
-<p>主要的问题是出现在这里<code>return 1+(left&lt;right?left:right);</code>，返回左右子树中高度较小的。</p>
-<p>如果出现一个内部节点只有左子树或者右子树的时候，那么左右子树中高度较小的肯定是0。这样就不能保证是从根节点到叶节点的最小高度。因此我们在返回的时候需要对这种情况进行检查。</p>
-<p><strong>解题思路</strong></p>
-<ul>
-<li><p>判断递归终止条件<code>root == null</code>，则<code>return 0</code></p>
-</li>
-<li><p>如果左右子树都存在的情况下，返回左右子树中较小的高度</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (leftDepth &gt; <span class="number">0</span> &amp;&amp; rightDepth &gt; <span class="number">0</span>)</div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> <span class="number">1</span> + (leftDepth &gt; rightDepth ? rightDepth : leftDepth);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>如果不满足上诉条件，则证明只存在左子树或者右子树，因此就要返回左子树或者右子树相应的高度。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="number">1</span> + (leftDepth &lt; rightDepth ? rightDepth : leftDepth);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> leftDepth = minDepth(root.left);</div><div class="line">            <span class="keyword">int</span> rightDepth = minDepth(root.right);</div><div class="line">            <span class="keyword">if</span> (leftDepth &gt; <span class="number">0</span> &amp;&amp; rightDepth &gt; <span class="number">0</span>)</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span> + (leftDepth &gt; rightDepth ? rightDepth : leftDepth);</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span> + (leftDepth &lt; rightDepth ? rightDepth : leftDepth);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_104_Maximum Depth of Binary Tree
+Given a binary tree, find its maximum depth.
+The maximum depth is the number of nodes along the longest path
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/14/leetcode-104-111/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -726,25 +695,18 @@
       
         
           
-            <h3 id="leetcode-88-Merge-Sorted-Array"><a href="#leetcode-88-Merge-Sorted-Array" class="headerlink" title="leetcode_88_Merge Sorted Array"></a>leetcode_88_Merge Sorted Array</h3><blockquote>
-<p>Given two sorted integer arrays <em>nums1</em> and <em>nums2</em>, merge <em>nums2</em> into <em>nums1</em> as one sorted array.</p>
-<p><strong>Note:</strong></p>
-<p>You may assume that <em>nums1</em> has enough space (size that is greater or equal to <em>m</em> + <em>n</em>) to hold additional elements from <em>nums2</em>. The number of elements initialized in <em>nums1</em> and <em>nums2</em> are <em>m</em> and <em>n</em> respectively.</p>
-</blockquote>
-<p><strong>问题简析</strong></p>
-<p>其实个人感觉这道题和排序算法比较像，只要把两个已经排序的数组合并成一个排好序的数组就可以了。</p>
-<p><strong>解题思路</strong></p>
-<ul>
-<li>方法一，将两个数组连接起来，然后再排序，而且JAVA排序还很方便，调用<code>Arrays.sort</code>即可。</li>
-<li>方法二，一边连接一边排序。整体思想和选择排序相似，将每一个数字放在它应该在的位置，最大的放在最后一个，最小的放在最前面。</li>
-</ul>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span> m, <span class="keyword">int</span>[] nums2, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">       m = m - <span class="number">1</span>;</div><div class="line">       n = n - <span class="number">1</span>;</div><div class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=m+n+<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line">           <span class="keyword">if</span>(m&lt;<span class="number">0</span>)</div><div class="line">               nums1[i]=nums2[n--];</div><div class="line">           <span class="keyword">else</span> <span class="keyword">if</span>(n&lt;<span class="number">0</span>)</div><div class="line">               nums1[i]=nums1[m--];</div><div class="line">           <span class="keyword">else</span> &#123;</div><div class="line">               nums1[i] = nums2[n] &gt; nums1[m] ? nums2[n--] : nums1[m--];</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>示例代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> m, <span class="keyword">int</span> B[], <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> i=m-<span class="number">1</span>, j=n-<span class="number">1</span>, k=m+n-<span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (i&gt;-<span class="number">1</span> &amp;&amp; j&gt;-<span class="number">1</span>) A[k--]= (A[i]&gt;B[j]) ? A[i--] : B[j--];</div><div class="line">    <span class="keyword">while</span> (j&gt;-<span class="number">1</span>)         A[k--]=B[j--];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这三行代码真的很精髓，我一开始看的时候，觉得最后只对B数组剩下的元素进行处理，但是A数组剩下的却没有进行相应的处理，我觉得这里可能会出现问题。但是我后来反应过来，A数组如果出现剩下的元素，那么它本身所在的位置就是它最终应该出现的位置！！不得不佩服写出这个算法的人，很厉害。</p>
-
-          
+          leetcode_88_Merge Sorted Array
+Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+Note:
+You may assume that 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/12/leetcode-88/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -854,28 +816,17 @@
       
         
           
-            <h3 id="leetcode-100-Same-Tree"><a href="#leetcode-100-Same-Tree" class="headerlink" title="leetcode_100_Same Tree"></a>leetcode_100_Same Tree</h3><blockquote>
-<p>Given two binary trees, write a function to check if they are equal or not.</p>
-<p>Two binary trees are considered equal if they are structurally identical and the nodes have the same value.</p>
-</blockquote>
-<p><strong>问题分析</strong></p>
-<p>​    这道题，让我们判断两个二叉树是否相等。看到这个题目，我马上想到肯定用递归来解决，采用遍历来解决这个问题，那么遍历二叉树的方法有几种，中序遍历，前序遍历，后序遍历，在这个地方采用哪个遍历方式最后呢？最后我采用了<strong>前序遍历</strong>，前序遍历有什么好处了，如果在根节点就不相同那么直接返回，就不用再递归调用子节点，节省了一部分时间和空间。</p>
-<p><strong>解题思路</strong></p>
-<ul>
-<li>前序遍历</li>
-<li>对终止迭代的一些条件进行定义</li>
-</ul>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution100</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isSameTree</span><span class="params">(TreeNode p, TreeNode q)</span> </span>&#123;</div><div class="line">        <span class="keyword">boolean</span> isSame = <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">if</span> (p == <span class="keyword">null</span> &amp;&amp; q == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p == <span class="keyword">null</span> &amp;&amp; q != <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p != <span class="keyword">null</span> &amp;&amp; q == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">if</span> (p.val != q.val)</div><div class="line">            isSame = <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            isSame = ((isSameTree(p.left, q.left)) &amp;&amp; (isSameTree(p.right, q.right)));</div><div class="line">        <span class="keyword">return</span> isSame;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        TreeNode l11 = <span class="keyword">new</span> TreeNode(<span class="number">2</span>);</div><div class="line">        TreeNode l21 = <span class="keyword">new</span> TreeNode(<span class="number">3</span>);</div><div class="line">        TreeNode l22 = <span class="keyword">new</span> TreeNode(<span class="number">5</span>);</div><div class="line">        TreeNode l31 = <span class="keyword">new</span> TreeNode(<span class="number">6</span>);</div><div class="line">        l11.left = l21;</div><div class="line">        l11.right = l22;</div><div class="line">        l21.left = l31;</div><div class="line"></div><div class="line">        TreeNode n11 = <span class="keyword">new</span> TreeNode(<span class="number">2</span>);</div><div class="line">        TreeNode n21 = <span class="keyword">new</span> TreeNode(<span class="number">3</span>);</div><div class="line">        TreeNode n22 = <span class="keyword">new</span> TreeNode(<span class="number">5</span>);</div><div class="line">        TreeNode n31 = <span class="keyword">new</span> TreeNode(<span class="number">6</span>);</div><div class="line">        n11.left = n21;</div><div class="line">        n11.right = n22;</div><div class="line">        n21.left = n31;</div><div class="line"></div><div class="line">        <span class="keyword">boolean</span> isSame = isSameTree(l11, n11);</div><div class="line">        System.out.println(isSame);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>示例代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSameTree</span><span class="params">(TreeNode p, TreeNode q)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(p == <span class="keyword">null</span> &amp;&amp; q == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">if</span>(p == <span class="keyword">null</span> || q == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">if</span>(p.val == q.val)</div><div class="line">        <span class="keyword">return</span> isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>不得不服气，自己写代码的能力和别人还是有很大的差距，同样是前序遍历，他这段代码各种条件的判断都十分有讲究。例如</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(p == <span class="keyword">null</span> &amp;&amp; q == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line"><span class="keyword">if</span>(p == <span class="keyword">null</span> || q == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div></pre></td></tr></table></figure>
-<p>这两行代码其实和我的代码运行结果是一样的，但是我重复考虑了<code>p==null&amp;&amp;q == null</code>的情况，他这种方式更加简洁。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(p.val == q.val)</div><div class="line"> 	<span class="keyword">return</span> isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right);</div></pre></td></tr></table></figure>
-<p>这两行代码同样也是这个问题，我考虑<code>p.val ! =q.val</code>的情况，以及<code>p.val == q.val</code>都做了处理，其实是没有必要的。</p>
-
-          
+          leetcode_100_Same Tree
+Given two binary trees, write a function to check if they are equal or not.
+Two binary trees are considered equal if they are s
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/12/leetcode-100/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -985,26 +936,18 @@
       
         
           
-            <h3 id="leetcode-8-Remove-Duplicates-from-Sorted-List"><a href="#leetcode-8-Remove-Duplicates-from-Sorted-List" class="headerlink" title="leetcode_8_Remove Duplicates from Sorted List"></a>leetcode_8_Remove Duplicates from Sorted List</h3><blockquote>
-<p>Given a sorted linked list, delete all duplicates such that each element appear only <em>once</em>.</p>
-<p>For example,</p>
-<p>Given <code>1-&gt;1-&gt;2</code>, return <code>1-&gt;2</code>.</p>
-<p>Given <code>1-&gt;1-&gt;2-&gt;3-&gt;3</code>, return <code>1-&gt;2-&gt;3</code>.</p>
-</blockquote>
-<p><strong>问题分析</strong></p>
-<p>这个题目和之前那个在数组中，去除重复的元素相似，只要每次找到下一个不同元素，然后指到下一个就行了</p>
-<p><strong>解题思路</strong></p>
-<ul>
-<li>循环，遍历整个链表。</li>
-<li>找到下一个<code>value</code>不同的值。</li>
-<li>连接到<code>newHead</code>后面</li>
-</ul>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(head == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        ListNode newHead =<span class="keyword">new</span> ListNode(head.val);</div><div class="line">        ListNode temp=newHead;</div><div class="line">        <span class="keyword">while</span>(head!=<span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">if</span>(head.val != temp.val)&#123;</div><div class="line">                temp.next = <span class="keyword">new</span> ListNode(head.val);</div><div class="line">                temp=temp.next;</div><div class="line">            &#125;</div><div class="line">            head=head.next;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> newHead;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>示例代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">deleteDuplicates1</span><span class="params">(ListNode head)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> head;</div><div class="line">        head.next = deleteDuplicates(head.next);</div><div class="line">        <span class="keyword">return</span> head.val == head.next.val ? head.next : head;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+          leetcode_8_Remove Duplicates from Sorted List
+Given a sorted linked list, delete all duplicates such that each element appear only once.
+For example,
 
-          
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/12/leetcode-83/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1114,17 +1057,17 @@
       
         
           
-            <h3 id="leetcode-70-Climbing-Stairs"><a href="#leetcode-70-Climbing-Stairs" class="headerlink" title="leetcode_70_Climbing Stairs"></a>leetcode_70_Climbing Stairs</h3><blockquote>
-<p>You are climbing a stair case. It takes <em>n</em> steps to reach to the top.</p>
-<p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p>
-</blockquote>
-<p>经典的爬楼梯问题</p>
-<p>一开始的递归做法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n == <span class="number">1</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n == <span class="number">2</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">        <span class="keyword">return</span> climbStairs(n-<span class="number">1</span>)+climbStairs(n-<span class="number">2</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>做了之后，发现当n=44时，时间溢出了。只能转用循环。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    	<span class="keyword">if</span>(n == <span class="number">0</span>)</div><div class="line">    		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n == <span class="number">1</span>)</div><div class="line">        	<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> [] result = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">        result[<span class="number">0</span>] =<span class="number">1</span>;</div><div class="line">        result[<span class="number">1</span>] = <span class="number">2</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;n;i++)&#123;</div><div class="line">        	result [i] = result[i-<span class="number">1</span>]+result[i-<span class="number">2</span>];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result[n-<span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_70_Climbing Stairs
+You are climbing a stair case. It takes n steps to reach to the top.
+Each time you can either climb 1 or 2 steps. In how m
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/11/leetcode-70/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1234,21 +1177,20 @@
       
         
           
-            <h3 id="leetcode-67-Add-Binary"><a href="#leetcode-67-Add-Binary" class="headerlink" title="leetcode_67_Add Binary"></a>leetcode_67_Add Binary</h3><blockquote>
-<p>Given two binary strings, return their sum (also a binary string).</p>
-<p>For example,</p>
-<p>a = <code>&quot;11&quot;</code></p>
-<p>b = <code>&quot;1&quot;</code></p>
-<p>Return <code>&quot;100&quot;</code>.</p>
-</blockquote>
-<p><strong>问题分析</strong></p>
-<p>将两个二进制字符串相加</p>
-<p><strong>解题思路</strong></p>
-<p>从字符串的低位到高位，每一位相加，然后再取余，并且注意计算进位<code>carry</code>。</p>
-<p><strong>实验代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution67</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</div><div class="line">        String shorterStr,longerStr;</div><div class="line">        shorterStr = a.length()&lt;b.length()?a:b;</div><div class="line">        longerStr = a.length()&gt;b.length()?a:b;</div><div class="line">        String str = <span class="string">""</span> ;</div><div class="line">        <span class="keyword">int</span> carry =<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ;i&lt;shorterStr.length();i++)&#123;</div><div class="line">            <span class="keyword">int</span> bit = ((a.charAt(a.length()-<span class="number">1</span>-i)-<span class="string">'0'</span>) + (b.charAt(b.length()-<span class="number">1</span>-i)-<span class="string">'0'</span>)+carry)%<span class="number">2</span>;</div><div class="line">            carry=((a.charAt(a.length()-<span class="number">1</span>-i)-<span class="string">'0'</span>) + (b.charAt(b.length()-<span class="number">1</span>-i)-<span class="string">'0'</span>)+carry)/<span class="number">2</span>;</div><div class="line">            str = bit+str;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = shorterStr.length();j&lt;longerStr.length();j++)&#123;</div><div class="line">            <span class="keyword">int</span> bit =((longerStr.charAt(longerStr.length()-<span class="number">1</span>-j)-<span class="string">'0'</span>)+carry)%<span class="number">2</span>;</div><div class="line">            carry =((longerStr.charAt(longerStr.length()-<span class="number">1</span>-j)-<span class="string">'0'</span>)+carry)/<span class="number">2</span>;</div><div class="line">            str = bit +str;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(carry == <span class="number">1</span>)</div><div class="line">            str= <span class="string">"1"</span>+str;</div><div class="line">        <span class="keyword">return</span>  str;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String one =<span class="string">"11"</span>;</div><div class="line">        String two = <span class="string">"1"</span>;</div><div class="line">        String result = addBinary(one,two);</div><div class="line">        System.out.println(result);</div><div class="line">    &#125;</div><div class="line">&#125;<span class="number">1</span></div></pre></td></tr></table></figure>
-
-          
+          leetcode_67_Add Binary
+Given two binary strings, return their sum (also a binary string).
+For example,
+a = &quot;11&quot;
+b = &quot;1&quot;
+Return &qu
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/10/leetcode-67/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1358,26 +1300,17 @@
       
         
           
-            <h3 id="leetcode-66-Plus-One"><a href="#leetcode-66-Plus-One" class="headerlink" title="leetcode_66_Plus One"></a>leetcode_66_Plus One</h3><blockquote>
-<p>Given a non-negative integer represented as a <strong>non-empty</strong> array of digits, plus one to the integer.</p>
-<p>You may assume the integer do not contain any leading zero, except the number 0 itself.</p>
-<p>The digits are stored such that the most significant digit is at the head of the list.</p>
-</blockquote>
-<p><strong>题目分析</strong></p>
-<p>这道题最重要的就是考虑进位，以及在申明数组的时候，数组大小的确定。</p>
-<p><strong>解题思路</strong></p>
-<ul>
-<li>申明一个同<code>nums[]</code>同样大小的数组,命名为<code>result[]</code>。申明一个整型变量，命名为<code>carry</code>。</li>
-<li>从数字的最低位开始运算，最低位加一。<code>result[i] = (nums[i]+carry)%10</code>，`carry = (nums[i]+carry)/10;</li>
-<li>注意，如果循环结束之后，<code>carry = 1</code>，则说明，最后需要进位。那么则需要重新申明一个数组，大小为<code>nums.length+1</code>。首位置为1</li>
-</ul>
-<p>实验代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] plusOne1(<span class="keyword">int</span>[] digits) &#123;</div><div class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[digits.length];</div><div class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">        result[digits.length-<span class="number">1</span>]=(digits[digits.length-<span class="number">1</span>]+<span class="number">1</span>)%<span class="number">10</span>;</div><div class="line">        carry=(digits[digits.length-<span class="number">1</span>]+<span class="number">1</span>)/<span class="number">10</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i= digits.length-<span class="number">2</span>; i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line"></div><div class="line">            result[i]+=(digits[i])%<span class="number">10</span>+carry;</div><div class="line">            carry=(digits[i])/<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(carry == <span class="number">1</span>)&#123;</div><div class="line">        	<span class="keyword">int</span>[] result1 = <span class="keyword">new</span> <span class="keyword">int</span>[digits.length+<span class="number">1</span>];</div><div class="line">        	result1[<span class="number">0</span>]=<span class="number">1</span>;</div><div class="line">        	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;digits.length;i++)&#123;</div><div class="line">        		result1[i+<span class="number">1</span>]=result[i];</div><div class="line">        	&#125;</div><div class="line">        	<span class="keyword">return</span> result1;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p><strong>一开始的错误代码</strong></p>
-<p>一开始我直接申明一个大小为<code>nums.length+1</code>的数组。然后首位置为0，在需要的时候在进行置位。但提交的时候并不能通过。但是也可以作为一种解决思路，有可能对其他问题有所启示。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] plusOne(<span class="keyword">int</span>[] digits) &#123;</div><div class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[digits.length+<span class="number">1</span>];</div><div class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">        result[digits.length]=(digits[digits.length-<span class="number">1</span>]+<span class="number">1</span>)%<span class="number">10</span>;</div><div class="line">        carry=(digits[digits.length-<span class="number">1</span>]+<span class="number">1</span>)/<span class="number">10</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i= digits.length-<span class="number">2</span>; i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line"></div><div class="line">            result[i+<span class="number">1</span>]+=(digits[i])%<span class="number">10</span>+carry;</div><div class="line">            carry=(digits[i])/<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_66_Plus One
+Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.
+You may assume the integer do n
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/10/leetcode-66/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1487,28 +1420,17 @@
       
         
           
-            <h3 id="leetcode-53-Maximum-Subarray"><a href="#leetcode-53-Maximum-Subarray" class="headerlink" title="leetcode_53_Maximum Subarray"></a>leetcode_53_Maximum Subarray</h3><blockquote>
-<p>Find the contiguous subarray within an array (containing at least one number) which has the largest sum.</p>
-<p>For example, given the array <code>[-2,1,-3,4,-1,2,1,-5,4]</code>,</p>
-<p>the contiguous subarray <code>[4,-1,2,1]</code> has the largest sum = <code>6</code>.</p>
-<p>If you have figured out the O(<em>n</em>) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
-</blockquote>
-<p><strong>题目分析</strong></p>
-<p>这道题要求我们找出一个数组中的最大子数组的和，一开始我看到这道题目，我记得以前我是看到过这道题的，当时我是用了三个循环把它跑出来，具体是怎么我已经不记得了。但是我也不是当年那个青涩的我了，我现在看着它我就想用一个循环把它弄出来，时间复杂度达到O(n)。</p>
-<p><strong>解题思路</strong></p>
-<ul>
-<li>申明两个变量<code>max</code>和<code>temp</code>，</li>
-<li>循环，使<code>temp</code>每次都加上数组的值<ul>
-<li>如果，运算后<code>temp&gt;max</code>，那么更新<code>max</code></li>
-<li>如果，运算后<code>temp&lt;0</code>，则令<code>temp=0</code>。因为在此之前的一串数字已经不具有价值。为什么说他不具有价值，这是因为前面的结果的和已经是个负数，那么我再把它与后面的数字相加的时候，他只会造成负增长，所以我们令<code>temp = 0</code>重新开始，寻找下一个潜在的最大值。</li>
-</ul>
-</li>
-</ul>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution53</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> max = nums[<span class="number">0</span>];</div><div class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">0</span> ; i&lt; nums.length ; i++)&#123;</div><div class="line">            temp += nums[i];</div><div class="line">            <span class="keyword">if</span>(temp&gt;max)</div><div class="line">            &#123;</div><div class="line">                max = temp;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(temp&lt;<span class="number">0</span>)&#123;</div><div class="line">                temp = <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> max;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] test = &#123;-<span class="number">2</span>,<span class="number">1</span>,-<span class="number">3</span>,<span class="number">4</span>,-<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,-<span class="number">5</span>,<span class="number">4</span>&#125;;</div><div class="line">        <span class="keyword">int</span> result = maxSubArray(test);</div><div class="line">        System.out.println(result);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>一开始我是没什么思路的，因为我一边看直播，一边想这个问题。最后想着想着就去看直播去了，做什么题哦。然后LPL打赢了，夺冠了。我再回来解决它。总之今天的任务完成了！</p>
-
-          
+          leetcode_53_Maximum Subarray
+Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+For example, giv
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/09/leetcode-53/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1602,10 +1524,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
@@ -1615,12 +1537,46 @@
 
         <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wong-way" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/5643449782/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
         </div>
 
         
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="jahojiang.github.io" title="Jaho" target="_blank">Jaho</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
         

@@ -57,11 +57,17 @@
   
 
   
+    
+      
+    
+
+    
+  
 
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -328,21 +334,18 @@
       
         
           
-            <h2 id="leetcode-Excel-Sheet-Column-Title"><a href="#leetcode-Excel-Sheet-Column-Title" class="headerlink" title="leetcode_Excel Sheet Column Title"></a>leetcode_Excel Sheet Column Title</h2><blockquote>
-<p>Given a positive integer, return its corresponding column title as appear in an Excel sheet.</p>
-<p>For example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;    1 -&gt; A</div><div class="line">&gt;    2 -&gt; B</div><div class="line">&gt;    3 -&gt; C</div><div class="line">&gt;    ...</div><div class="line">&gt;    26 -&gt; Z</div><div class="line">&gt;    27 -&gt; AA</div><div class="line">&gt;    28 -&gt; AB </div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<ol>
-<li><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析**"></a>问题分析**</h2></li>
-</ol>
-<p>这道题和之前Excel表格转数字那道题很相似，那是26进制转成10进制，这里是10进制转26进制。思路都是比较相同的。这里采用辗转相除法求出对应的26进制，再用字母表示。</p>
-<ol>
-<li><h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a><strong>解题代码</strong></h2></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">convertToTitle</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">       String res = <span class="string">""</span>;</div><div class="line">        <span class="keyword">while</span>(n != <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">char</span> ch = (<span class="keyword">char</span>)((n - <span class="number">1</span>) % <span class="number">26</span> + <span class="number">65</span>);    </div><div class="line">            n = (n - <span class="number">1</span>) / <span class="number">26</span>;</div><div class="line">            res = ch + res;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_Excel Sheet Column Title
+Given a positive integer, return its corresponding column title as appear in an Excel sheet.
+For example:
+12345678&g
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/26/leetcode-168/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -452,23 +455,17 @@
       
         
           
-            <h2 id="leetcode-189-Rotate-Array"><a href="#leetcode-189-Rotate-Array" class="headerlink" title="leetcode_189_Rotate Array"></a>leetcode_189_Rotate Array</h2><blockquote>
-<p>Rotate an array of <em>n</em> elements to the right by <em>k</em> steps.</p>
-<p>For example, with <em>n</em> = 7 and <em>k</em> = 3, the array <code>[1,2,3,4,5,6,7]</code> is rotated to <code>[5,6,7,1,2,3,4]</code>.</p>
-<p><strong>Note:</strong><br>Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.</p>
-<p><strong>Hint:</strong><br>Could you do it in-place with O(1) extra space?</p>
-</blockquote>
-<ol>
-<li><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a><strong>问题分析</strong></h2></li>
-</ol>
-<p>这道题让我们将数组的每个元素向右移动k位，利用一个辅助数组来做比较简单。</p>
-<p>将所有情况分为两类，一类是<code>i+k&lt;len</code>,直接赋值给赋值元素，一类是<code>i+k&gt;len</code>，这种情况就对结果取余就行了</p>
-<ol>
-<li><h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a><strong>解题代码</strong></h2></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> []result = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">           result[(i+k)%nums.length] = nums[i];   </div><div class="line">        &#125;</div><div class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">           nums[i] = result [i];</div><div class="line">       &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_189_Rotate Array
+Rotate an array of n elements to the right by k steps.
+For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotat
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/26/leetcode-189/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -578,20 +575,17 @@
       
         
           
-            <h2 id="leetcode-172-Factorial-Trailing-Zeroes"><a href="#leetcode-172-Factorial-Trailing-Zeroes" class="headerlink" title="leetcode_172_Factorial Trailing Zeroes"></a>leetcode_172_Factorial Trailing Zeroes</h2><blockquote>
-<p>Given an integer <em>n</em>, return the number of trailing zeroes in <em>n</em>!.</p>
-<p><strong>Note: </strong>Your solution should be in logarithmic time complexity.</p>
-</blockquote>
-<ol>
-<li><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a><strong>问题分析</strong></h2></li>
-</ol>
-<p>这道题要求我们在O(log)内完成，计算出阶乘末尾有多少个0，注意阶乘结果有0，是由2*5得到的。由于每次隔五个数才会出现5的倍数，而数字2则是隔两个数就会出现一次。所以2的个数比5的个数多，因此我们只需要计算在数字n之前，有多少个数字是5的倍数，即可求出有多少个0。</p>
-<ol>
-<li><h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a><strong>解题代码</strong></h2></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">trailingZeroes</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">      <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">      <span class="keyword">while</span>(n&gt;<span class="number">0</span>)&#123;</div><div class="line">        count+= n/<span class="number">5</span>;</div><div class="line">        n/=<span class="number">5</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> count;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_172_Factorial Trailing Zeroes
+Given an integer n, return the number of trailing zeroes in n!.
+Note: Your solution should be in logarithmic ti
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/26/leetcode-172/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -701,8 +695,15 @@
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/26/leetcode-176/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -812,34 +813,17 @@
       
         
           
-            <h2 id="leetcode-160-Intersection-of-Two-Linked-Lists"><a href="#leetcode-160-Intersection-of-Two-Linked-Lists" class="headerlink" title="leetcode_160_Intersection of Two Linked Lists"></a>leetcode_160_Intersection of Two Linked Lists</h2><blockquote>
-<p>Write a program to find the node at which the intersection of two singly linked lists begins.</p>
-<p>For example, the following two linked lists:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;A:          a1 → a2</div><div class="line">&gt;                   ↘</div><div class="line">&gt;                     c1 → c2 → c3</div><div class="line">&gt;                   ↗            </div><div class="line">&gt;B:     b1 → b2 → b3</div><div class="line">&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<p>begin to intersect at node c1.</p>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>If the two linked lists have no intersection at all, return <code>null</code>.</li>
-<li>The linked lists must retain their original structure after the function returns.</li>
-<li>You may assume there are no cycles anywhere in the entire linked structure.</li>
-<li>Your code should preferably run in O(n) time and use only O(1) memory.</li>
-</ul>
-</blockquote>
-<ol>
-<li><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a><strong>问题分析</strong></h2></li>
-</ol>
-<p>这道题我觉得是我做了几十道题之后我觉得最巧妙的一道题，算法贼恐怖。</p>
-<p>​    一开始，很自然想到遍历两个链表，但是这种方式的时间复杂的事O(mn)，看了评论区的答案之后，恍然大悟。太厉害了吧。这个方法将两个链表分别遍历两次，先将<code>a =headA</code>,<code>b= headB</code>，遍历完一遍之后令<code>a = headB</code>，<code>b = headA</code>。因为，两个链表的交集部分长度是一样的，这样可以保证我们在比对时，交集部分是同步的，即是对齐的。</p>
-<p>​    在上面的例子中，遍历一遍之后<code>a = b1</code> , <code>b= c3</code>，再经过一次循环，<code>a =b2</code> ,<code>b=a1</code>。这样到后面就可以找到交集的部分。</p>
-<ol>
-<li><h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a><strong>解题代码</strong></h2></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">getIntersectionNode</span><span class="params">(ListNode headA, ListNode headB)</span> </span>&#123;</div><div class="line">       <span class="comment">//boundary check</span></div><div class="line">       <span class="keyword">if</span>(headA == <span class="keyword">null</span> || headB == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">       ListNode a = headA;</div><div class="line">       ListNode b = headB;</div><div class="line">       <span class="comment">//if a &amp; b have different len, then we will stop the loop after second iteration</span></div><div class="line">       <span class="keyword">while</span>( a != b)&#123;</div><div class="line">           <span class="comment">//for the end of first iteration, we just reset the pointer to the head of another linkedlist</span></div><div class="line">           a = a == <span class="keyword">null</span>? headB : a.next;</div><div class="line">           b = b == <span class="keyword">null</span>? headA : b.next;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">return</span> a;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_160_Intersection of Two Linked Lists
+Write a program to find the node at which the intersection of two singly linked lists begins.
+For exampl
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/25/leetcode-160/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -949,17 +933,17 @@
       
         
           
-            <h2 id="leetcode-136-single-number"><a href="#leetcode-136-single-number" class="headerlink" title="leetcode_136_single number"></a>leetcode_136_single number</h2><blockquote>
-<p>Given an array of integers, every element appears <em>twice</em> except for one. Find that single one.</p>
-<p><strong>Note:</strong><br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-</blockquote>
-<p>这道题看起来很容易是不是，就只是遍历整个数组记录他们每个数字出现的次数。但是在提示中说到，时间复杂度要求是O(n)，同时不能使用额外的内存空间。</p>
-<p>看到这道题我想了很久，根本没有什么好的思路，后来在讨论区看到提示才恍然大悟。 异或！</p>
-<p>在一堆数字中，<code>a^b^c^d^c^b^a</code>由于异或的可交换性，可变成<code>a^a^b^b^c^c^d</code>。由于异或的特点，一个数与它本身异或则得到0,0和一个数字异或得到这个数字。那么<code>a^a^b^b^c^c^d= d</code>，即只存在一次的数字</p>
-<p>代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;nums.length; i++)&#123;</div><div class="line">            result ^=nums[i];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_136_single number
+Given an array of integers, every element appears twice except for one. Find that single one.
+Note:Your algorithm should ha
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/23/leetcode-136/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1069,16 +1053,17 @@
       
         
           
-            <h3 id="leetcode-125-Valid-Palindrome"><a href="#leetcode-125-Valid-Palindrome" class="headerlink" title="leetcode_125_Valid Palindrome"></a>leetcode_125_Valid Palindrome</h3><blockquote>
-<p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>
-<p>For example,<br><code>&quot;A man, a plan, a canal: Panama&quot;</code> is a palindrome.<br><code>&quot;race a car&quot;</code> is <em>not</em> a palindrome.</p>
-<p><strong>Note:</strong><br>Have you consider that the string might be empty? This is a good question to ask during an interview.</p>
-<p>For the purpose of this problem, we define empty string as valid palindrome.</p>
-</blockquote>
-<p>这道题我觉得其实并没有什么意思，所做的工作主要是对字符的检查，算法上并不是很难，在讨论区有人利用java的函数库，三行代码就可以解决。下面简单贴出我的代码。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-
-          
+          leetcode_125_Valid Palindrome
+Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+For exampl
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/21/leetcode-125/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1188,15 +1173,17 @@
       
         
           
-            <h3 id="leetcode-122-Best-Time-to-Buy-and-Sell-Stock-II"><a href="#leetcode-122-Best-Time-to-Buy-and-Sell-Stock-II" class="headerlink" title="leetcode_122_ Best Time to Buy and Sell Stock II"></a>leetcode_122_ Best Time to Buy and Sell Stock II</h3><blockquote>
-<p>Say you have an array for which the <em>i</em>th element is the price of a given stock on day <em>i</em>.</p>
-<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
-</blockquote>
-<p>这道题说我们多可以多次买入和卖出股票，那么则意味着我们只要能够盈利就可以买入，思路十分简单清晰</p>
-<p>代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;prices.length ; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(prices[i]-prices[i-<span class="number">1</span>]&gt;<span class="number">0</span>)</div><div class="line">                sum+= prices[i]-prices[i-<span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line">         sum+=max;</div><div class="line">        <span class="keyword">return</span> sum;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_122_ Best Time to Buy and Sell Stock II
+Say you have an array for which the ith element is the price of a given stock on day i.
+Design an alg
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/21/leetcode-122/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1306,29 +1293,17 @@
       
         
           
-            <h3 id="leetcode-121-Best-Time-to-Buy-and-Sell-Stock"><a href="#leetcode-121-Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="leetcode_121_Best Time to Buy and Sell Stock"></a>leetcode_121_Best Time to Buy and Sell Stock</h3><blockquote>
-<p>Say you have an array for which the <em>i</em>th element is the price of a given stock on day <em>i</em>.</p>
-<p>If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;Input: [7, 1, 5, 3, 6, 4]</div><div class="line">&gt;Output: 5</div><div class="line">&gt;</div><div class="line">&gt;max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than buying price)</div><div class="line">&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;Input: [7, 6, 4, 3, 1]</div><div class="line">&gt;Output: 0</div><div class="line">&gt;</div><div class="line">&gt;In this case, no transaction is done, i.e. max profit = 0.</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p><strong>问题分析</strong></p>
-<p>这道题最直接最简单的思路，从前往后搜索最小值，从后往前搜索最大值，并且保证最大值下标大于最小值的下标。但是我注意到<code>prices[i]-prices[i-1]</code>即是一天的收益值，那么这个就和之前那个搜索最大连续子数组那个题目十分相似了。</p>
-<p><strong>解题思路</strong></p>
-<ul>
-<li>设置一个<code>temp</code>用来记录连续子串的和，<code>max</code>记录最大连续子串的和；</li>
-<li>如果<code>temp&gt;max</code>，那么就更新<code>max</code></li>
-<li>如果<code>temp&lt;0</code>，则说明在当天已经出现亏损，则不会出售。继续往后循环。</li>
-</ul>
-<p><strong>解题代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;prices.length;i++)&#123;</div><div class="line">            temp+= prices[i]-prices[i-<span class="number">1</span>];</div><div class="line">            <span class="keyword">if</span>(temp&lt;<span class="number">0</span>)</div><div class="line">                temp=<span class="number">0</span>;</div><div class="line">            <span class="keyword">if</span>(temp&gt;max)</div><div class="line">                max =temp;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> max;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          leetcode_121_Best Time to Buy and Sell Stock
+Say you have an array for which the ith element is the price of a given stock on day i.
+If you were only 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/17/leetcode-121/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1438,16 +1413,19 @@
       
         
           
-            <blockquote>
-<p>Related to question <a href="https://leetcode.com/problems/excel-sheet-column-title/" target="_blank" rel="external">Excel Sheet Column Title</a></p>
-<p>Given a column title as appear in an Excel sheet, return its corresponding column number.</p>
-<p>For example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;     A -&gt; 1</div><div class="line">&gt;     B -&gt; 2</div><div class="line">&gt;     C -&gt; 3</div><div class="line">&gt;     ...</div><div class="line">&gt;     Z -&gt; 26</div><div class="line">&gt;     AA -&gt; 27</div><div class="line">&gt;     AB -&gt; 28 </div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>这道题就是一个26进制转10进制，只要遍历字符串进行操作就好了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">titleToNumber</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span> ;i&lt; s.length();i++)&#123;</div><div class="line">            result += (s.charAt(i) - <span class="string">'A'</span>+<span class="number">1</span>) * Math.pow(<span class="number">26</span>, s.length() - <span class="number">1</span> - i);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
           
+Related to question Excel Sheet Column Title
+Given a column title as appear in an Excel sheet, return its corresponding column number.
+For example:
+1
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/16/leetcode-171/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1541,10 +1519,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
@@ -1554,12 +1532,46 @@
 
         <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wong-way" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/5643449782/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
         </div>
 
         
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="jahojiang.github.io" title="Jaho" target="_blank">Jaho</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
         
