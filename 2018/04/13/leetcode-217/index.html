@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="leetcode," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -96,17 +96,16 @@
 
 
 
-<meta name="description" content="快乐数问题描述 写一个算法来判断一个数是不是“快乐数”。 一个数是不是快乐是这么定义的：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，或是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。 案例: 19 是一个快乐数。$$1^2+9^2 =82$$ $$2^2+8^2=68$$ $$6^2+8^2=100$$ $$1^2+0^2+">
-<meta name="keywords" content="leetcode">
+<meta name="description" content="leetcode-217问题描述 Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-202">
-<meta property="og:url" content="http://wong-way.github.com/2018/04/10/leetcode-202/index.html">
+<meta property="og:title" content="leetcode-217">
+<meta property="og:url" content="http://wong-way.github.com/2018/04/13/leetcode-217/index.html">
 <meta property="og:site_name" content="HuangWay&#39;s Way">
-<meta property="og:description" content="快乐数问题描述 写一个算法来判断一个数是不是“快乐数”。 一个数是不是快乐是这么定义的：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，或是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。 案例: 19 是一个快乐数。$$1^2+9^2 =82$$ $$2^2+8^2=68$$ $$6^2+8^2=100$$ $$1^2+0^2+">
-<meta property="og:updated_time" content="2018-04-10T12:51:18.287Z">
+<meta property="og:description" content="leetcode-217问题描述 Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if">
+<meta property="og:updated_time" content="2018-04-13T15:18:46.801Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode-202">
-<meta name="twitter:description" content="快乐数问题描述 写一个算法来判断一个数是不是“快乐数”。 一个数是不是快乐是这么定义的：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，或是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。 案例: 19 是一个快乐数。$$1^2+9^2 =82$$ $$2^2+8^2=68$$ $$6^2+8^2=100$$ $$1^2+0^2+">
+<meta name="twitter:title" content="leetcode-217">
+<meta name="twitter:description" content="leetcode-217问题描述 Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if">
 
 
 
@@ -134,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://wong-way.github.com/2018/04/10/leetcode-202/"/>
+  <link rel="canonical" href="http://wong-way.github.com/2018/04/13/leetcode-217/"/>
 
 
 
 
 
-  <title>leetcode-202 | HuangWay's Way</title>
+  <title>leetcode-217 | HuangWay's Way</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +268,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2018/04/10/leetcode-202/">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2018/04/13/leetcode-217/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HuangWay">
@@ -286,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode-202</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode-217</h1>
         
 
         <div class="post-meta">
@@ -298,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T19:46:34+08:00">
-                2018-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-13T22:02:08+08:00">
+                2018-04-13
               </time>
             
 
@@ -333,27 +332,24 @@
       
 
       
-        <h1 id="快乐数"><a href="#快乐数" class="headerlink" title="快乐数"></a>快乐数</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><blockquote>
-<p>写一个算法来判断一个数是不是“快乐数”。</p>
-<p>一个数是不是快乐是这么定义的：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，或是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。</p>
-<p><strong>案例: </strong>19 是一个快乐数。<br>$$<br>1^2+9^2 =82<br>$$</p>
-<p>$$<br>2^2+8^2=68<br>$$</p>
-<p>$$<br>6^2+8^2=100<br>$$</p>
-<p>$$<br>1^2+0^2+0^2=1<br>$$</p>
+        <h1 id="leetcode-217"><a href="#leetcode-217" class="headerlink" title="leetcode-217"></a>leetcode-217</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><blockquote>
+<p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct. </p>
 </blockquote>
-<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><ul>
-<li>首先，如果一个数是10的倍数，则一定是快乐数，同时1一定也是快乐数</li>
-<li>如果不是快乐数，那么是需要无限循环都不等于1。<ul>
-<li>对于无限循环来说无法量化，则在计算过程中验证这个数字是否在之前计算过程中出现过，如果出现过则会陷入循环，则一定不是快乐数。 </li>
-<li>否则，继续进行循环</li>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><ul>
+<li>这道题让我们判断数组中是否存在重复的元素，如果不考虑性能的话，时间复杂度为O(n^2)很容易就解决</li>
+<li>进行两次循环，外层循环遍历整个数组，内层循环寻找是否存在相同的元素，如果存在直接返回</li>
+<li>利用hash，每次的查找时间为O(1),但是这里面存在负数，于是采用java的hashmap</li>
 </ul>
+<h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsDuplicate</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer,Integer&gt;();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;nums.length;i++) &#123;</div><div class="line">        <span class="keyword">if</span>(map.containsKey(nums[i]))</div><div class="line">            <span class="keyword">return</span>  <span class="keyword">true</span>;</div><div class="line">        map.put(nums[i], <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="总结问题"><a href="#总结问题" class="headerlink" title="总结问题"></a>总结问题</h2><ul>
+<li>果不其然，采用两层循环当数据量过大的时候直接超时</li>
+<li>采用hashmap的方式能够成功解决这个问题，但是只是超过了17%的解答<h2 id="算法优化"><a href="#算法优化" class="headerlink" title="算法优化"></a>算法优化</h2></li>
+<li><p>在评论区有人先将数组排序，再选择是否有相邻的两个元素相同，当时我也想到用这个方法，只是我当时智障的想着排序时间复杂度也是O(n^2)，没想到快排等。而他们直接用<code>Arrays.sort()</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsDuplicate</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">    Arrays.sort(nums);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (nums[i] == nums[i - <span class="number">1</span>])</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li>如果不是循环数，则在此过程中出现的数字一定会呈现一种<strong>环状结构</strong></li>
+<li><p>评论区也有人使用hash,只是我考虑到数字有正有负，不好直接做数组的索引。之前做过一次相似的寻找是否有重复的字母，我是采用一个26位的数组来存，<code>array[A-&#39;0&#39;] = 1</code> 这种方式。每次寻找是否重复的时候时间复杂度为O(1)。这里也可以采用相似的方式处理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsDuplicate</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(nums == <span class="keyword">null</span> || nums.length == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    <span class="comment">// 找出最大最小值</span></div><div class="line">    <span class="comment">// 为什么要找出最大最小值，是为了在后面申请数组时进一步缩小范围，节约空间</span></div><div class="line">    <span class="comment">// boolean[] boo = new boolean[nums.length]会使用更多的空间</span></div><div class="line">    <span class="keyword">int</span> max = Integer.MIN_VALUE;</div><div class="line">    <span class="keyword">int</span> min = Integer.MAX_VALUE;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</div><div class="line">        <span class="keyword">if</span>(num &gt; max)</div><div class="line">            max = num;</div><div class="line">        <span class="keyword">if</span>(num &lt; min)</div><div class="line">            min = num;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 利用hash表，检查是否已经存在</span></div><div class="line">    <span class="keyword">boolean</span>[] bool = <span class="keyword">new</span> <span class="keyword">boolean</span>[max - min + <span class="number">1</span>];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</div><div class="line">        <span class="keyword">if</span>(bool[num - min])</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            bool[num - min] = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    </div><div class="line">    &#125;</div></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">    <span class="keyword">while</span> (n != <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">int</span> temp = n;</div><div class="line">        <span class="keyword">int</span> next = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (temp != <span class="number">0</span>) &#123;</div><div class="line">            next += Math.pow(temp % <span class="number">10</span>, <span class="number">2</span>);</div><div class="line">            temp /= <span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (list.contains(next)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            n = next;</div><div class="line">            list.add(next);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="分析总结"><a href="#分析总结" class="headerlink" title="分析总结"></a>分析总结</h3><p>使用我的方法运行leetcode的测试用例，运行速度比72%的提交记录快，但是仔细一想，这种方式的空间开销比较大，如果循环次数过多，那么list占用的空间则会增大。</p>
-<h3 id="社区代码"><a href="#社区代码" class="headerlink" title="社区代码"></a>社区代码</h3><p>不言而喻，相当简洁直观</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (n &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">int</span> remainder = n % <span class="number">10</span>;</div><div class="line">        result += remainder * remainder;</div><div class="line">        n /= <span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> slow = n;</div><div class="line">    <span class="keyword">int</span> fast = n;</div><div class="line">    <span class="keyword">do</span> &#123;</div><div class="line">        slow = next(slow);</div><div class="line">        fast = next(next(fast));</div><div class="line">        <span class="keyword">if</span> (slow == <span class="number">1</span> || fast == <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">while</span> (slow != fast);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -381,12 +377,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/leetcode/" <i class="fa fa-tag"></i> leetcode</a>
-          
-        </div>
-      
 
       
         
@@ -396,8 +386,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/22/leetcode226/" rel="next" title="leetcode226">
-                <i class="fa fa-chevron-left"></i> leetcode226
+              <a href="/2018/04/11/leetcode-197/" rel="next" title="leetcode-197">
+                <i class="fa fa-chevron-left"></i> leetcode-197
               </a>
             
           </div>
@@ -405,10 +395,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/10/SQL-1/" rel="prev" title="SQL-1">
-                SQL-1 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -562,7 +548,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快乐数"><span class="nav-number">1.</span> <span class="nav-text">快乐数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.0.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题分析"><span class="nav-number">1.0.2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题代码"><span class="nav-number">1.0.3.</span> <span class="nav-text">解题代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析总结"><span class="nav-number">1.0.4.</span> <span class="nav-text">分析总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#社区代码"><span class="nav-number">1.0.5.</span> <span class="nav-text">社区代码</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-217"><span class="nav-number">1.</span> <span class="nav-text">leetcode-217</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">1.2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题代码"><span class="nav-number">1.3.</span> <span class="nav-text">解题代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结问题"><span class="nav-number">1.4.</span> <span class="nav-text">总结问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法优化"><span class="nav-number">1.5.</span> <span class="nav-text">算法优化</span></a></li></ol></li></ol></div>
             
 
           </div>
