@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="leetcode,oj,arrays," />
+  <meta name="keywords" content="leetcode,oj,two pointer," />
 
 
 
@@ -96,17 +96,17 @@
 
 
 
-<meta name="description" content="leetcode第十一题-container with most water，难度中等">
-<meta name="keywords" content="leetcode,oj,arrays">
+<meta name="description" content="leetcode第16题，3Sum Closest（Two pointer 问题）">
+<meta name="keywords" content="leetcode,oj,two pointer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-11">
-<meta property="og:url" content="http://wong-way.github.com/2018/05/05/leetcode-11/index.html">
+<meta property="og:title" content="leetcode-16">
+<meta property="og:url" content="http://wong-way.github.com/2018/05/22/leetcode-16/index.html">
 <meta property="og:site_name" content="HuangWay&#39;s Way">
-<meta property="og:description" content="leetcode第十一题-container with most water，难度中等">
-<meta property="og:updated_time" content="2018-05-07T01:52:21.829Z">
+<meta property="og:description" content="leetcode第16题，3Sum Closest（Two pointer 问题）">
+<meta property="og:updated_time" content="2018-05-22T10:08:10.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode-11">
-<meta name="twitter:description" content="leetcode第十一题-container with most water，难度中等">
+<meta name="twitter:title" content="leetcode-16">
+<meta name="twitter:description" content="leetcode第16题，3Sum Closest（Two pointer 问题）">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://wong-way.github.com/2018/05/05/leetcode-11/"/>
+  <link rel="canonical" href="http://wong-way.github.com/2018/05/22/leetcode-16/"/>
 
 
 
 
 
-  <title>leetcode-11 | HuangWay's Way</title>
+  <title>leetcode-16 | HuangWay's Way</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +269,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2018/05/05/leetcode-11/">
+    <link itemprop="mainEntityOfPage" href="http://wong-way.github.com/2018/05/22/leetcode-16/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HuangWay">
@@ -286,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode-11</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode-16</h1>
         
 
         <div class="post-meta">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T10:40:24+08:00">
-                2018-05-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T17:37:49+08:00">
+                2018-05-22
               </time>
             
 
@@ -345,7 +345,7 @@
 
           
               <div class="post-description">
-                  leetcode第十一题-container with most water，难度中等
+                  leetcode第16题，3Sum Closest（Two pointer 问题）
               </div>
           
 
@@ -359,18 +359,15 @@
       
 
       
-        <h1 id="leetcode-11-Container-With-Most-Water"><a href="#leetcode-11-Container-With-Most-Water" class="headerlink" title="leetcode-11 Container With Most Water"></a>leetcode-11 Container With Most Water</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><blockquote>
-<p>Given n non-negative integers a1, a2, …, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.<br>Note: You may not slant the container and n is at least 2.</p>
+        <h1 id="leetcode-16-3Sum-Closest"><a href="#leetcode-16-3Sum-Closest" class="headerlink" title="leetcode-16 3Sum Closest"></a>leetcode-16 3Sum Closest</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><blockquote>
+<p>Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.<br><strong>Example</strong></p>
 </blockquote>
-<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><ul>
-<li><p>这道题属于算法的典型最优化问题，一方面容器的宽度在发生变化，同时容器的高度也在随着不同的宽度变化而变化</p>
-</li>
-<li><p>一开始这道题肯定可以想到，列举每一个组合情况，计算出最大的容器</p>
-</li>
-</ul>
-<h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> maxArea = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; height.length; i++)</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; height.length; j++)</div><div class="line">            maxArea = Math.max(maxArea, Math.min(height[i], height[j]) * (j - i));</div><div class="line">    <span class="keyword">return</span> maxArea;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="再思考"><a href="#再思考" class="headerlink" title="再思考"></a>再思考</h2><p>暴力破解的方式固然可以解决问题，但是存在效率不高的问题。于是改进算法，利用双指针向中间靠拢的方式。指针移动通过判断限制水桶的因素是什么来决定移动头指针还是尾指针。</p>
-<h2 id="解题代码2"><a href="#解题代码2" class="headerlink" title="解题代码2"></a>解题代码2</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea1</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = height.length - <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> maxArea = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">        maxArea = Math.max(maxArea, Math.min(height[left], height[right])</div><div class="line">                * (right - left));</div><div class="line">        <span class="keyword">if</span> (height[left] &lt; height[right])</div><div class="line">            left++;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            right--;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> maxArea;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Given array nums = [-1, 2, 1, -4], and target = 1.</div><div class="line"></div><div class="line">The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).</div></pre></td></tr></table></figure>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>这道题如果用暴力破解的方式进行解决，对每一种方式进行处理，那么时间复杂度为O(n^3)<br>我准备采用O(n^2)的方式来解决这个问题，对数组中的每一个参数，采取双指针向左右扩散的方式</p>
+<h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">threeSumClosest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">    Arrays.sort(nums);</div><div class="line">    <span class="keyword">int</span> result = Integer.MAX_VALUE+target;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">int</span> temp = getSum(nums, i, target);</div><div class="line">        <span class="keyword">if</span> (Math.abs(temp - target) &lt; Math.abs(result - target)) &#123;</div><div class="line">            result = temp;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> index, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> i = index-<span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> j = index+<span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> sum = Integer.MAX_VALUE+target;</div><div class="line">    <span class="keyword">while</span> (i &gt;= <span class="number">0</span> &amp;&amp; j &lt; nums.length) &#123;</div><div class="line">        <span class="keyword">int</span> temp = nums[i] + nums[index] + nums[j];</div><div class="line">        <span class="comment">//System.out.println(index + " " + i + " " + j + " " + temp);</span></div><div class="line">        <span class="keyword">if</span> (Math.abs(temp - target) &lt; Math.abs(sum - target)) &#123;</div><div class="line">            sum = temp;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (temp &gt; target) &#123;</div><div class="line">            i--;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (temp&lt;target)&#123;</div><div class="line">            j++;</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">return</span> target;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="讨论区做法"><a href="#讨论区做法" class="headerlink" title="讨论区做法"></a>讨论区做法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">threeSumClosest</span><span class="params">(<span class="keyword">int</span>[] num, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result = num[<span class="number">0</span>] + num[<span class="number">1</span>] + num[num.length - <span class="number">1</span>];</div><div class="line">        Arrays.sort(num);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num.length - <span class="number">2</span>; i++) &#123;</div><div class="line">            <span class="keyword">int</span> start = i + <span class="number">1</span>, end = num.length - <span class="number">1</span>;</div><div class="line">            <span class="keyword">while</span> (start &lt; end) &#123;</div><div class="line">                <span class="keyword">int</span> sum = num[i] + num[start] + num[end];</div><div class="line">                <span class="keyword">if</span> (sum &gt; target) &#123;</div><div class="line">                    end--;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    start++;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (Math.abs(sum - target) &lt; Math.abs(result - target)) &#123;</div><div class="line">                    result = sum;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>评论区这个做法，仿佛跟我一模一样！先用Arrays.sort排序，这一招是我之前做题学到的，然后采用双指针处理。感觉自己做了那么久的题还是有掌握了一些技巧的。</p>
+
       
     </div>
 
@@ -403,7 +400,7 @@
           
             <a href="/tags/oj/" <i class="fa fa-tag"></i> oj</a>
           
-            <a href="/tags/arrays/" <i class="fa fa-tag"></i> arrays</a>
+            <a href="/tags/two-pointer/" <i class="fa fa-tag"></i> two pointer</a>
           
         </div>
       
@@ -416,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/29/leetcode-461/" rel="next" title="leetcode-461">
-                <i class="fa fa-chevron-left"></i> leetcode-461
+              <a href="/2018/05/20/leetcode-714/" rel="next" title="leetcode-714">
+                <i class="fa fa-chevron-left"></i> leetcode-714
               </a>
             
           </div>
@@ -425,10 +422,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/07/leetcode-617/" rel="prev" title="leetcode-617">
-                leetcode-617 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -591,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-11-Container-With-Most-Water"><span class="nav-number">1.</span> <span class="nav-text">leetcode-11 Container With Most Water</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">1.2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题代码"><span class="nav-number">1.3.</span> <span class="nav-text">解题代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#再思考"><span class="nav-number">1.4.</span> <span class="nav-text">再思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题代码2"><span class="nav-number">1.5.</span> <span class="nav-text">解题代码2</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-16-3Sum-Closest"><span class="nav-number">1.</span> <span class="nav-text">leetcode-16 3Sum Closest</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">1.2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题代码"><span class="nav-number">1.3.</span> <span class="nav-text">解题代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#讨论区做法"><span class="nav-number">1.3.1.</span> <span class="nav-text">讨论区做法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
